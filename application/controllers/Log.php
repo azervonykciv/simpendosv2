@@ -8,6 +8,7 @@ class Log extends CI_Controller{
 	echo 'bangke';
 =======
 	echo 'tauhid';
+	echo 'Jojo mabuk';
 >>>>>>> origin/master ulil jancok
 
 >>>>>>> origin/master
