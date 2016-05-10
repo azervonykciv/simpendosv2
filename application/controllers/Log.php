@@ -5,6 +5,7 @@ class Log extends CI_Controller{
 =======
 	echo 'testing';
 	echo 'tauhid';
+	echo 'Jojo mabuk';
 >>>>>>> origin/master ulil jancok
 
 }
