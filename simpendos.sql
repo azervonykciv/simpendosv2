@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 11, 2016 at 03:36 AM
+-- Generation Time: May 12, 2016 at 01:13 AM
 -- Server version: 10.1.10-MariaDB-log
 -- PHP Version: 7.0.4
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `Dosen` (
-  `ID_Dosen` int(11) NOT NULL,
+  `ID_Dosen` varchar(20) NOT NULL,
   `Nama_Dosen` varchar(50) NOT NULL,
   `Telepon_Dosen` varchar(20) DEFAULT NULL,
   `Email_Dosen` varchar(10) NOT NULL,
@@ -42,8 +42,8 @@ CREATE TABLE `Dosen` (
 
 CREATE TABLE `Jadwal` (
   `ID_Jadwal` int(11) NOT NULL,
-  `ID_MK` int(11) NOT NULL,
-  `ID_Dosen` int(11) NOT NULL,
+  `ID_Mk` varchar(20) NOT NULL,
+  `ID_Dosen` varchar(20) NOT NULL,
   `Kelas_MK` varchar(10) NOT NULL,
   `Jam_Kelas` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -55,8 +55,8 @@ CREATE TABLE `Jadwal` (
 --
 
 CREATE TABLE `Log` (
-  `ID_Log` int(11) NOT NULL,
-  `ID_User` int(11) NOT NULL,
+  `ID_Log` int(20) NOT NULL,
+  `ID_User` varchar(20) NOT NULL,
   `Tanggal` date NOT NULL,
   `Aktifitas` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -64,100 +64,14 @@ CREATE TABLE `Log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `MataKuliah`
+-- Table structure for table `Matakuliah`
 --
 
-CREATE TABLE `MataKuliah` (
-  `ID_MK` int(11) NOT NULL,
-  `Nama_MK` varchar(30) NOT NULL,
-  `Jumlah_SKS` int(11) NOT NULL
+CREATE TABLE `Matakuliah` (
+  `ID_Mk` varchar(20) NOT NULL,
+  `Nama _mk` varchar(30) NOT NULL,
+  `Jumlah_sks` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `MataKuliah`
---
-
-INSERT INTO `MataKuliah` (`ID_MK`, `Nama_MK`, `Jumlah_SKS`) VALUES
-(320, 'Sistem Informasi Geografis', 2),
-(3677, 'Internet Forensic', 3),
-(110370938, 'Ilmu Sosial & Budaya Dasar', 2),
-(110371876, 'Pend. Pancasila dan Kewarganeg', 2),
-(120370044, 'AIK I', 1),
-(120370045, 'AIK II', 1),
-(120370046, 'AIK III', 1),
-(120370212, 'Bahasa Inggris Teknik 1', 2),
-(120370213, 'Bahasa Inggris Teknik 2', 2),
-(120371708, 'Olahraga', 2),
-(120372000, 'Pengembangan Kepribadian', 2),
-(210370053, 'Algoritma dan Struktur Data', 4),
-(210370056, 'Aljabar Linear dan Matriks', 2),
-(210371001, 'Kalkulus dan Geometri', 4),
-(210371488, 'Matematika Diskrit', 2),
-(210371578, 'Metode Numerik', 2),
-(210371835, 'Pemrograman Objek dengan Java', 4),
-(210371836, 'Pemrograman Terstruktur', 4),
-(210371970, 'Pengantar Teknologi Informasi', 2),
-(210372749, 'Statistik dan Probabilitas', 2),
-(210373670, 'Logika Informatika', 2),
-(210373671, 'Grafika Komputer I', 2),
-(220371975, 'Pengantar Topologi', 2),
-(310370372, 'Desain Database', 4),
-(310370963, 'Interaksi Manusia dan Komputer', 2),
-(310371056, 'Kecerdasan Buatan', 3),
-(310371717, 'Organisasi dan Arsitektur Komp', 2),
-(310372511, 'Rekayasa Perangkat Lunak', 4),
-(310372623, 'Sistem Informasi', 2),
-(310372641, 'Sistem Operasi', 3),
-(310373672, 'Jaringan Komputer', 4),
-(320370064, 'Analisa & Desain Berorientasi ', 2),
-(320370132, 'Animasi Komputer', 3),
-(320370362, 'Data Mining', 2),
-(320370363, 'Data Warehouse', 2),
-(320370371, 'Desain dan Aplikasi Multimedia', 2),
-(320370373, 'Desain Database Terdistribusi', 3),
-(320370376, 'Design Pattern', 2),
-(320370986, 'Jaringan Wireless', 3),
-(320371217, 'Komunikasi Data', 2),
-(320371438, 'Manajemen Proyek Perangkat Lun', 2),
-(320371658, 'Mikrokontroller', 2),
-(320371837, 'Pemrograman Web', 4),
-(320372129, 'Perencanaan e-Business', 2),
-(320372625, 'Rekayasa Ulang Sistem', 2),
-(320373069, 'Virtual Reality', 2),
-(320373269, 'Keamanan Jaringan', 4),
-(320373673, 'Teori Bahasa dan Otomata', 2),
-(320373675, 'Pemodelan Game', 2),
-(320373676, 'Pemrograman Game', 3),
-(320373677, 'Jaringan Broadband', 3),
-(320373678, 'Rekayasa Kebutuhan', 2),
-(320373679, 'Penjaminan Kualitas Perangkat ', 2),
-(320373680, 'Visi Komputer dan Pengolahan C', 2),
-(320373681, 'Manajemen Jaringan', 3),
-(320373682, 'Pemrograman Jaringan', 3),
-(320373685, 'Evaluasi Game', 2),
-(320373686, 'Kecerdasan Buatan untuk Game', 3),
-(320373687, 'Game Dalam Perangkat Bergerak', 2),
-(320373688, 'Pengembangan Konten Mobile', 3),
-(320373689, 'Kriptografi', 3),
-(320373690, 'Game Multiplayer', 3),
-(320373691, 'Next Generation Network Servic', 3),
-(320373692, 'Jaringan Sensor Wireless', 3),
-(320373693, 'Rekayasa Interaksi', 2),
-(320373694, 'Information Retrieval', 2),
-(320373696, 'Grafika Komputer II', 2),
-(320373737, 'Rekayasa Berbasis Komponen', 2),
-(320373772, 'Virtual Private Network', 3),
-(420370540, 'Etika Profesi', 2),
-(420371395, 'Manajemen Pemasaran', 2),
-(420372851, 'Technopreneurship', 2),
-(420373684, 'Metode Penelitian II', 1),
-(420373695, 'Budaya Perusahaan', 2),
-(510372256, 'PKN', 2),
-(510372260, 'KKN', 4),
-(510372666, 'Tugas Akhir', 6),
-(520372555, 'Seminar', 1),
-(610370189, 'Bahasa Indonesia', 2),
-(610370880, 'Ilmu Kealaman Dasar', 2);
 
 -- --------------------------------------------------------
 
@@ -167,7 +81,7 @@ INSERT INTO `MataKuliah` (`ID_MK`, `Nama_MK`, `Jumlah_SKS`) VALUES
 
 CREATE TABLE `Notifikasi` (
   `ID_Notif` int(11) NOT NULL,
-  `ID_User` int(11) NOT NULL,
+  `ID_User` varchar(20) NOT NULL,
   `Nama_Notif` varchar(30) NOT NULL,
   `Detail_Notifikasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -179,7 +93,7 @@ CREATE TABLE `Notifikasi` (
 --
 
 CREATE TABLE `User` (
-  `ID_User` int(11) NOT NULL,
+  `ID_User` varchar(20) NOT NULL,
   `Nama_User` varchar(50) NOT NULL,
   `Password` varchar(20) NOT NULL,
   `Email_User` varchar(30) NOT NULL,
@@ -202,7 +116,7 @@ ALTER TABLE `Dosen`
 ALTER TABLE `Jadwal`
   ADD PRIMARY KEY (`ID_Jadwal`),
   ADD KEY `ID_Dosen` (`ID_Dosen`),
-  ADD KEY `ID_MK` (`ID_MK`);
+  ADD KEY `ID_MK` (`ID_Mk`);
 
 --
 -- Indexes for table `Log`
@@ -211,10 +125,10 @@ ALTER TABLE `Log`
   ADD PRIMARY KEY (`ID_Log`);
 
 --
--- Indexes for table `MataKuliah`
+-- Indexes for table `Matakuliah`
 --
-ALTER TABLE `MataKuliah`
-  ADD PRIMARY KEY (`ID_MK`);
+ALTER TABLE `Matakuliah`
+  ADD PRIMARY KEY (`ID_Mk`);
 
 --
 -- Indexes for table `Notifikasi`
@@ -230,22 +144,19 @@ ALTER TABLE `User`
   ADD PRIMARY KEY (`ID_User`);
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Constraints for table `Jadwal`
+-- AUTO_INCREMENT for table `Jadwal`
 --
 ALTER TABLE `Jadwal`
-  ADD CONSTRAINT `jadwal_ibfk_1` FOREIGN KEY (`ID_Dosen`) REFERENCES `Dosen` (`ID_Dosen`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `jadwal_ibfk_2` FOREIGN KEY (`ID_MK`) REFERENCES `MataKuliah` (`ID_MK`) ON DELETE CASCADE ON UPDATE CASCADE;
-
+  MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Constraints for table `Notifikasi`
+-- AUTO_INCREMENT for table `Log`
 --
-ALTER TABLE `Notifikasi`
-  ADD CONSTRAINT `notifikasi_ibfk_1` FOREIGN KEY (`ID_User`) REFERENCES `User` (`ID_User`) ON DELETE CASCADE ON UPDATE CASCADE;
-
+ALTER TABLE `Log`
+  MODIFY `ID_Log` int(20) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
