@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: May 11, 2016 at 03:01 AM
--- Server version: 5.5.32
--- PHP Version: 5.4.19
+-- Host: localhost
+-- Generation Time: May 11, 2016 at 03:36 AM
+-- Server version: 10.1.10-MariaDB-log
+-- PHP Version: 7.0.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,78 +14,70 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `simpendos`
 --
-CREATE DATABASE IF NOT EXISTS `simpendos` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `simpendos`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dosen`
+-- Table structure for table `Dosen`
 --
 
-CREATE TABLE IF NOT EXISTS `dosen` (
+CREATE TABLE `Dosen` (
   `ID_Dosen` int(11) NOT NULL,
   `Nama_Dosen` varchar(50) NOT NULL,
   `Telepon_Dosen` varchar(20) DEFAULT NULL,
   `Email_Dosen` varchar(10) NOT NULL,
-  `Alamat_Dosen` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`ID_Dosen`)
+  `Alamat_Dosen` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal`
+-- Table structure for table `Jadwal`
 --
 
-CREATE TABLE IF NOT EXISTS `jadwal` (
+CREATE TABLE `Jadwal` (
   `ID_Jadwal` int(11) NOT NULL,
   `ID_MK` int(11) NOT NULL,
   `ID_Dosen` int(11) NOT NULL,
   `Kelas_MK` varchar(10) NOT NULL,
-  `Jam_Kelas` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID_Jadwal`),
-  KEY `ID_Dosen` (`ID_Dosen`),
-  KEY `ID_MK` (`ID_MK`)
+  `Jam_Kelas` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log`
+-- Table structure for table `Log`
 --
 
-CREATE TABLE IF NOT EXISTS `log` (
+CREATE TABLE `Log` (
   `ID_Log` int(11) NOT NULL,
   `ID_User` int(11) NOT NULL,
   `Tanggal` date NOT NULL,
-  `Aktifitas` varchar(100) NOT NULL,
-  PRIMARY KEY (`ID_Log`)
+  `Aktifitas` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `matakuliah`
+-- Table structure for table `MataKuliah`
 --
 
-CREATE TABLE IF NOT EXISTS `matakuliah` (
+CREATE TABLE `MataKuliah` (
   `ID_MK` int(11) NOT NULL,
   `Nama_MK` varchar(30) NOT NULL,
-  `Jumlah_SKS` int(11) NOT NULL,
-  PRIMARY KEY (`ID_MK`)
+  `Jumlah_SKS` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `matakuliah`
+-- Dumping data for table `MataKuliah`
 --
 
-INSERT INTO `matakuliah` (`ID_MK`, `Nama_MK`, `Jumlah_SKS`) VALUES
+INSERT INTO `MataKuliah` (`ID_MK`, `Nama_MK`, `Jumlah_SKS`) VALUES
 (320, 'Sistem Informasi Geografis', 2),
 (3677, 'Internet Forensic', 3),
 (110370938, 'Ilmu Sosial & Budaya Dasar', 2),
@@ -170,49 +162,89 @@ INSERT INTO `matakuliah` (`ID_MK`, `Nama_MK`, `Jumlah_SKS`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notifikasi`
+-- Table structure for table `Notifikasi`
 --
 
-CREATE TABLE IF NOT EXISTS `notifikasi` (
+CREATE TABLE `Notifikasi` (
   `ID_Notif` int(11) NOT NULL,
   `ID_User` int(11) NOT NULL,
   `Nama_Notif` varchar(30) NOT NULL,
-  `Detail_Notifikasi` varchar(50) NOT NULL,
-  PRIMARY KEY (`ID_Notif`),
-  KEY `ID_User` (`ID_User`)
+  `Detail_Notifikasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `User`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `User` (
   `ID_User` int(11) NOT NULL,
   `Nama_User` varchar(50) NOT NULL,
   `Password` varchar(20) NOT NULL,
   `Email_User` varchar(30) NOT NULL,
-  `Status` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID_User`)
+  `Status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Dosen`
+--
+ALTER TABLE `Dosen`
+  ADD PRIMARY KEY (`ID_Dosen`);
+
+--
+-- Indexes for table `Jadwal`
+--
+ALTER TABLE `Jadwal`
+  ADD PRIMARY KEY (`ID_Jadwal`),
+  ADD KEY `ID_Dosen` (`ID_Dosen`),
+  ADD KEY `ID_MK` (`ID_MK`);
+
+--
+-- Indexes for table `Log`
+--
+ALTER TABLE `Log`
+  ADD PRIMARY KEY (`ID_Log`);
+
+--
+-- Indexes for table `MataKuliah`
+--
+ALTER TABLE `MataKuliah`
+  ADD PRIMARY KEY (`ID_MK`);
+
+--
+-- Indexes for table `Notifikasi`
+--
+ALTER TABLE `Notifikasi`
+  ADD PRIMARY KEY (`ID_Notif`),
+  ADD KEY `ID_User` (`ID_User`);
+
+--
+-- Indexes for table `User`
+--
+ALTER TABLE `User`
+  ADD PRIMARY KEY (`ID_User`);
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `jadwal`
+-- Constraints for table `Jadwal`
 --
-ALTER TABLE `jadwal`
-  ADD CONSTRAINT `jadwal_ibfk_1` FOREIGN KEY (`ID_Dosen`) REFERENCES `dosen` (`ID_Dosen`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `jadwal_ibfk_2` FOREIGN KEY (`ID_MK`) REFERENCES `matakuliah` (`ID_MK`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Jadwal`
+  ADD CONSTRAINT `jadwal_ibfk_1` FOREIGN KEY (`ID_Dosen`) REFERENCES `Dosen` (`ID_Dosen`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jadwal_ibfk_2` FOREIGN KEY (`ID_MK`) REFERENCES `MataKuliah` (`ID_MK`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `notifikasi`
+-- Constraints for table `Notifikasi`
 --
-ALTER TABLE `notifikasi`
-  ADD CONSTRAINT `notifikasi_ibfk_1` FOREIGN KEY (`ID_User`) REFERENCES `user` (`ID_User`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Notifikasi`
+  ADD CONSTRAINT `notifikasi_ibfk_1` FOREIGN KEY (`ID_User`) REFERENCES `User` (`ID_User`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
