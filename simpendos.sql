@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2016 at 02:53 AM
--- Server version: 5.5.32
--- PHP Version: 5.4.19
+-- Generation Time: May 13, 2016 at 03:05 PM
+-- Server version: 10.1.10-MariaDB
+-- PHP Version: 7.0.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,13 +14,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `simpendos`
 --
-CREATE DATABASE IF NOT EXISTS `simpendos` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `simpendos`;
 
 -- --------------------------------------------------------
 
@@ -28,14 +26,45 @@ USE `simpendos`;
 -- Table structure for table `dosen`
 --
 
-CREATE TABLE IF NOT EXISTS `dosen` (
-  `ID_Dosen` varchar(20) NOT NULL,
-  `Nama_Dosen` varchar(50) NOT NULL,
-  `Telepon_Dosen` varchar(20) DEFAULT NULL,
-  `Email_Dosen` varchar(10) NOT NULL,
-  `Alamat_Dosen` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`ID_Dosen`)
+CREATE TABLE `dosen` (
+  `nidn` varchar(12) NOT NULL,
+  `nama_dosen` varchar(25) NOT NULL,
+  `tempat_lahir` varchar(20) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `gelar_lengkap` varchar(15) NOT NULL,
+  `alamat_malang` varchar(50) NOT NULL,
+  `ref_aktivasiDosen` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dosen`
+--
+
+INSERT INTO `dosen` (`nidn`, `nama_dosen`, `tempat_lahir`, `tanggal_lahir`, `gelar_lengkap`, `alamat_malang`, `ref_aktivasiDosen`) VALUES
+('0701058601', 'DENAR REGATA AKBI', 'BANYUWANGI', '1986-05-01', 'S.Kom.', '', 'A'),
+('0701068603', 'AMINUDIN', 'LAMONGAN', '1986-06-01', 'S.Kom.', 'Jl. Raya Tlogomas No. 246 Malang', 'A'),
+('0701078202', 'ALI SOFYAN KHOLIMI', 'SURABAYA', '1982-03-01', 'S.Kom., M.Kom.', '', 'A'),
+('0706077902', 'YUDA MUNARKO', 'LAWANG MALANG', '1979-06-07', 'S.Kom. M.Sc.', 'JL.SUMBER SUKO 90 RT.03 RW.09 LAWANG MALANG', 'A'),
+('0711098402', 'MASKUR', 'TULUNG AGUNG', '1984-09-11', 'S.Kom.,M.Kom.', '', 'A'),
+('0714028403', 'SETIO BASUKI', 'BLITAR', '1984-02-14', 'S.T., M.T.', '', 'A'),
+('0716018202', 'DIAH RISQIWATI', 'MALANG', '1982-01-16', 'S.T., M.T', 'Jl. Pudak No. 6 Rt.08 Rw.09 Lowokwaru Malang', 'A'),
+('0716118701', 'SYAIFUDDIN', 'PONTIANAK', '1987-11-16', 'S.Kom.', '', 'A'),
+('0717027001', 'EKO BUDI CAHYONO', 'BLITAR', '1970-02-17', 'S.Kom., M.T.', 'Jl. Jetak Ngasri 90 Dau Malang', 'A'),
+('0718108701', 'EVI DWI WAHYUNI', 'BONDOWOSO', '1987-10-18', 'S.Kom.', 'Jl. Tirto Utomo Gang VII No. 1 Landungsari Malang', 'A'),
+('0720038101', 'GITA INDAH MARTHASARI', 'MALANG', '1981-03-20', 'S.T., M.Kom.', '', 'A'),
+('0720068701', 'WAHYU ANDHYKA KUSUMA', 'MALANG', '1987-06-20', 'S.Kom., M.Kom.', 'Jl. Kol. Sugiono Gg. V D no.10 RT.14 RW.03 Mergoso', 'A'),
+('0721038602', 'HARDIANTO WIBOWO', 'PASURUAN', '1986-03-21', 'S.Kom.', '', 'A'),
+('0723028801', 'GALIH WASIS WICAKSONO', 'TOLI-TOLI', '1988-02-23', 'S.Kom., M.Cs.', 'Perum Taman Embong Anyar Blok F No. 11', 'A'),
+('0723118601', 'ILYAS NURYASIN', 'KEDIRI', '1986-11-23', 'S.Kom., M.Kom', 'Jl. Raya Jetis No.62-C Malang', 'A'),
+('0724028602', 'LUQMAN HAKIM', 'BANGIL', '1986-02-24', 'S.Kom.', '', 'A'),
+('0726038402', 'NUR HAYATIN ', 'LAMONGAN', '1984-03-26', 'S.ST.,M.Kom', '', 'A'),
+('0728088701', 'YUFIZ AZHAR', 'SIDOARJO', '1987-08-28', 'S.Kom.,M.Kom', '', 'A'),
+('0729118203', 'AGUS EKO MINARNO', 'PANGKALANBUN', '1982-11-29', 'S.Kom.', 'Jl.Ikhwan Hadi No.06 Rt.04 Rw.05 Ngaglik Batu', 'A'),
+('0730038405', 'WILDAN SUHARSO', 'MALANG', '1984-03-30', 'S.Kom., M.Kom.', 'Sumberwuni Indah A/32 Rt.01 Rw.02 Kalirejo Lawang', 'A'),
+('0730108401', 'LAILATUL HUSNIAH', 'SURABAYA', '1984-10-30', 'S.ST., M.T', 'Jl. Ronggolawe No. 20 Singosari Malang', 'A'),
+('1770', 'SOFYAN ARIFIANTO', 'MALANG', '1983-05-21', 'S.Si., M.Kom.', 'Jl. Batu Amaril Blok B-2 Rt.03 Rw.04 Pandanwangi B', 'A'),
+('1859', 'FERA PUTRI AYU LESTARI', 'MALANG', '1991-02-09', 'S.Kom.', 'Jl. Bandulan I/18 Rt.03 Rw.04 Bandulan Sukun Malan', 'A'),
+('425', 'HARIYADY', 'MALANG', '1973-06-17', 'S.Kom., MT', '', 'A');
 
 -- --------------------------------------------------------
 
@@ -43,16 +72,13 @@ CREATE TABLE IF NOT EXISTS `dosen` (
 -- Table structure for table `jadwal`
 --
 
-CREATE TABLE IF NOT EXISTS `jadwal` (
-  `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jadwal` (
+  `ID_Jadwal` int(11) NOT NULL,
   `ID_Mk` varchar(20) NOT NULL,
   `ID_Dosen` varchar(20) NOT NULL,
   `Kelas_MK` varchar(10) NOT NULL,
-  `Jam_Kelas` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID_Jadwal`),
-  KEY `ID_Dosen` (`ID_Dosen`),
-  KEY `ID_MK` (`ID_Mk`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `Jam_Kelas` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -60,13 +86,12 @@ CREATE TABLE IF NOT EXISTS `jadwal` (
 -- Table structure for table `log`
 --
 
-CREATE TABLE IF NOT EXISTS `log` (
-  `ID_Log` int(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `log` (
+  `ID_Log` int(20) NOT NULL,
   `ID_User` varchar(20) NOT NULL,
   `Tanggal` date NOT NULL,
-  `Aktifitas` varchar(100) NOT NULL,
-  PRIMARY KEY (`ID_Log`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `Aktifitas` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -74,11 +99,10 @@ CREATE TABLE IF NOT EXISTS `log` (
 -- Table structure for table `matakuliah`
 --
 
-CREATE TABLE IF NOT EXISTS `matakuliah` (
+CREATE TABLE `matakuliah` (
   `ID_Mk` varchar(20) NOT NULL,
   `Nama _mk` varchar(50) NOT NULL,
-  `Jumlah_sks` int(11) NOT NULL,
-  PRIMARY KEY (`ID_Mk`)
+  `Jumlah_sks` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -177,13 +201,11 @@ INSERT INTO `matakuliah` (`ID_Mk`, `Nama _mk`, `Jumlah_sks`) VALUES
 -- Table structure for table `notifikasi`
 --
 
-CREATE TABLE IF NOT EXISTS `notifikasi` (
+CREATE TABLE `notifikasi` (
   `ID_Notif` int(11) NOT NULL,
   `ID_User` varchar(20) NOT NULL,
   `Nama_Notif` varchar(30) NOT NULL,
-  `Detail_Notifikasi` varchar(50) NOT NULL,
-  PRIMARY KEY (`ID_Notif`),
-  KEY `ID_User` (`ID_User`)
+  `Detail_Notifikasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -192,15 +214,71 @@ CREATE TABLE IF NOT EXISTS `notifikasi` (
 -- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `ID_User` varchar(20) NOT NULL,
   `Nama_User` varchar(50) NOT NULL,
   `Password` varchar(20) NOT NULL,
   `Email_User` varchar(30) NOT NULL,
-  `Status` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID_User`)
+  `Status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `dosen`
+--
+ALTER TABLE `dosen`
+  ADD PRIMARY KEY (`nidn`);
+
+--
+-- Indexes for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  ADD PRIMARY KEY (`ID_Jadwal`),
+  ADD KEY `ID_Dosen` (`ID_Dosen`),
+  ADD KEY `ID_MK` (`ID_Mk`);
+
+--
+-- Indexes for table `log`
+--
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`ID_Log`);
+
+--
+-- Indexes for table `matakuliah`
+--
+ALTER TABLE `matakuliah`
+  ADD PRIMARY KEY (`ID_Mk`);
+
+--
+-- Indexes for table `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  ADD PRIMARY KEY (`ID_Notif`),
+  ADD KEY `ID_User` (`ID_User`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`ID_User`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `log`
+--
+ALTER TABLE `log`
+  MODIFY `ID_Log` int(20) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
