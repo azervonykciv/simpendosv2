@@ -1,7 +1,7 @@
 <?php
 class Dosen extends CI_Model
 {
-	var $table = 'film';
+	var $table = 'dosen';
     public function __construct()
     {
         parent::__construct();
