@@ -211,14 +211,30 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Dosen</h3>
+                    <h3 class="box-title">Dosen </h3>
                     <div class="box-tools pull-right">
                         <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                         <!-- <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button> -->
                     </div>
                 </div>
                 <div class="box-body">
-                    Start creating your amazing application!
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>NIDN</th>
+                                <th>NAMA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($dosen as $key): ?>
+                                <tr>
+                                    <td><?php echo $key->nidn ?></td>
+                                    <td><?php echo $key->nama_dosen ?></td>
+                                </tr>
+                            <?php endforeach ?>
+                            
+                        </tbody>
+                    </table>
                 </div><!-- /.box-body -->
                 <div class="box-footer">
                     Footer
