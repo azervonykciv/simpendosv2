@@ -230,7 +230,7 @@
 
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Sistem Penjadwalan Dosen Version</b> 2.3.0
+            <b>Sistem Penjadwalan Dosen Version</b> 1.0
         </div>
         <strong>Copyright <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
     </footer>
