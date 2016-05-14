@@ -118,5 +118,3 @@ class Jadwal extends CI_Controller{
         $data = $this->db->query('select * from admin')->result();
 
     }*/
-
-} 
