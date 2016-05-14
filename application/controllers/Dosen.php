@@ -6,6 +6,7 @@ class Dosen extends CI_Controller{
 	function __construct(){
 		parent::__construct();
         $this->load->model('Dosen_model');
+        $this->load->model('ModelJadwal', 'jm');
 	}
 
 	public function index()
@@ -15,5 +16,13 @@ class Dosen extends CI_Controller{
 			'dosen' => $dosen,
 		];
 		$this->load->view('dosen/v_dosen', $data);
+	}
+	public function jadwalByNidn($nidn)
+	{
+		$jadwal = $this->jm->getJadwalByDosen($nidn);
+		$data = [
+			'jadwal' => $jadwal,
+		];
+		$this->load->view('dosen/jadwal-dosen', $data);
 	}
 }
