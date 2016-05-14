@@ -21,4 +21,16 @@ class ModelJadwal extends CI_Model{
 		$res = $this->db->delete($tabelName,$data,$where);
 		return $res;
 	}
+
+	public function getJadwalByDosen($nidn)
+	{
+		$this->db->where('ID_Dosen', $nidn);
+		$result = $this->db->get('jadwal');
+		if ($result) {
+			return $result->result();
+		} else {
+			return FALSE;
+		}
+		
+	}
 }
