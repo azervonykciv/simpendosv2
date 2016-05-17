@@ -23,11 +23,11 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th>Nama Dosen</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
+                            <th>NIDN</th>
+                            <th>NAMA DOSEN</th>
+                            <th>TEMPAT LAHIR</th>
+                            <th>TANGGAL LAHIR</th>
+                            <th>GELAR LENGKAP</th>
                         </tr>
                         </thead>
                         <tbody>
