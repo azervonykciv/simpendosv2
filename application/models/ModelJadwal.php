@@ -5,6 +5,10 @@ class ModelJadwal extends CI_Model{
 		return $data->result_array();
 	}
 
+	function get_all(){
+
+		return $this->db->get('');
+	}
 	public function InsertData($tabelName,$data){
 		$res = $this->db->insert($tabelName,$data);
 		return $res;

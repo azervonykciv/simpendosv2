@@ -1,28 +1,45 @@
-<html>
-<head>
-	<title>Data Matakuliah</title>
-</head>
-<body>
-	<?php echo "<h2>".$this->session->flashdata('pesan')."</h2>"?>
-	<table border="1" style="border-collapse:collapse; width:50%;">
-		<tr style="background:gray;">
-			<th>Kode Mata Kuliah</th>
-			<th>Nama Mata Kuliah</th>
-			<th>Jumlah SKS</th>
-			<th>Action</th>
-		</tr>
-	<?php foreach($data as $d){ ?>
-		<tr>
-			<td><?php echo $d ['ID_mk'] ?></td>
-			<td><?php echo $d ['Nama_mk'] ?></td>
-			<td><?php echo $d ['Jumlah_sks'] ?></td>
-			<td>
-				<a href="<?php echo base_url()."/Jadwal/update/".$d['ID_mk']; ?>">Edit</a> ||
-				<a href="<?php echo base_url()."/Jadwal/delete/".$d['ID_mk']; ?>">Delete</a>
-			</td>
-		</tr>
-	<?php } ?>
-	</table>
-	<a href="<?php echo base_url()."index.php/Jadwal/insert";?>">Tambah Data</a>
-</body>
-</html>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+	<h1>
+		Data Dosen
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li><a href="#">Lihat Data</a></li>
+		<li class="active">Data Dosen</li>
+	</ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="box">
+				<div class="box-body">
+					<table id="example1" class="table table-bordered table-striped">
+						<thead>
+						<tr>
+							<th>ID</th>
+							<th>NAMA MATAKULIAH</th>
+							<th>JUMLAH SKS</th>
+						</tr>
+						</thead>
+						<tbody>
+						<?php
+						foreach ($data->result() as $r)
+						{ echo"
+						<tr>
+							<td>$r->ID_mk</td>
+							<td>$r->Nama_mk</td>
+							<td>$r->Jumlah_sks</td>
+							<td>
+								<a href="base_url()."/Jadwal/update/".$r->ID_mk">Edit</a> ||
+								<a href="base_url()."/Jadwal/delete/".$r->ID_mk">Delete</a>
+							</td>
+						</tr> " }?>
+					</table>
+				</div><!-- /.box-body -->
+			</div><!-- /.box -->
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</section><!-- /.content -->
