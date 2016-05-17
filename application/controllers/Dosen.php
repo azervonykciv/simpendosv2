@@ -2,12 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dosen extends CI_Controller{
-	//Hai ini adalah class control
 
 	function __construct(){
 		parent::__construct();
         $this->load->model('Dosen_model');
-        $this->load->model('ModelJadwal', 'jm');
+        $this->load->model('Jadwal_dosen_model', 'jdm');
 	}
 
 	public function index()
@@ -16,14 +15,24 @@ class Dosen extends CI_Controller{
 		$data = [
 			'dosen' => $dosen,
 		];
-		$this->load->view('dosen/v_dosen', $data);
+		$this->template->load('template','dosen/v_dosen', $data);
+		// $this->load->view('dosen/v_dosen', $data);
 	}
 	public function jadwalByNidn($nidn)
 	{
-		$jadwal = $this->jm->getJadwalByDosen($nidn);
+		$jadwal = $this->jdm->getJadwalByDosen($nidn);
 		$data = [
 			'jadwal' => $jadwal,
 		];
-		$this->load->view('dosen/jadwal-dosen', $data);
+		// echo "<pre>";
+		// print_r($jadwal);
+		// echo "</pre>";
+		$this->template->load('template','dosen/jadwal-dosen', $data);
+		// $this->load->view('dosen/jadwal-dosen', $data);
 	}
+	public function konfirmasi($id)
+	{
+		# code...
+	}
+
 }
