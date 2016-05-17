@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2016 at 03:05 PM
--- Server version: 10.1.10-MariaDB
+-- Generation Time: May 17, 2016 at 12:36 PM
+-- Server version: 10.1.10-MariaDB-log
 -- PHP Version: 7.0.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -79,6 +79,59 @@ CREATE TABLE `jadwal` (
   `Kelas_MK` varchar(10) NOT NULL,
   `Jam_Kelas` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jadwal`
+--
+
+INSERT INTO `jadwal` (`ID_Jadwal`, `ID_Mk`, `ID_Dosen`, `Kelas_MK`, `Jam_Kelas`) VALUES
+(1, '1', '0701058601', '1', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jadwal_dosen`
+--
+
+CREATE TABLE `jadwal_dosen` (
+  `id` int(11) NOT NULL,
+  `nidn` int(11) NOT NULL,
+  `id_jadwal` int(11) NOT NULL,
+  `status_jadwal` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jadwal_dosen`
+--
+
+INSERT INTO `jadwal_dosen` (`id`, `nidn`, `id_jadwal`, `status_jadwal`) VALUES
+(1, 701058601, 1, 0),
+(2, 701058601, 2, 1),
+(3, 701058601, 3, 2),
+(4, 701058601, 4, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jadwal_report`
+--
+
+CREATE TABLE `jadwal_report` (
+  `id` int(11) NOT NULL,
+  `id_jadwal_dosen` int(11) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `status_report` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jadwal_report`
+--
+
+INSERT INTO `jadwal_report` (`id`, `id_jadwal_dosen`, `subject`, `deskripsi`, `status_report`) VALUES
+(1, 1, 'Sibuk', 'Pada hari selasa dan rabu saya tidak bisa berada di kampus', 1),
+(2, 1, 'Sibuk', 'Pada hari selasa dan rabu saya tidak bisa berada di kampus', 1),
+(3, 4, 'Sulit', 'SulitSulitSulitSulitSulit', 1);
 
 -- --------------------------------------------------------
 
@@ -241,6 +294,18 @@ ALTER TABLE `jadwal`
   ADD KEY `ID_MK` (`ID_Mk`);
 
 --
+-- Indexes for table `jadwal_dosen`
+--
+ALTER TABLE `jadwal_dosen`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jadwal_report`
+--
+ALTER TABLE `jadwal_report`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `log`
 --
 ALTER TABLE `log`
@@ -273,7 +338,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `jadwal_dosen`
+--
+ALTER TABLE `jadwal_dosen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `jadwal_report`
+--
+ALTER TABLE `jadwal_report`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `log`
 --
