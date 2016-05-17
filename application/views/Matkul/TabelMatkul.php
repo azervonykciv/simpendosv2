@@ -17,8 +17,8 @@
 			<td><?php echo $d ['Nama_mk'] ?></td>
 			<td><?php echo $d ['Jumlah_sks'] ?></td>
 			<td>
-				<a href="<?php echo base_url()."index.php/Jadwal/update/".$d['ID_mk']; ?>">Edit</a> || 
-				<a href="<?php echo base_url()."index.php/Jadwal/delete/".$d['ID_mk']; ?>">Delete</a>
+				<a href="<?php echo base_url()."/Jadwal/update/".$d['ID_mk']; ?>">Edit</a> ||
+				<a href="<?php echo base_url()."/Jadwal/delete/".$d['ID_mk']; ?>">Delete</a>
 			</td>
 		</tr>
 	<?php } ?>

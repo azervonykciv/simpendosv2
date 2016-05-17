@@ -20,6 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->template->publish();
+		$this->template->load('template','dosen/view_dosen');
+
 	}
 }
