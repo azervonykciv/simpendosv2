@@ -18,6 +18,26 @@ class Dosen extends CI_Controller{
 		];
 		$this->template->load('template','dosen/dosen_view', $data);
 	}
+	public function insert()
+	{
+		
+	}
+	public function store()
+	{
+		
+	}
+	public function edit($id)
+	{
+		
+	}
+	public function update()
+	{
+		
+	}
+	public function delete($id)
+	{
+		
+	}
 	public function jadwalByNidn($nidn)
 	{
 		$jadwal = $this->jdm->getJadwalByDosen($nidn);

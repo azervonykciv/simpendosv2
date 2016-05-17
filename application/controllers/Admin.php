@@ -21,11 +21,11 @@ class Admin extends CI_Controller{
 	}
 	public function updateReport($id)
 	{
-		echo "form edit report";
+		echo "nunggu ada insert jadwal";
 	}
 	public function tolakReport($id)
 	{
-		// 2 = Laporan di tolak
+		// 3 = Laporan di tolak
 		$this->jdm->updateStatus($id, 3);
 		// 1 = Laporan sudah di proses
 		$this->jrm->updateStatus($id, 1);
