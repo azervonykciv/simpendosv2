@@ -1,0 +1,45 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Data Tables
+        <small>advanced tables</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+    </ol>
+</section>
+<style type="text/css">
+    .input-group{
+        padding-bottom: 2em;
+    }
+</style>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Data Table With Full Features</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <form action="<?php echo base_url(); ?>dosen/insertreport" method="POST">
+                        <input name="id" type="text" value="<?php echo $id; ?>" hidden>
+                        <div class="input-group">
+                            <label>Subject</label>
+                            <input name="subject" type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="input-group">
+                            <label>Deskripsi</label>
+                            <textarea name="deskripsi" class="form-control" rows="3" cols="75%"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <input class="btn btn-primary" type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section><!-- /.content -->
