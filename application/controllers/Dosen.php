@@ -7,6 +7,7 @@ class Dosen extends CI_Controller{
 		parent::__construct();
         $this->load->model('Dosen_model');
         $this->load->model('Jadwal_dosen_model', 'jdm');
+        $this->load->model('Jadwal_report_model', 'jrm');
 	}
 
 	public function index()
@@ -15,8 +16,7 @@ class Dosen extends CI_Controller{
 		$data = [
 			'dosen' => $dosen,
 		];
-		$this->template->load('template','dosen/v_dosen', $data);
-		// $this->load->view('dosen/v_dosen', $data);
+		$this->template->load('template','dosen/dosen_view', $data);
 	}
 	public function jadwalByNidn($nidn)
 	{
@@ -24,15 +24,33 @@ class Dosen extends CI_Controller{
 		$data = [
 			'jadwal' => $jadwal,
 		];
-		// echo "<pre>";
-		// print_r($jadwal);
-		// echo "</pre>";
-		$this->template->load('template','dosen/jadwal-dosen', $data);
-		// $this->load->view('dosen/jadwal-dosen', $data);
+		$this->template->load('template','dosen/jadwal-dosen_view', $data);
 	}
 	public function konfirmasi($id)
 	{
-		# code...
+		// 2 = Sudah dikonfirmasi
+		$this->jdm->updateStatus($id, 2);
+		redirect('dosen/jadwalByNidn/701058601');
 	}
-
+	public function report($id)
+	{
+		$data = [
+			'id' => $id,
+		];
+		$this->template->load('template','dosen/report-jadwal-dosen_view', $data);
+	}
+	public function insertreport()
+	{
+		$id = $this->input->post('id');
+		$report = [
+			'id_jadwal_dosen' => $id,
+			'subject'         => $this->input->post('subject'),
+			'deskripsi'       => $this->input->post('deskripsi'),
+		];
+		// 1 = Proses Laporan
+		$this->jdm->updateStatus($id, 1);
+		if ($this->jrm->insert($report)) {
+			redirect('dosen/jadwalByNidn/701058601');
+		}
+	}
 }
