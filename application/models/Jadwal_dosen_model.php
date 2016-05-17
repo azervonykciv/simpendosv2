@@ -9,7 +9,6 @@ class Jadwal_dosen_model extends CI_Model {
 		parent::__construct();
 		
 	}
-
 	public function getJadwalByDosen($nidn)
 	{
 		$this->db->where('nidn', $nidn);
@@ -20,9 +19,19 @@ class Jadwal_dosen_model extends CI_Model {
 		} else {
 			return FALSE;
 		}
-		
 	}
-
+	public function updateStatus($id, $status)
+	{
+		$this->db->set('status_jadwal', $status);
+		$this->db->where('id_jadwal', $id);
+		return $this->db->update($this->table);
+	}
+	public function updateStatusJadwal($id, $status)
+	{
+		$this->db->set('status_jadwal', $status);
+		$this->db->where('id_jadwal', $id);
+		return $this->db->update($this->table);
+	}
 }
 
 /* End of file jadwal_dosen_model.php */
