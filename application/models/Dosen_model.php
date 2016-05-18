@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Dosen_model extends CI_Model
 {
 	var $table = 'dosen';
+    
     public function __construct()
     {
         parent::__construct();
@@ -31,6 +32,8 @@ class Dosen_model extends CI_Model
     {
         $this->db->where('nidn', $id);
         $this->db->update($this->table, $data);
+        $this->db->trans_complete();
+        return $this->db->trans_status();
     }
     public function delete($id)
     {

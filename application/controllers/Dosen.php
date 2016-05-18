@@ -59,14 +59,12 @@ class Dosen extends CI_Controller{
 			'alamat_malang'     => $this->input->post('alamat_malang'),
 			'ref_aktivasiDosen' => $this->input->post('ref_aktivasiDosen'),
 		];
-		$this->dm->update($dosen, $id);
-		redirect('dosen');
 		
-		// if ($this->dm->update($dosen, $id)) {
-		// 	redirect('dosen');
-		// } else {
-		// 	echo "Gagal update";
-		// }
+		if ($this->dm->update($dosen, $id)) {
+			redirect('dosen');
+		} else {
+			echo "Gagal update";
+		}
 	}
 	public function delete($id)
 	{
