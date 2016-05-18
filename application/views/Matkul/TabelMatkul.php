@@ -16,28 +16,30 @@
 		<div class="col-xs-12">
 			<div class="box">
 				<div class="box-body">
-					<table id="example1" class="table table-bordered table-striped">
+					<table border="1" id="example1" class="table table-bordered table-striped"; width="60%; ">
 						<thead>
 						<tr>
 							<th>ID</th>
 							<th>NAMA MATAKULIAH</th>
 							<th>JUMLAH SKS</th>
+							<th>ACTION</th>
 						</tr>
 						</thead>
-						<tbody>
-						<?php
-						foreach ($data->result() as $r)
-						{ echo"
+						<?php foreach ($data as $r){ ?>
 						<tr>
-							<td>$r->ID_mk</td>
-							<td>$r->Nama_mk</td>
-							<td>$r->Jumlah_sks</td>
-							<td>
-								<a href="base_url()."/Jadwal/update/".$r->ID_mk">Edit</a> ||
-								<a href="base_url()."/Jadwal/delete/".$r->ID_mk">Delete</a>
+							<td><?php echo $r['ID_mk'] ?></td>
+							<td><?php echo $r['Nama_mk'] ?></td>
+							<td><?php echo $r['Jumlah_sks'] ?></td>
+							<td align="center">
+								<a href="<?php echo base_url()."jadwal/update/".$r['ID_mk']; ?>">Edit</a>
+								<a href="<?php echo base_url()."jadwal/delete/".$r['ID_mk']; ?>">Delete</a>
 							</td>
-						</tr> " }?>
+						</tr> 
+					
+						<?php } ?>
 					</table>
+					<a href="<?php echo base_url()."jadwal/insert"; ?>">Insert Data</a>
+
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
 		</div><!-- /.col -->

@@ -1,6 +1,7 @@
 <?php
 class ModelJadwal extends CI_Model{
-	public function GetMatakuliah($where=""){
+
+	public function GetMatakuliah($where = ""){
 		$data = $this->db->query('select * from matakuliah '.$where);
 		return $data->result_array();
 	}
@@ -9,7 +10,8 @@ class ModelJadwal extends CI_Model{
 
 		return $this->db->get('');
 	}
-	public function InsertData($tabelName,$data){
+
+	public function InsertData($tabelName,$data){ 
 		$res = $this->db->insert($tabelName,$data);
 		return $res;
 	}
@@ -17,7 +19,6 @@ class ModelJadwal extends CI_Model{
 	public function UpdateData($tabelName,$data,$where){
 		$res = $this->db->update($tabelName,$data,$where);
 		return $res;
-
 	}
 
 

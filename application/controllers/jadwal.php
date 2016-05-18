@@ -2,15 +2,31 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Jadwal extends CI_Controller{
+    function __construct(){
+        parent::__construct();
+        $this->load->model('ModelJadwal');
+    }
+
     public function index(){
+        
         $data = $this->ModelJadwal->GetMatakuliah();
-        $this->load->view('TabelMatkul',array('data' => $data));
+        //$this->ModelJadwal->GetMatakuliah();
+        $this->load->view('Matkul/TabelMatkul',array('data' => $data));
+        /*$this->template->load('template','Matkul/halmatkul',array('data' => $data));*/
+    }
+
+     public function viewmatkul()
+    {
+        $data = $this->ModelJadwal->GetMatakuliah();
+        $matkul = [
+            'data' => $data,
+        ];
+        $this->template->load('template','Matkul/halmatkul', $matkul);
     }
 
 
     public function insert(){
-        /*$res = $this->mymodel->InsertData('matakuliah');*/
-        $this->load->view('InsertMatkul');
+        $this->template->load('template','Matkul/insertmatkul');
     }
 
 
@@ -21,7 +37,7 @@ class Jadwal extends CI_Controller{
             "Nama_mk"=>$res[0]['Nama_mk'],
             "Jumlah_sks"=>$res[0]['Jumlah_sks']
         );
-        $this->load->view('UpdateMatkul',$data);
+        $this->template->load('template','Matkul/UpdateMatkul',$data);
     }
 
 
@@ -34,10 +50,10 @@ class Jadwal extends CI_Controller{
             'Nama_mk' => $Nama_mk,
             'Jumlah_sks' => $Jumlah_sks
         );
-        $res = $this->ModelJadwal->InsertData('matakuliah', $data_insert);
+        $res = $this->ModelJadwal->InsertData('matakuliah',$data_insert);
         if ($res>=1) {
             $this->session->set_flashdata('pesan','Tambah Data Sukses');
-            redirect('Jadwal');
+            redirect('jadwal/viewmatkul');
         } else {
             echo "<h2>Insert Data Gagal</h2>";
         }
@@ -58,7 +74,7 @@ class Jadwal extends CI_Controller{
         $res = $this->ModelJadwal->UpdateData('matakuliah', $data_update,$where);
         if ($res>=1) {
             $this->session->set_flashdata('pesan','Update Data Sukses');
-            redirect('Jadwal');
+            redirect('jadwal/viewmatkul');
         } else {
             echo "<h2>update Data Gagal</h2>";
         }
@@ -71,7 +87,7 @@ class Jadwal extends CI_Controller{
         $res = $this->ModelJadwal->DeleteData('matakuliah',$where);
         if ($res>=1) {
             $this->session->set_flashdata('pesan','Delete Data Sukses');
-            redirect('Jadwal');
+            redirect('jadwal/viewmatkul');
         } else {
             echo "<h2>Delete Data Gagal</h2>";
         }
@@ -81,6 +97,7 @@ class Jadwal extends CI_Controller{
         $data = $this->db->query('select * from matakuliah')->result();
 
     }
+}
 
     /*
     public function do_insert(){
