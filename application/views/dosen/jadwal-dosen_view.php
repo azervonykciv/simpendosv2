@@ -1,13 +1,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Data Tables
-        <small>advanced tables</small>
+        Jadwal
+        <small>yang anda miliki</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
+        <li class="active"><a href="#">Jadwal</a></li>
     </ol>
 </section>
 
@@ -17,7 +16,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Data Table With Full Features</h3>
+                    <h3 class="box-title">List Jadwal</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped">
@@ -59,7 +58,6 @@
                                 </tr>
                             <?php $no++; ?>
                             <?php endforeach ?>
-                            
                         </tbody>
                         <tfoot>
                         <tr>
