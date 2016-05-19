@@ -24,8 +24,6 @@ class Dosen extends CI_Controller{
 	}
 	public function store()
 	{
-		$Status = "Dosen";
-		$Password = "123456";
 		$dosen = [
 			'nidn'              => $this->input->post('nidn'),
 			'nama_dosen'        => $this->input->post('nama_dosen'),
@@ -36,6 +34,9 @@ class Dosen extends CI_Controller{
 			'ref_aktivasiDosen' => $this->input->post('ref_aktivasiDosen'),
 		];
 		if ($this->dm->insert($dosen)) {
+			$Status = "Dosen";
+			$Password = "123456";
+			$User = "user";
 			$uDosen = [
 				'ID_User'           => $this->input->post('nidn'),
 				'Nama_User'        	=> $this->input->post('nama_dosen'),
@@ -44,7 +45,16 @@ class Dosen extends CI_Controller{
 				'Status'     		=> $Status,
 			];
 			if($this->User_model->insertUser($uDosen)){
-				redirect('dosen');
+				$Log = [
+					'ID_User'	=> $User,
+					'Tanggal'	=> date('Y-m-d H:i:s'),
+					'Aktifitas' => "Insert data dosen ".$this->input->post('nidn'),
+				];
+				if($this->Log_model->insertLog($Log)){
+					redirect('dosen');
+				}else{
+					echo "gagal insert data log";
+				}
 			}else{
 				echo "Gagal insert data user di method store";
 			}
@@ -66,6 +76,7 @@ class Dosen extends CI_Controller{
 	{
 		$id = $this->input->post('nidn');
 		$Status = "Dosen";
+		$User = "user";
 		$dosen = [
 			'nidn'              => $id,
 			'nama_dosen'        => $this->input->post('nama_dosen'),
@@ -84,7 +95,16 @@ class Dosen extends CI_Controller{
 				'Status'     	   => $Status,
 			];
 			if($this->User_model->updateUser($dosenU, $id)){
-				redirect('dosen');
+				$Log = [
+					'ID_User'	=> $User,
+					'Tanggal'	=> date('Y-m-d H:i:s'),
+					'Aktifitas' => "Update data dosen ".$id,
+				];
+				if($this->Log_model->insertLog($Log)){
+					redirect('dosen');
+				}else{
+					echo "gagal insert data log";
+				}
 			}else{
 				echo "gagal mengganti data di tabel user";
 			}
@@ -96,7 +116,18 @@ class Dosen extends CI_Controller{
 	{
 		$this->dm->delete($id);
 		$this->User_model->deleteUser($id);
-		redirect('dosen');
+		$User = "user";
+
+		$Log = [
+			'ID_User'	=> $User,
+			'Tanggal'	=> date('Y-m-d H:i:s'),
+			'Aktifitas' => "Update data dosen ".$id,
+		];
+		if($this->Log_model->insertLog($Log)){
+			redirect('dosen');
+		}else{
+			echo "gagal insert data log";
+		}
 	}
 	public function jadwalByNidn($nidn)
 	{
