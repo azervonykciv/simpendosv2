@@ -28,8 +28,9 @@ class User_model extends CI_Model
         return $this->db->trans_status();
     }
 
-    public function DeleteData($tabelName,$where){
-        $res = $this->db->delete($tabelName,$where) ;
-        return $res;        
+    public function deleteUser($id)
+    {
+        $this->db->where('ID_User', $id);
+        $this->db->delete($this->table);
     }
 }

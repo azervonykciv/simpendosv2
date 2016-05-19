@@ -95,6 +95,7 @@ class Dosen extends CI_Controller{
 	public function delete($id)
 	{
 		$this->dm->delete($id);
+		$this->User_model->deleteUser($id);
 		redirect('dosen');
 	}
 	public function jadwalByNidn($nidn)
