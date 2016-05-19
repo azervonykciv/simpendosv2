@@ -35,6 +35,8 @@ class Jadwal extends CI_Controller{
         $data = array(
             "ID_Mk"=>$res[0]['ID_Mk'],
             "Nama_mk"=>$res[0]['Nama_mk'],
+            "ID_mk"=>$res[0]['ID_Mk'],
+            "Nama_mk"=>$res[0]['Nama _mk'],
             "Jumlah_sks"=>$res[0]['Jumlah_sks']
         );
         $this->template->load('template','Matkul/UpdateMatkul',$data);

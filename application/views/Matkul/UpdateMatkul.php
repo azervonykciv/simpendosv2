@@ -24,12 +24,16 @@
 	 <table id="example1" class="table table-bordered table-striped">
 		<tr>
 			<td>Kode Mata Kuliah</td>
+<<<<<<< Updated upstream
 			<td><input type="text" width="60%" name="ID_Mk" value="<?php echo $ID_Mk; ?>" readonly  /></td>
+=======
+			<td><input type="text" width="60%" name="ID_mk" value="<?php echo $ID_Mk; ?>" readonly  /></td>
+>>>>>>> Stashed changes
 		</tr>
 
 		<tr>
 			<td>Nama Mata Kuliah</td>
-			<td><input type="text" name="Nama_mk" value="<?php echo $Nama_mk; ?>" /></td>
+			<td><input type="text" name="Nama_mk" value="<?php echo $Nama _mk; ?>" /></td>
 		</tr>
 
 		<tr>

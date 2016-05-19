@@ -131,7 +131,6 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <?php echo $contents; ?>
-
     </div><!-- /.content-wrapper -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
