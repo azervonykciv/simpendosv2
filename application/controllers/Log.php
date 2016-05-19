@@ -8,6 +8,6 @@ class Log extends CI_Controller {
 	{
 		$user = $this->Log_model->GetLog();
 		$data = array('log' => $user,);
-		$this->load->view('Log/dataLog', $data);
+		$this->template->load('template','Log/dataLog', $data);
 	}
 }

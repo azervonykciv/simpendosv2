@@ -8,6 +8,6 @@ class User extends CI_Controller {
 	{
 		$user = $this->User_model->GetUser();
 		$data = array('user' => $user,);
-		$this->load->view('User/dataUSer', $data);
+		$this->template->load('template','User/dataUSer', $data);
 	}
 }

@@ -18,19 +18,19 @@ class Login extends CI_Controller {
 		$Password=$this->input->post('Password');
 
 		
-	$cek=$this->m_login->m_aksi($where=" WHERE Nama_User ='$Nama_User' AND Password = '$Password'");
-	if($cek > 0){
-		$x=$this->session->set_userdata($data);			
-		redirect('login/sukses');
-	}else{
-		echo "login gagal";
+		$cek=$this->m_login->m_aksi($where=" WHERE Nama_User ='$Nama_User' AND Password = '$Password'");
+		if($cek > 0){
+			$x=$this->session->set_userdata($data);			
+			redirect('login/sukses');
+		}else{
+			echo "login gagal";
+		}
 	}
-
 
 	function sukses(){
 		$data = array(
 			$Nama_User => $this->session->userdata('Nama_User')
-			);
+		);
 		$this->load->view('v_sukses', $data);	
 	}
 	function logout(){
