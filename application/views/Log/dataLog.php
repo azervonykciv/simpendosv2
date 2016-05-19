@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Data Tables</title>
+    <title>Simpendos | Admin</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="<?php echo base_url()."asset/"; ?>AdminLTE-2.0.5/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -443,7 +443,7 @@
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Data user</li>
+            <li class="active">Data Log</li>
           </ol>
         </section>
 
@@ -453,7 +453,7 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title">Data User</h3>
+                  <h3 class="box-title">Data Log</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example1" class="table table-bordered table-striped">
