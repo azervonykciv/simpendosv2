@@ -35,8 +35,6 @@ class Jadwal extends CI_Controller{
         $data = array(
             "ID_Mk"=>$res[0]['ID_Mk'],
             "Nama_mk"=>$res[0]['Nama_mk'],
-            "ID_mk"=>$res[0]['ID_Mk'],
-            "Nama_mk"=>$res[0]['Nama _mk'],
             "Jumlah_sks"=>$res[0]['Jumlah_sks']
         );
         $this->template->load('template','Matkul/UpdateMatkul',$data);
@@ -54,8 +52,17 @@ class Jadwal extends CI_Controller{
         );
         $res = $this->ModelJadwal->InsertData('matakuliah',$data_insert);
         if ($res>=1) {
-            $this->session->set_flashdata('pesan','Tambah Data Sukses');
-            redirect('jadwal/viewmatkul');
+            $Log = [
+                'ID_User'   => "User",
+                'Tanggal'   => date('Y-m-d H:i:s'),
+                'Aktifitas' => "Insert data Mata Kuliah ".$ID_Mk,
+            ];
+            if($this->Log_model->insertLog($Log)){
+                $this->session->set_flashdata('pesan','Tambah Data Sukses');
+                redirect('jadwal/viewmatkul');
+            }else{
+                echo "gagal insert data log";
+            }
         } else {
             echo "<h2>Insert Data Gagal</h2>";
         }
@@ -75,8 +82,17 @@ class Jadwal extends CI_Controller{
         $where = array('ID_Mk'=>$ID_Mk);
         $res = $this->ModelJadwal->UpdateData('matakuliah', $data_update,$where);
         if ($res>=1) {
-            $this->session->set_flashdata('pesan','Update Data Sukses');
-            redirect('jadwal/viewmatkul');
+            $Log = [
+                'ID_User'   => "User",
+                'Tanggal'   => date('Y-m-d H:i:s'),
+                'Aktifitas' => "Edit data Mata Kuliah ".$ID_Mk,
+            ];
+            if($this->Log_model->insertLog($Log)){
+                $this->session->set_flashdata('pesan','Update Data Sukses');
+                redirect('jadwal/viewmatkul');
+            }else{
+                echo "gagal insert data log";
+            }
         } else {
             echo "<h2>update Data Gagal</h2>";
         }
@@ -88,8 +104,17 @@ class Jadwal extends CI_Controller{
         $where = array('ID_Mk' => $ID_Mk);
         $res = $this->ModelJadwal->DeleteData('matakuliah',$where);
         if ($res>=1) {
-            $this->session->set_flashdata('pesan','Delete Data Sukses');
-            redirect('jadwal/viewmatkul');
+            $Log = [
+                'ID_User'   => "User",
+                'Tanggal'   => date('Y-m-d H:i:s'),
+                'Aktifitas' => "Hapus data Mata Kuliah ".$ID_Mk,
+            ];
+            if($this->Log_model->insertLog($Log)){
+                $this->session->set_flashdata('pesan','Delete Data Sukses');
+                redirect('jadwal/viewmatkul');
+            }else{
+                echo "gagal insert data log";
+            }
         } else {
             echo "<h2>Delete Data Gagal</h2>";
         }
