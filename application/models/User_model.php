@@ -9,14 +9,23 @@ class User_model extends CI_Model
         return $query->result();
     }
 
+    public function getUser_byid($id)
+    {
+        $this->db->where('ID_User', $id);
+        return $this->db->get($this->table)->result();
+    }
+
     public function insertUser($data)
     {
         return $this->db->insert($this->table, $data);
     }
 
-    public function UpdateData($tabelName,$data,$where){
-        $res = $this->db->update($tabelName,$data,$where);
-        return $res;
+    public function updateUser($data, $id)
+    {
+        $this->db->where('ID_User', $id);
+        $this->db->update($this->table, $data);
+        $this->db->trans_complete();
+        return $this->db->trans_status();
     }
 
     public function DeleteData($tabelName,$where){

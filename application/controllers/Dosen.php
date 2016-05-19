@@ -55,14 +55,17 @@ class Dosen extends CI_Controller{
 	public function edit($id)
 	{
 		$dosen = $this->dm->get_byid($id);
+		$dDosenU = $this->User_model->getUser_byid($id);
 		$data = [
-			'dosen' => $dosen
+			'dosen' 	=> $dosen,
+			'dosenUser' => $dDosenU,
 		];
 		$this->template->load('template','dosen/edit-dosen_view', $data);
 	}
 	public function update()
 	{
 		$id = $this->input->post('nidn');
+		$Status = "Dosen";
 		$dosen = [
 			'nidn'              => $id,
 			'nama_dosen'        => $this->input->post('nama_dosen'),
@@ -74,7 +77,17 @@ class Dosen extends CI_Controller{
 		];
 		
 		if ($this->dm->update($dosen, $id)) {
-			redirect('dosen');
+			$dosenU = [
+				'ID_User'          => $id,
+				'Nama_User'        => $this->input->post('nama_dosen'),
+				'Email_User'       => $this->input->post('email_dosen'),
+				'Status'     	   => $Status,
+			];
+			if($this->User_model->updateUser($dosenU, $id)){
+				redirect('dosen');
+			}else{
+				echo "gagal mengganti data di tabel user";
+			}
 		} else {
 			echo "Gagal update";
 		}
