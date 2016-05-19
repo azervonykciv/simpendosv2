@@ -24,6 +24,8 @@ class Dosen extends CI_Controller{
 	}
 	public function store()
 	{
+		$Status = "Dosen";
+		$Password = "123456";
 		$dosen = [
 			'nidn'              => $this->input->post('nidn'),
 			'nama_dosen'        => $this->input->post('nama_dosen'),
@@ -34,7 +36,18 @@ class Dosen extends CI_Controller{
 			'ref_aktivasiDosen' => $this->input->post('ref_aktivasiDosen'),
 		];
 		if ($this->dm->insert($dosen)) {
-			redirect('dosen');
+			$uDosen = [
+				'ID_User'           => $this->input->post('nidn'),
+				'Nama_User'        	=> $this->input->post('nama_dosen'),
+				'Password'      	=> $Password,
+				'Email_User'     	=> $this->input->post('email_dosen'),
+				'Status'     		=> $Status,
+			];
+			if($this->User_model->insertUser($uDosen)){
+				redirect('dosen');
+			}else{
+				echo "Gagal insert data user di method store";
+			}
 		} else {
 			echo "Gagal insert";
 		}
