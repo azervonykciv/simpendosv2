@@ -39,7 +39,10 @@
                             <td><?php echo $d->Nama_User ?></td>
                             <td><?php echo $d->Status ?></td>
                             <td><?php echo $d->Password ?></td>
-                            <td></td>
+                            <td>
+                              <a href="<?php echo base_url(); ?>User/editUser/<?php echo $d->ID_User?>" class="btn btn-warning">Edit</a>
+                              <a href="<?php echo base_url(); ?>User/deleteUser/<?php echo $d->ID_User?>" class="btn btn-danger">Delete</a>
+                            </td>
                           </tr>
                         <?php endforeach ?>
                     </tbody>

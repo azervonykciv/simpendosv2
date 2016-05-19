@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2016 at 05:16 PM
+-- Generation Time: May 19, 2016 at 06:09 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -142,9 +142,9 @@ INSERT INTO `jadwal_report` (`id`, `id_jadwal_dosen`, `subject`, `deskripsi`, `s
 CREATE TABLE IF NOT EXISTS `log` (
 `ID_Log` int(20) NOT NULL,
   `ID_User` varchar(20) NOT NULL,
-  `Tanggal` date NOT NULL,
+  `Tanggal` datetime NOT NULL,
   `Aktifitas` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -275,6 +275,14 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`ID_User`, `Nama_User`, `Password`, `Status`) VALUES
+('12345', 'Sari Wahyunita', '827ccb0eea8a706c4c34', 'Admin'),
+('12346', 'Adi Askadi', '202cb962ac59075b964b', 'Super Admin');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -349,7 +357,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-MODIFY `ID_Log` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `ID_Log` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
