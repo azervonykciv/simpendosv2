@@ -30,10 +30,10 @@ class Jadwal extends CI_Controller{
     }
 
 
-    public function update($ID_mk){
-        $res = $this->ModelJadwal->GetMatakuliah("where ID_mk = '$ID_mk'");
+    public function update($ID_Mk){
+        $res = $this->ModelJadwal->GetMatakuliah("where ID_Mk = '$ID_Mk'");
         $data = array(
-            "ID_mk"=>$res[0]['ID_mk'],
+            "ID_Mk"=>$res[0]['ID_Mk'],
             "Nama_mk"=>$res[0]['Nama_mk'],
             "Jumlah_sks"=>$res[0]['Jumlah_sks']
         );
@@ -42,11 +42,11 @@ class Jadwal extends CI_Controller{
 
 
     public function do_insert(){
-        $ID_mk = $_POST['ID_mk'];
+        $ID_Mk = $_POST['ID_Mk'];
         $Nama_mk = $_POST['Nama_mk'];
         $Jumlah_sks = $_POST['Jumlah_sks'];
         $data_insert = array(
-            'ID_mk' => $ID_mk,
+            'ID_Mk' => $ID_Mk,
             'Nama_mk' => $Nama_mk,
             'Jumlah_sks' => $Jumlah_sks
         );
@@ -62,15 +62,15 @@ class Jadwal extends CI_Controller{
 
 
     public function do_update(){
-        $ID_mk = $_POST['ID_mk'];
+        $ID_Mk = $_POST['ID_Mk'];
         $Nama_mk = $_POST['Nama_mk'];
         $Jumlah_sks = $_POST['Jumlah_sks'];
         $data_update = array(
-            'ID_mk' => $ID_mk,
+            'ID_Mk' => $ID_Mk,
             'Nama_mk' => $Nama_mk,
             'Jumlah_sks' => $Jumlah_sks
         );
-        $where = array('ID_mk'=>$ID_mk);
+        $where = array('ID_Mk'=>$ID_Mk);
         $res = $this->ModelJadwal->UpdateData('matakuliah', $data_update,$where);
         if ($res>=1) {
             $this->session->set_flashdata('pesan','Update Data Sukses');
@@ -82,8 +82,8 @@ class Jadwal extends CI_Controller{
     }
 
 
-    public function delete($ID_mk){
-        $where = array('ID_mk' => $ID_mk);
+    public function delete($ID_Mk){
+        $where = array('ID_Mk' => $ID_Mk);
         $res = $this->ModelJadwal->DeleteData('matakuliah',$where);
         if ($res>=1) {
             $this->session->set_flashdata('pesan','Delete Data Sukses');

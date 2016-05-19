@@ -24,7 +24,7 @@
 		<table border="1" id="example1" class="table table-bordered table-striped"; width="60%; ">
 		<tr>
 			<td>Kode Mata Kuliah</td>
-			<td><input type="text" name="ID_mk"/></td>
+			<td><input type="text" name="ID_Mk"/></td>
 		</tr>
 
 		<tr>

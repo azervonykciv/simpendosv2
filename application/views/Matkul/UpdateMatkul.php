@@ -24,7 +24,7 @@
 	 <table id="example1" class="table table-bordered table-striped">
 		<tr>
 			<td>Kode Mata Kuliah</td>
-			<td><input type="text" width="60%" name="ID_mk" value="<?php echo $ID_mk; ?>" readonly  /></td>
+			<td><input type="text" width="60%" name="ID_Mk" value="<?php echo $ID_Mk; ?>" readonly  /></td>
 		</tr>
 
 		<tr>
