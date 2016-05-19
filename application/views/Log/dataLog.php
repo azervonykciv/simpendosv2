@@ -33,7 +33,6 @@
                             <td><?php echo $d->ID_User ?></td>
                             <td><?php echo $d->Tanggal ?></td>
                             <td><?php echo $d->Aktifitas ?></td>
-                            <td></td>
                           </tr>
                         <?php endforeach ?>
                     </tbody>

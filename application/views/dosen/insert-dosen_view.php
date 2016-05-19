@@ -34,10 +34,6 @@
                             <input name="nama_dosen" type="text" class="form-control" placeholder="Tama">
                         </div>
                         <div class="input-group">
-                            <label>E-mail</label>
-                            <input name="email_dosen" type="email" class="form-control" placeholder="E-mail">
-                        </div>
-                        <div class="input-group">
                             <label>tempat_lahir</label>
                             <input name="tempat_lahir" type="text" class="form-control" placeholder="Bogor">
                         </div>

@@ -41,7 +41,6 @@ class Dosen extends CI_Controller{
 				'ID_User'           => $this->input->post('nidn'),
 				'Nama_User'        	=> $this->input->post('nama_dosen'),
 				'Password'      	=> $Password,
-				'Email_User'     	=> $this->input->post('email_dosen'),
 				'Status'     		=> $Status,
 			];
 			if($this->User_model->insertUser($uDosen)){
@@ -91,7 +90,6 @@ class Dosen extends CI_Controller{
 			$dosenU = [
 				'ID_User'          => $id,
 				'Nama_User'        => $this->input->post('nama_dosen'),
-				'Email_User'       => $this->input->post('email_dosen'),
 				'Status'     	   => $Status,
 			];
 			if($this->User_model->updateUser($dosenU, $id)){

@@ -5,7 +5,7 @@
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Data user</li>
+            <li class="active">Data User</li>
           </ol>
         </section>
 
@@ -18,13 +18,16 @@
                   <h3 class="box-title">Data User</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
+                  <a href="<?php echo base_url(); ?>User/insertUser" class="btn btn-success btn-submit">Masukan User Baru </a>
+                  </br>
+                  </br>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>ID User</th>
                         <th>Nama</th>
-                        <th>Email</th>
                         <th>Privilage</th>
+                        <th>Password</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -34,8 +37,8 @@
                           <tr>
                             <td><?php echo $d->ID_User ?></td>
                             <td><?php echo $d->Nama_User ?></td>
-                            <td><?php echo $d->Email_User ?></td>
                             <td><?php echo $d->Status ?></td>
+                            <td><?php echo $d->Password ?></td>
                             <td></td>
                           </tr>
                         <?php endforeach ?>
@@ -44,8 +47,8 @@
                       <tr>
                         <th>ID User</th>
                         <th>Nama</th>
-                        <th>Email</th>
                         <th>Privilage</th>
+                        <th>Password</th>
                         <th>Action</th>
                       </tr>
                     </tfoot>
