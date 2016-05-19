@@ -30,7 +30,11 @@
             <?php foreach ($data as $r){ ?>
             <tr>
               <td><?php echo $r['ID_Mk'] ?></td>
+<<<<<<< HEAD
               <td><?php echo $r['Nama_mk'] ?></td>
+=======
+              <td><?php echo $r['Nama _mk'] ?></td>
+>>>>>>> origin/master
               <td><?php echo $r['Jumlah_sks'] ?></td>
               <td align="center">
                 <a class="btn btn-primary" href="<?php echo base_url()."jadwal/update/".$r['ID_Mk']; ?>">Edit</a>
