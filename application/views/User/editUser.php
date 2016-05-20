@@ -27,7 +27,7 @@
                     <form action="<?php echo base_url(); ?>User/updateUser" method="POST">
                         <div class="input-group">
                             <label>ID User</label>
-                            <input name="ID_User" value="<?php echo $user[0]->ID_User; ?>" type="text" class="form-control"  disabled>
+                            <input name="ID_User" value="<?php echo $user[0]->ID_User; ?>" type="text" class="form-control"  readonly>
                         </div>
                         <div class="input-group">
                             <label>Nama User</label>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="input-group">
                             <label>Password</label>
-                            <input name="Password" value="<?php echo $user[0]->Password; ?>" type="text" class="form-control" disabled>
+                            <input name="Password" value="<?php echo $user[0]->Password; ?>" type="text" class="form-control" readonly>
                         </div>
                         <div class="input-group">
                             <label>Privilege</label>

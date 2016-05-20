@@ -74,17 +74,15 @@ class User extends CI_Controller {
 	}
 	public function deleteUser($id)
 	{
-		$this->dm->delete($id);
 		$this->User_model->deleteUser($id);
-		$User = "user";
 
 		$Log = [
-			'ID_User'	=> $User,
+			'ID_User'	=> "User",
 			'Tanggal'	=> date('Y-m-d H:i:s'),
-			'Aktifitas' => "Update data dosen ".$id,
+			'Aktifitas' => "Hapus data User".$id,
 		];
 		if($this->Log_model->insertLog($Log)){
-			redirect('dosen');
+			redirect('User');
 		}else{
 			echo "gagal insert data log";
 		}

@@ -119,7 +119,7 @@ class Dosen extends CI_Controller{
 		$Log = [
 			'ID_User'	=> $User,
 			'Tanggal'	=> date('Y-m-d H:i:s'),
-			'Aktifitas' => "Update data dosen ".$id,
+			'Aktifitas' => "Delete data dosen ".$id,
 		];
 		if($this->Log_model->insertLog($Log)){
 			redirect('dosen');
