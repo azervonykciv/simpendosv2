@@ -7,18 +7,26 @@ class Jadwal extends CI_Controller{
         $this->load->model('ModelJadwal');
     }
 
-    public function index(){
-        
+    public function index(){    
        $data = $this->ModelJadwal->GetMatakuliah();
         $matkul = [
             'data' => $data,
         ];
-        $this->template->load('template','Matkul/halmatkul', $matkul);
+        $this->template->load('templateSuperAdmin','Matkul/halmatkul', $matkul);
+    }
+
+    public function viewmatkuladmin(){    
+       $data = $this->ModelJadwal->GetMatakuliah();
+        $matkul = [
+            'data' => $data,
+        ];
+        $this->template->load('template','Matkul/viewmatkuladmin', $matkul);
     }
 
 
+
     public function insert(){
-        $this->template->load('template','Matkul/insertmatkul');
+        $this->template->load('templateSuperAdmin','Matkul/insertmatkul');
     }
 
 
@@ -29,7 +37,7 @@ class Jadwal extends CI_Controller{
             "Nama_mk"=>$res[0]['Nama_mk'],
             "Jumlah_sks"=>$res[0]['Jumlah_sks']
         );
-        $this->template->load('template','Matkul/UpdateMatkul',$data);
+        $this->template->load('templateSuperAdmin','Matkul/UpdateMatkul',$data);
     }
 
 
@@ -112,45 +120,10 @@ class Jadwal extends CI_Controller{
         }
     }
 
-    public function panggil(){
-        $data = $this->db->query('select * from matakuliah')->result();
 
-    }
 }
 
-    /*
-    public function do_insert(){
-        $id_admin = $_POST['id_admin'];
-        $password = $_POST['password'];
-        $nama_admin = $_POST['nama_admin'];
-        $data_insert = array(
-            'id_admin' => $id_admin,
-            'password' => $password,
-            'nama_admin' => $nama_admin
-            );
-        $res = $this->mymodel->InsertData('admin', $data_insert);
-        if ($res>=1) {
-            redirect('crud/index');
-        } else {
-            echo "<h2>Insert Data Gagal</h2>";
-        }
-
-    }
-
-
-
-
-
-
-    public function update(){
-        echo "ini function update";
-    }
-
-    public function delete(){
-        echo "ini function delete";
-    }
-
-    public function panggil(){
-        $data = $this->db->query('select * from admin')->result();
+    /*public function panggil(){
+        $data = $this->db->query('select * from matakuliah')->result();
 
     }*/
