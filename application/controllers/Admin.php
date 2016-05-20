@@ -39,6 +39,14 @@ class Admin extends CI_Controller{
 	public function detailreport($id)
 	{
 		$jadwal = $this->jrm->getWhere('id', $id);
-		print_r($jadwal);
+		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data = [
+			'jadwal' => $jadwal,
+			'user' => $user,
+		];
+		// echo "<pre>";
+		// print_r($data);
+		// die();
+		$this->template->load('template','admin/detail-dosen-report_view', $data);
 	}
 }
