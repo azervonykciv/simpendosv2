@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>SIMPENDOS | ADMIN</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="<?php echo base_url('asset/AdminLTE-2.0.5/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" />
@@ -30,10 +30,8 @@
     <header class="main-header">
         <!-- Logo -->
         <a href="../../index2.html" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b>LTE</span>
+            <span class="logo-lg"><b>Sim</b>Pendos</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -100,28 +98,15 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                        <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-edit"></i> <span>Tambah Data</span>
+                        <i class="fa fa-edit"></i> <span>Penjadwalan</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i>Data Dosen</a></li>
-                        <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i>Data Matakuliah</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-table"></i> <span>Lihat Data</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="../tables/simple.html"><i class="fa fa-circle-o"></i>Data Dosen</a></li>
-                        <li><a href="../tables/data.html"><i class="fa fa-circle-o"></i>Data Matakuliah</a></li>
-                        <li><a href="<?php echo base_url()."index.php/Log";?>"><i class="fa fa-circle-o"></i>Data Log</a></li>
+                        <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i>???</a></li>
                     </ul>
                 </li>
             </ul>

@@ -8,7 +8,7 @@ class Log extends CI_Controller {
 	{
 		$user = $this->Log_model->GetLog();
 		$data = array('log' => $user,);
-		$this->template->load('template','Log/dataLog', $data);
+		$this->template->load('templateSuperAdmin','Log/dataLog', $data);
 	}
 
 	public function templeteDosen(){

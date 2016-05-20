@@ -8,12 +8,12 @@ class User extends CI_Controller {
 	{
 		$user = $this->User_model->GetUser();
 		$data = array('user' => $user,);
-		$this->template->load('template','User/dataUSer', $data);
+		$this->template->load('templateSuperAdmin','User/dataUSer', $data);
 	}
 
 	public function insertUser()
 	{
-		$this->template->load('template','User/insertUser');
+		$this->template->load('templateSuperAdmin','User/insertUser');
 	}
 
 	public function do_insertUser()
@@ -46,7 +46,7 @@ class User extends CI_Controller {
 		$data = [
 			'user' 	=> $user
 		];
-		$this->template->load('template','User/editUser', $data);
+		$this->template->load('templateSuperAdmin','User/editUser', $data);
 	}
 	public function updateUser()
 	{
