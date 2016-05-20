@@ -33,7 +33,7 @@
                     </thead>
                     <tbody>
                       <?php
-                        foreach ($user as $d) : ?>
+                        foreach ($user1 as $d) : ?>
                           <tr>
                             <td><?php echo $d->ID_User ?></td>
                             <td><?php echo $d->Nama_User ?></td>

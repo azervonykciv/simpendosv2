@@ -6,14 +6,19 @@ class User extends CI_Controller {
     }
 	public function index()
 	{
-		$user = $this->User_model->GetUser();
-		$data = array('user' => $user,);
+		$user1 = $this->User_model->GetUser();
+		$user  = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data = array(
+			'user'  => $user,
+			'user1' => $user1,
+		);
 		$this->template->load('templateSuperAdmin','User/dataUSer', $data);
 	}
 
 	public function insertUser()
 	{
-		$this->template->load('templateSuperAdmin','User/insertUser');
+		$data['user'] = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$this->template->load('templateSuperAdmin','User/insertUser', $data);
 	}
 
 	public function do_insertUser()
@@ -42,9 +47,11 @@ class User extends CI_Controller {
 
 	public function editUser($id)
 	{
-		$user = $this->User_model->getUser_byid($id);
+		$user1 = $this->User_model->getUser_byid($id);
+		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$data = [
-			'user' 	=> $user
+			'user' 	=> $user,
+			'user1'	=> $user1,
 		];
 		$this->template->load('templateSuperAdmin','User/editUser', $data);
 	}

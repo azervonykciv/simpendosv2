@@ -27,20 +27,20 @@
                     <form action="<?php echo base_url(); ?>User/updateUser" method="POST">
                         <div class="input-group">
                             <label>ID User</label>
-                            <input name="ID_User" value="<?php echo $user[0]->ID_User; ?>" type="text" class="form-control"  readonly>
+                            <input name="ID_User" value="<?php echo $user1[0]->ID_User; ?>" type="text" class="form-control"  readonly>
                         </div>
                         <div class="input-group">
                             <label>Nama User</label>
-                            <input name="Nama_User" value="<?php echo $user[0]->Nama_User; ?>" type="text" class="form-control" >
+                            <input name="Nama_User" value="<?php echo $user1[0]->Nama_User; ?>" type="text" class="form-control" >
                         </div>
                         <div class="input-group">
                             <label>Password</label>
-                            <input name="Password" value="<?php echo $user[0]->Password; ?>" type="text" class="form-control" readonly>
+                            <input name="Password" value="<?php echo $user1[0]->Password; ?>" type="text" class="form-control" readonly>
                         </div>
                         <div class="input-group">
                             <label>Privilege</label>
                             <select class="form-control select2" name="Status" style="width: 100%;">
-                              <option selected="selected" value="<?php echo $user[0]->Status; ?>"><?php echo $user[0]->Status; ?></option>
+                              <option selected="selected" value="<?php echo $user1[0]->Status; ?>"><?php echo $user1[0]->Status; ?></option>
                               <option value="Admin">Admin</option>
                               <option value="Super Admin">Super Admin</option>
                             </select>
