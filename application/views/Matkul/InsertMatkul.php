@@ -7,9 +7,14 @@
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
+        <li class="active">Insert</li>
     </ol>
 </section>
+<style type="text/css">
+    .input-group{
+        padding-bottom: 2em;
+    }
+</style>
 
 <!-- Main content -->
 <section class="content">
@@ -17,32 +22,27 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Data Table With Full Features</h3>
+                    <h3 class="box-title">Masukan Mata Kuliah</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <form method="POST" action="<?php echo base_url()."jadwal/do_insert"; ?>">
-		<table border="1" id="example1" class="table table-bordered table-striped"; width="60%; ">
-		<tr>
-			<td>Kode Mata Kuliah</td>
-			<td><input type="text" name="ID_Mk"/></td>
-		</tr>
+                       <div class="input-group">
+                            <label>Kode Mata Kuliah</label>
+                            <input name="ID_Mk" type="text" class="form-control" placeholder="012345">
+                        </div>
+                        <div class="input-group">
+                            <label>Nama Mata Kuliah</label>
+                            <input name="Nama_mk" type="text" class="form-control" placeholder="Pemrograman Web">
+                        </div>
+                        <div class="input-group">
+                            <label>Jumlah SKS</label>
+                            <input name="Jumlah_sks" type="text" class="form-control" placeholder="2">
+                        </div>
+                        
+                        <div class="input-group">
+                            <input class="btn btn-primary" type="submit" value="Submit">
 
-		<tr>
-			<td>Nama Mata Kuliah</td>
-			<td><input type="text" name="Nama_mk"/></td>
-		</tr>
-
-		<tr>
-			<td>Jumlah SKS</td>
-			<td><input type="text" name="Jumlah_sks"/></td>
-		</tr>
-
-		<tr>
-			<td></td>
-			<td><input type="submit" name="btnSubmit" value="Simpan" /></td>
-		</tr>
-	</table>
-	</form>
+	               </form>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div><!-- /.col -->

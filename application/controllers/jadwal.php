@@ -9,15 +9,7 @@ class Jadwal extends CI_Controller{
 
     public function index(){
         
-        $data = $this->ModelJadwal->GetMatakuliah();
-        //$this->ModelJadwal->GetMatakuliah();
-        $this->load->view('Matkul/TabelMatkul',array('data' => $data));
-        /*$this->template->load('template','Matkul/halmatkul',array('data' => $data));*/
-    }
-
-     public function viewmatkul()
-    {
-        $data = $this->ModelJadwal->GetMatakuliah();
+       $data = $this->ModelJadwal->GetMatakuliah();
         $matkul = [
             'data' => $data,
         ];
@@ -59,7 +51,7 @@ class Jadwal extends CI_Controller{
             ];
             if($this->Log_model->insertLog($Log)){
                 $this->session->set_flashdata('pesan','Tambah Data Sukses');
-                redirect('jadwal/viewmatkul');
+                redirect('jadwal');
             }else{
                 echo "gagal insert data log";
             }
@@ -89,7 +81,7 @@ class Jadwal extends CI_Controller{
             ];
             if($this->Log_model->insertLog($Log)){
                 $this->session->set_flashdata('pesan','Update Data Sukses');
-                redirect('jadwal/viewmatkul');
+                redirect('jadwal');
             }else{
                 echo "gagal insert data log";
             }
@@ -111,7 +103,7 @@ class Jadwal extends CI_Controller{
             ];
             if($this->Log_model->insertLog($Log)){
                 $this->session->set_flashdata('pesan','Delete Data Sukses');
-                redirect('jadwal/viewmatkul');
+                redirect('jadwal');
             }else{
                 echo "gagal insert data log";
             }

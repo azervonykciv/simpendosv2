@@ -1,7 +1,8 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Data Mata Kuliah
+        Manajemen Data Mata Kuliah
+        <small>table</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -10,15 +11,23 @@
     </ol>
 </section>
 
+<style type="text/css">
+    .btn-submit{
+        margin-bottom: 2em;
+    }
+</style>
+
 <!-- Main content -->
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
+                  <h3 class="box-title">List Data Dosen</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <table border="1" id="example1" class="table table-bordered table-striped"; width="60%; ">
+                 <a class="btn btn-success btn-submit" href="<?php echo base_url()."jadwal/insert"; ?>">Masukkan Mata Kuliah Baru</a>
+                    <table id="example1" class="table table-bordered table-striped">
             <thead>
             <tr>
               <th>ID</th>
@@ -33,14 +42,14 @@
               <td><?php echo $r['Nama_mk'] ?></td>
               <td><?php echo $r['Jumlah_sks'] ?></td>
               <td align="center">
-                <a class="btn btn-primary" href="<?php echo base_url()."jadwal/update/".$r['ID_Mk']; ?>">Edit</a>
-                <a class="btn btn-primary" href="<?php echo base_url()."jadwal/delete/".$r['ID_Mk']; ?>">Delete</a>
+                <a class="btn btn-warning" href="<?php echo base_url()."jadwal/update/".$r['ID_Mk']; ?>">Edit</a>
+                <a class="btn btn-danger" href="<?php echo base_url()."jadwal/delete/".$r['ID_Mk']; ?>">Delete</a>
               </td>
             </tr> 
           
             <?php } ?>
           </table>
-          <a align="center" class="btn btn-primary" href="<?php echo base_url()."jadwal/insert"; ?>">Insert Data</a>
+         
 
                 </div><!-- /.box-body -->
             </div><!-- /.box -->

@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2016 at 06:09 PM
--- Server version: 5.6.21
+-- Generation Time: 20 Mei 2016 pada 05.19
+-- Versi Server: 5.6.21
 -- PHP Version: 5.5.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dosen`
+-- Struktur dari tabel `dosen`
 --
 
 CREATE TABLE IF NOT EXISTS `dosen` (
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `dosen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dosen`
+-- Dumping data untuk tabel `dosen`
 --
 
 INSERT INTO `dosen` (`nidn`, `nama_dosen`, `tempat_lahir`, `tanggal_lahir`, `gelar_lengkap`, `alamat_malang`, `ref_aktivasiDosen`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `dosen` (`nidn`, `nama_dosen`, `tempat_lahir`, `tanggal_lahir`, `gel
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal`
+-- Struktur dari tabel `jadwal`
 --
 
 CREATE TABLE IF NOT EXISTS `jadwal` (
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `jadwal` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jadwal`
+-- Dumping data untuk tabel `jadwal`
 --
 
 INSERT INTO `jadwal` (`ID_Jadwal`, `ID_Mk`, `ID_Dosen`, `Kelas_MK`, `Jam_Kelas`) VALUES
@@ -90,7 +90,7 @@ INSERT INTO `jadwal` (`ID_Jadwal`, `ID_Mk`, `ID_Dosen`, `Kelas_MK`, `Jam_Kelas`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal_dosen`
+-- Struktur dari tabel `jadwal_dosen`
 --
 
 CREATE TABLE IF NOT EXISTS `jadwal_dosen` (
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `jadwal_dosen` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jadwal_dosen`
+-- Dumping data untuk tabel `jadwal_dosen`
 --
 
 INSERT INTO `jadwal_dosen` (`id`, `nidn`, `id_jadwal`, `status_jadwal`) VALUES
@@ -113,7 +113,7 @@ INSERT INTO `jadwal_dosen` (`id`, `nidn`, `id_jadwal`, `status_jadwal`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal_report`
+-- Struktur dari tabel `jadwal_report`
 --
 
 CREATE TABLE IF NOT EXISTS `jadwal_report` (
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `jadwal_report` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jadwal_report`
+-- Dumping data untuk tabel `jadwal_report`
 --
 
 INSERT INTO `jadwal_report` (`id`, `id_jadwal_dosen`, `subject`, `deskripsi`, `status_report`) VALUES
@@ -136,7 +136,7 @@ INSERT INTO `jadwal_report` (`id`, `id_jadwal_dosen`, `subject`, `deskripsi`, `s
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log`
+-- Struktur dari tabel `log`
 --
 
 CREATE TABLE IF NOT EXISTS `log` (
@@ -144,25 +144,39 @@ CREATE TABLE IF NOT EXISTS `log` (
   `ID_User` varchar(20) NOT NULL,
   `Tanggal` datetime NOT NULL,
   `Aktifitas` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `log`
+--
+
+INSERT INTO `log` (`ID_Log`, `ID_User`, `Tanggal`, `Aktifitas`) VALUES
+(7, 'User', '2016-05-20 05:08:17', 'Insert data Mata Kuliah 1111'),
+(8, 'User', '2016-05-20 05:09:22', 'Insert data Mata Kuliah 754356'),
+(9, 'User', '2016-05-20 05:09:27', 'Hapus data Mata Kuliah 754356'),
+(10, 'User', '2016-05-20 05:09:29', 'Hapus data Mata Kuliah 1111'),
+(11, 'User', '2016-05-20 05:15:05', 'Insert data Mata Kuliah 1111'),
+(12, 'User', '2016-05-20 05:15:16', 'Edit data Mata Kuliah 1111'),
+(13, 'User', '2016-05-20 05:16:02', 'Edit data Mata Kuliah 1111'),
+(14, 'User', '2016-05-20 05:16:05', 'Hapus data Mata Kuliah 1111');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `matakuliah`
+-- Struktur dari tabel `matakuliah`
 --
 
 CREATE TABLE IF NOT EXISTS `matakuliah` (
   `ID_Mk` varchar(20) NOT NULL,
-  `Nama _mk` varchar(50) NOT NULL,
+  `Nama_mk` varchar(50) NOT NULL,
   `Jumlah_sks` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `matakuliah`
+-- Dumping data untuk tabel `matakuliah`
 --
 
-INSERT INTO `matakuliah` (`ID_Mk`, `Nama _mk`, `Jumlah_sks`) VALUES
+INSERT INTO `matakuliah` (`ID_Mk`, `Nama_mk`, `Jumlah_sks`) VALUES
 ('0110370938', 'Ilmu Sosial & Budaya Dasar', 2),
 ('0110371876', 'Pend. Pancasila dan Kewarganegaraan', 2),
 ('0120370044', 'AIK I', 1),
@@ -251,7 +265,7 @@ INSERT INTO `matakuliah` (`ID_Mk`, `Nama _mk`, `Jumlah_sks`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notifikasi`
+-- Struktur dari tabel `notifikasi`
 --
 
 CREATE TABLE IF NOT EXISTS `notifikasi` (
@@ -264,7 +278,7 @@ CREATE TABLE IF NOT EXISTS `notifikasi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -275,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`ID_User`, `Nama_User`, `Password`, `Status`) VALUES
@@ -357,7 +371,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-MODIFY `ID_Log` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `ID_Log` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
