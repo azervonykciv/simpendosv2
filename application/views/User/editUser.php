@@ -47,7 +47,7 @@
                         </div>                        
                         <div class="input-group">
                             <input class="btn btn-primary btn-submit" type="submit" value="Update"> &nbsp;
-                            <a href="<?php echo base_url(); ?>User/insertUser" class="btn btn-danger btn-submit">Reset Password </a>
+                            <a href="<?php echo base_url(); ?>User/resetPassword/<?php echo $user1[0]->ID_User; ?>/<?php echo $user1[0]->Status; ?>/<?php echo $user['ID_User']; ?>" class="btn btn-danger btn-submit">Reset Password </a>
                         </div>
                     </form>
                 </div><!-- /.box-body -->

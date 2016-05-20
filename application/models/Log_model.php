@@ -5,6 +5,7 @@ class Log_model extends CI_Model
 {
     var $table = "log";
 	public function GetLog(){
+        $this->db->order_by("Tanggal", "desc");
         $query = $this->db->get('log');
         return $query->result();
     }

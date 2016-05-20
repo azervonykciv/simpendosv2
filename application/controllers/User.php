@@ -94,4 +94,25 @@ class User extends CI_Controller {
 			echo "gagal insert data log";
 		}
 	}
+
+	public function resetPassword($id,$Status,$ID_User){
+		$user = [
+			'Password'  => "123456",
+		];
+		
+		if ($this->User_model->updateUser($user, $id)) {
+			$Log = [
+				'ID_User'	=> $ID_User,
+				'Tanggal'	=> date('Y-m-d H:i:s'),
+				'Aktifitas' => "Reset password ".$Status." ".$id,
+			];
+			if($this->Log_model->insertLog($Log)){
+				$this->editUser($id);
+			}else{
+				echo "gagal insert data log";
+			}
+		} else {
+			echo "Gagal reset password";
+		}
+	}
 }

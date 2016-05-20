@@ -6,26 +6,12 @@ class Log extends CI_Controller {
     }
 	public function index()
 	{
-		$user = $this->Log_model->GetLog();
-		$data = array('log' => $user,);
-		$this->template->load('templateSuperAdmin','Log/dataLog', $data);
-	}
-
-	public function templeteDosen(){
-		$user = $this->Log_model->GetLog();
-		$data = array('log' => $user,);
-		$this->template->load('templateDosen','Log/dataLog', $data);
-	}
-
-	public function templeteAdmin(){
-		$user = $this->Log_model->GetLog();
-		$data = array('log' => $user,);
-		$this->template->load('template','Log/dataLog', $data);
-	}
-
-	public function templeteSuperAdmin(){
-		$user = $this->Log_model->GetLog();
-		$data = array('log' => $user,);
+		$log = $this->Log_model->GetLog();
+		$user  = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data = array(
+			'log' => $log,
+			'user'=> $user,
+		);
 		$this->template->load('templateSuperAdmin','Log/dataLog', $data);
 	}
 
