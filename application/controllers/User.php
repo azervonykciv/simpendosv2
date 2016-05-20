@@ -53,8 +53,8 @@ class User extends CI_Controller {
 		$id = $this->input->post('ID_User');
 		$User = "user";
 		$user = [
-			'Nama_User'         => $this->input->post('Nama_User'),
-			'Status' 		    => $this->input->post('Status'),
+			'Nama_User'  => $this->input->post('Nama_User'),
+			'Status' 	 => $this->input->post('Status'),
 		];
 		
 		if ($this->User_model->updateUser($user, $id)) {
