@@ -151,8 +151,10 @@ class Dosen extends CI_Controller{
 	}
 	public function report($id)
 	{
+		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$data = [
 			'id' => $id,
+			'user' => $user,
 		];
 		$this->template->load('template','dosen/report-jadwal-dosen_view', $data);
 	}
