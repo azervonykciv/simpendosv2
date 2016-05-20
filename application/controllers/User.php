@@ -115,4 +115,13 @@ class User extends CI_Controller {
 			echo "Gagal reset password";
 		}
 	}
+
+	public function resetAllPassword(){
+		$data['user'] = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$this->template->load('templateSuperAdmin','User/resetAllPassword', $data);
+	}
+
+	public function do_resetAllPassword(){
+		
+	}
 }
