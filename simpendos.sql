@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2016 at 11:52 AM
+-- Generation Time: May 20, 2016 at 01:47 PM
 -- Server version: 10.1.10-MariaDB-log
 -- PHP Version: 7.0.4
 
@@ -85,7 +85,9 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`ID_Jadwal`, `ID_Mk`, `ID_Dosen`, `Kelas_MK`, `Jam_Kelas`) VALUES
-(1, '1', '0701058601', '1', '1');
+(1, '0210371835', '0701058601', '5.05', '10.20'),
+(2, '0110370938', '701058601', '5.05', '07.00'),
+(3, '0210371835', '701058601', '5.05', '08.20');
 
 -- --------------------------------------------------------
 
@@ -95,7 +97,7 @@ INSERT INTO `jadwal` (`ID_Jadwal`, `ID_Mk`, `ID_Dosen`, `Kelas_MK`, `Jam_Kelas`)
 
 CREATE TABLE `jadwal_dosen` (
   `id` int(11) NOT NULL,
-  `nidn` int(11) NOT NULL,
+  `id_dosen` int(11) NOT NULL,
   `id_jadwal` int(11) NOT NULL,
   `status_jadwal` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -104,7 +106,7 @@ CREATE TABLE `jadwal_dosen` (
 -- Dumping data for table `jadwal_dosen`
 --
 
-INSERT INTO `jadwal_dosen` (`id`, `nidn`, `id_jadwal`, `status_jadwal`) VALUES
+INSERT INTO `jadwal_dosen` (`id`, `id_dosen`, `id_jadwal`, `status_jadwal`) VALUES
 (1, 701058601, 1, 0),
 (2, 701058601, 2, 1),
 (3, 701058601, 3, 2),
@@ -154,7 +156,7 @@ CREATE TABLE `log` (
 
 CREATE TABLE `matakuliah` (
   `ID_Mk` varchar(20) NOT NULL,
-  `Nama _mk` varchar(50) NOT NULL,
+  `Nama_mk` varchar(50) NOT NULL,
   `Jumlah_sks` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -162,7 +164,7 @@ CREATE TABLE `matakuliah` (
 -- Dumping data for table `matakuliah`
 --
 
-INSERT INTO `matakuliah` (`ID_Mk`, `Nama _mk`, `Jumlah_sks`) VALUES
+INSERT INTO `matakuliah` (`ID_Mk`, `Nama_mk`, `Jumlah_sks`) VALUES
 ('0110370938', 'Ilmu Sosial & Budaya Dasar', 2),
 ('0110371876', 'Pend. Pancasila dan Kewarganegaraan', 2),
 ('0120370044', 'AIK I', 1),
@@ -280,7 +282,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`ID_User`, `Nama_User`, `Password`, `Status`) VALUES
 ('12345', 'Sari Wahyunita', '827ccb0eea8a706c4c34', 'Admin'),
-('12346', 'Adi Askadi', '202cb962ac59075b964b', 'Super Admin');
+('12346', 'Adi Askadi', '202cb962ac59075b964b', 'Super Admin'),
+('701058601', 'Gusti Alfian', '137', 'Dosen');
 
 --
 -- Indexes for dumped tables
@@ -345,7 +348,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `jadwal_dosen`
 --

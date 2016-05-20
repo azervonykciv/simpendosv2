@@ -5,6 +5,9 @@ class Dosen extends CI_Controller{
 
 	function __construct(){
 		parent::__construct();
+		if (! ($this->session->has_userdata('Status')) ) {
+			redirect('login');
+		}
         $this->load->model('Dosen_model', 'dm');
         $this->load->model('Jadwal_dosen_model', 'jdm');
         $this->load->model('Jadwal_report_model', 'jrm');
@@ -13,8 +16,10 @@ class Dosen extends CI_Controller{
 	public function index()
 	{
 		$dosen = $this->dm->get_all();
+		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$data = [
 			'dosen' => $dosen,
+			'user' => $user,
 		];
 		$this->template->load('template','dosen/dosen_view', $data);
 	}
@@ -130,9 +135,11 @@ class Dosen extends CI_Controller{
 	}
 	public function jadwalByNidn($nidn)
 	{
-		$jadwal = $this->jdm->getJadwalByDosen($nidn);
+		$jadwal = $this->jdm->getJadwalDosen($nidn);
+		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$data = [
 			'jadwal' => $jadwal,
+			'user' => $user,
 		];
 		$this->template->load('template','dosen/jadwal-dosen_view', $data);
 	}

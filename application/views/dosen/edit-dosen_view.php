@@ -34,10 +34,6 @@
                             <input name="nama_dosen" value="<?php echo $dosen[0]->nama_dosen; ?>" type="text" class="form-control" placeholder="Tama">
                         </div>
                         <div class="input-group">
-                            <label>tempat_lahir</label>
-                            <input name="tempat_lahir" value="<?php echo $dosen[0]->tempat_lahir; ?>" type="text" class="form-control" placeholder="Bogor">
-                        </div>
-                        <div class="input-group">
                             <label>tanggal_lahir</label>
                             <input name="tanggal_lahir" value="<?php echo $dosen[0]->tanggal_lahir; ?>" type="text" class="form-control" placeholder="1990-1-1">
                         </div>

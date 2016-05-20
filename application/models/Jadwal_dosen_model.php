@@ -9,9 +9,9 @@ class Jadwal_dosen_model extends CI_Model {
 		parent::__construct();
 		
 	}
-	public function getJadwalByDosen($nidn)
+	public function getJadwalByDosen($id_dosen)
 	{
-		$this->db->where('nidn', $nidn);
+		$this->db->where('id_dosen', $id_dosen);
 		$this->db->from($this->table);
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
@@ -31,6 +31,14 @@ class Jadwal_dosen_model extends CI_Model {
 		$this->db->set('status_jadwal', $status);
 		$this->db->where('id_jadwal', $id);
 		return $this->db->update($this->table);
+	}
+	public function getJadwalDosen($id_jadwal)
+	{
+		$this->db->select('*');
+		$this->db->from($this->table);
+		$this->db->join('jadwal', 'jadwal.ID_Jadwal = jadwal_dosen.id_jadwal');
+		$this->db->join('matakuliah', 'matakuliah.ID_Mk = jadwal.ID_Mk');
+		return $this->db->get()->result();
 	}
 }
 

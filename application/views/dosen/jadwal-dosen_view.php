@@ -23,7 +23,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id_jadwal</th>
+                                <th>Nama</th>
+                                <th>Jam</th>
+                                <th>Ruangan</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -33,7 +35,9 @@
                             <?php foreach ($jadwal as $key): ?>
                                 <tr>
                                     <td><?php echo $no ?></td>
-                                    <td><?php echo $key->id_jadwal ?></td>
+                                    <td><?php echo $key->Nama_mk ?></td>
+                                    <td><?php echo $key->Jam_Kelas ?></td>
+                                    <td><?php echo $key->Kelas_MK ?></td>
                                     <td>
                                         <?php if ($key->status_jadwal === '0'): ?>
                                             Belum konfirmasi
