@@ -3,6 +3,9 @@ class Log extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+		if (! ($this->session->has_userdata('Status')) ) {
+			redirect('login');
+		}
     }
 	public function index()
 	{

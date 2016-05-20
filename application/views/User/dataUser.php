@@ -43,7 +43,7 @@
                             <td><?php echo $d->Password ?></td>
                             <td>
                               <a href="<?php echo base_url(); ?>User/editUser/<?php echo $d->ID_User?>" class="btn btn-warning">Edit</a>
-                              <a href="<?php echo base_url(); ?>User/deleteUser/<?php echo $d->ID_User?>" class="btn btn-danger">Delete</a>
+                              <a href="<?php echo base_url(); ?>User/deleteUser/<?php echo $d->ID_User?>/<?php echo $user['ID_User']; ?>" class="btn btn-danger">Delete</a>
                             </td>
                           </tr>
                         <?php endforeach ?>

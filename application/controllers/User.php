@@ -3,6 +3,9 @@ class User extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+		if (! ($this->session->has_userdata('Status')) ) {
+			redirect('login');
+		}
     }
 	public function index()
 	{
@@ -23,6 +26,7 @@ class User extends CI_Controller {
 
 	public function do_insertUser()
 	{
+		$ID_User = $this->input->post('ID');
 		$user = [
 			'ID_User'    => $this->input->post('ID_User'),
 			'Nama_User'  => $this->input->post('Nama_User'),
@@ -31,7 +35,7 @@ class User extends CI_Controller {
 		];
 		if ($this->User_model->insertUser($user)) {
 			$Log = [
-				'ID_User'	=> "User",
+				'ID_User'	=> $ID_User,
 				'Tanggal'	=> date('Y-m-d H:i:s'),
 				'Aktifitas' => "Insert data ".$this->input->post('Status')." ".$this->input->post('ID_User'),
 			];
@@ -58,7 +62,7 @@ class User extends CI_Controller {
 	public function updateUser()
 	{
 		$id = $this->input->post('ID_User');
-		$User = "user";
+		$User = $this->input->post('ID');
 		$user = [
 			'Nama_User'  => $this->input->post('Nama_User'),
 			'Status' 	 => $this->input->post('Status'),
@@ -79,12 +83,12 @@ class User extends CI_Controller {
 			echo "Gagal update data user";
 		}
 	}
-	public function deleteUser($id)
+	public function deleteUser($id,$ID_User)
 	{
 		$this->User_model->deleteUser($id);
 
 		$Log = [
-			'ID_User'	=> "User",
+			'ID_User'	=> $ID_User,
 			'Tanggal'	=> date('Y-m-d H:i:s'),
 			'Aktifitas' => "Hapus data User".$id,
 		];
@@ -122,6 +126,31 @@ class User extends CI_Controller {
 	}
 
 	public function do_resetAllPassword(){
-		
+		$Status = $this->input->post('Status');
+		$user   = $this->input->post('ID_User');
+		$ResetAll = "";
+		$reset = [
+			'Password' => "123456",
+		];
+		if($Status == "All"){
+			$akun = $this->User_model->GetUser_byStatus($ResetAll);
+			$Status = "";
+		}else{
+			$akun = $this->User_model->GetUser_byStatus("where Status='".$Status."'");
+		}
+		foreach ($akun as $a) {
+			$ID_User = $a->ID_User;
+			$this->User_model->updateUser($reset, $ID_User);
+		}
+		$Log = [
+			'ID_User'	=> $user,
+			'Tanggal'	=> date('Y-m-d H:i:s'),
+			'Aktifitas' => "Reset semua akun ".$Status,
+		];
+		if($this->Log_model->insertLog($Log)){
+			redirect('User');
+		}else{
+			echo "gagal insert data log";
+		}
 	}
 }
