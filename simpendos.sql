@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2016 at 11:52 AM
--- Server version: 10.1.10-MariaDB-log
--- PHP Version: 7.0.4
+-- Generation Time: 20 Mei 2016 pada 18.39
+-- Versi Server: 5.6.21
+-- PHP Version: 5.5.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `simpendos`
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dosen`
+-- Struktur dari tabel `dosen`
 --
 
-CREATE TABLE `dosen` (
+CREATE TABLE IF NOT EXISTS `dosen` (
   `ID_Dosen` varchar(12) NOT NULL,
   `nama_dosen` varchar(25) NOT NULL,
   `tempat_lahir` varchar(20) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `dosen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dosen`
+-- Dumping data untuk tabel `dosen`
 --
 
 INSERT INTO `dosen` (`ID_Dosen`, `nama_dosen`, `tempat_lahir`, `tanggal_lahir`, `gelar_lengkap`, `alamat_malang`, `ref_aktivasiDosen`) VALUES
@@ -69,19 +69,19 @@ INSERT INTO `dosen` (`ID_Dosen`, `nama_dosen`, `tempat_lahir`, `tanggal_lahir`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal`
+-- Struktur dari tabel `jadwal`
 --
 
-CREATE TABLE `jadwal` (
-  `ID_Jadwal` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `jadwal` (
+`ID_Jadwal` int(11) NOT NULL,
   `ID_Mk` varchar(20) NOT NULL,
   `ID_Dosen` varchar(20) NOT NULL,
   `Kelas_MK` varchar(10) NOT NULL,
   `Jam_Kelas` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jadwal`
+-- Dumping data untuk tabel `jadwal`
 --
 
 INSERT INTO `jadwal` (`ID_Jadwal`, `ID_Mk`, `ID_Dosen`, `Kelas_MK`, `Jam_Kelas`) VALUES
@@ -90,18 +90,18 @@ INSERT INTO `jadwal` (`ID_Jadwal`, `ID_Mk`, `ID_Dosen`, `Kelas_MK`, `Jam_Kelas`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal_dosen`
+-- Struktur dari tabel `jadwal_dosen`
 --
 
-CREATE TABLE `jadwal_dosen` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `jadwal_dosen` (
+`id` int(11) NOT NULL,
   `nidn` int(11) NOT NULL,
   `id_jadwal` int(11) NOT NULL,
   `status_jadwal` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jadwal_dosen`
+-- Dumping data untuk tabel `jadwal_dosen`
 --
 
 INSERT INTO `jadwal_dosen` (`id`, `nidn`, `id_jadwal`, `status_jadwal`) VALUES
@@ -113,19 +113,19 @@ INSERT INTO `jadwal_dosen` (`id`, `nidn`, `id_jadwal`, `status_jadwal`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal_report`
+-- Struktur dari tabel `jadwal_report`
 --
 
-CREATE TABLE `jadwal_report` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `jadwal_report` (
+`id` int(11) NOT NULL,
   `id_jadwal_dosen` int(11) NOT NULL,
   `subject` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL,
   `status_report` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jadwal_report`
+-- Dumping data untuk tabel `jadwal_report`
 --
 
 INSERT INTO `jadwal_report` (`id`, `id_jadwal_dosen`, `subject`, `deskripsi`, `status_report`) VALUES
@@ -136,11 +136,11 @@ INSERT INTO `jadwal_report` (`id`, `id_jadwal_dosen`, `subject`, `deskripsi`, `s
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log`
+-- Struktur dari tabel `log`
 --
 
-CREATE TABLE `log` (
-  `ID_Log` int(20) NOT NULL,
+CREATE TABLE IF NOT EXISTS `log` (
+`ID_Log` int(20) NOT NULL,
   `ID_User` varchar(20) NOT NULL,
   `Tanggal` datetime NOT NULL,
   `Aktifitas` varchar(100) NOT NULL
@@ -149,20 +149,20 @@ CREATE TABLE `log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `matakuliah`
+-- Struktur dari tabel `matakuliah`
 --
 
-CREATE TABLE `matakuliah` (
+CREATE TABLE IF NOT EXISTS `matakuliah` (
   `ID_Mk` varchar(20) NOT NULL,
-  `Nama _mk` varchar(50) NOT NULL,
+  `Nama_mk` varchar(50) NOT NULL,
   `Jumlah_sks` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `matakuliah`
+-- Dumping data untuk tabel `matakuliah`
 --
 
-INSERT INTO `matakuliah` (`ID_Mk`, `Nama _mk`, `Jumlah_sks`) VALUES
+INSERT INTO `matakuliah` (`ID_Mk`, `Nama_mk`, `Jumlah_sks`) VALUES
 ('0110370938', 'Ilmu Sosial & Budaya Dasar', 2),
 ('0110371876', 'Pend. Pancasila dan Kewarganegaraan', 2),
 ('0120370044', 'AIK I', 1),
@@ -251,10 +251,10 @@ INSERT INTO `matakuliah` (`ID_Mk`, `Nama _mk`, `Jumlah_sks`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notifikasi`
+-- Struktur dari tabel `notifikasi`
 --
 
-CREATE TABLE `notifikasi` (
+CREATE TABLE IF NOT EXISTS `notifikasi` (
   `ID_Notif` int(11) NOT NULL,
   `ID_User` varchar(20) NOT NULL,
   `Nama_Notif` varchar(30) NOT NULL,
@@ -264,10 +264,10 @@ CREATE TABLE `notifikasi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `ID_User` varchar(20) NOT NULL,
   `Nama_User` varchar(50) NOT NULL,
   `Password` varchar(20) NOT NULL,
@@ -275,7 +275,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`ID_User`, `Nama_User`, `Password`, `Status`) VALUES
@@ -290,52 +290,49 @@ INSERT INTO `user` (`ID_User`, `Nama_User`, `Password`, `Status`) VALUES
 -- Indexes for table `dosen`
 --
 ALTER TABLE `dosen`
-  ADD PRIMARY KEY (`ID_Dosen`);
+ ADD PRIMARY KEY (`ID_Dosen`);
 
 --
 -- Indexes for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  ADD PRIMARY KEY (`ID_Jadwal`),
-  ADD KEY `ID_Dosen` (`ID_Dosen`),
-  ADD KEY `ID_MK` (`ID_Mk`);
+ ADD PRIMARY KEY (`ID_Jadwal`), ADD KEY `ID_Dosen` (`ID_Dosen`), ADD KEY `ID_MK` (`ID_Mk`);
 
 --
 -- Indexes for table `jadwal_dosen`
 --
 ALTER TABLE `jadwal_dosen`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `jadwal_report`
 --
 ALTER TABLE `jadwal_report`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `log`
 --
 ALTER TABLE `log`
-  ADD PRIMARY KEY (`ID_Log`);
+ ADD PRIMARY KEY (`ID_Log`);
 
 --
 -- Indexes for table `matakuliah`
 --
 ALTER TABLE `matakuliah`
-  ADD PRIMARY KEY (`ID_Mk`);
+ ADD PRIMARY KEY (`ID_Mk`);
 
 --
 -- Indexes for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  ADD PRIMARY KEY (`ID_Notif`),
-  ADD KEY `ID_User` (`ID_User`);
+ ADD PRIMARY KEY (`ID_Notif`), ADD KEY `ID_User` (`ID_User`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID_User`);
+ ADD PRIMARY KEY (`ID_User`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -345,22 +342,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `jadwal_dosen`
 --
 ALTER TABLE `jadwal_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `jadwal_report`
 --
 ALTER TABLE `jadwal_report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `ID_Log` int(20) NOT NULL AUTO_INCREMENT;
+MODIFY `ID_Log` int(20) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
