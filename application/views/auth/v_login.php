@@ -31,7 +31,7 @@
 	</div><!-- /.login-logo -->
 	<div class="login-box-body">
 		<p class="login-box-msg">Silahkan Masuk ke Sistem</p>
-		<?php echo form_open('login/aksi') ?>
+		<?php echo form_open('login/do_login') ?>
 			<div class="form-group has-feedback">
 				<input type="text" class="form-control" name="Nama_User" placeholder="Email"/>
 				<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -52,7 +52,7 @@
 					<button type="submit" class="btn btn-primary btn-block btn-flat">Log In</button>
 				</div><!-- /.col -->
 			</div>
-		</form>
+		<?php echo form_close(); ?>
 
 	</div><!-- /.login-box-body -->
 </div><!-- /.login-box -->

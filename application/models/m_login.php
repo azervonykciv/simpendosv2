@@ -10,5 +10,20 @@ class M_login extends CI_Model{
 		return $this->db->query($query)->num_rows();
 	
 	}
+
+	function cek_user($Nama_User="", $password=""){
+		$query = $this->db->get_where("user", array('ID_User' => $Nama_User , 'Password' => $password));
+		$query = $query->result_array();
+		return $query;
+	}
+
+	function ambil_user($username){
+		$query = $this->db->get_where("user",array('ID_User' => $username));
+		$query = $query->result_array();
+
+		if($query){
+			return $query[0];
+		}
+	}
 }
 ?>

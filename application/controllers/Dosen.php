@@ -18,6 +18,7 @@ class Dosen extends CI_Controller{
 		];
 		$this->template->load('template','dosen/dosen_view', $data);
 	}
+	
 	public function insert()
 	{
 		$this->template->load('template','dosen/insert-dosen_view');

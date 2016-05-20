@@ -12,18 +12,26 @@ class Login extends CI_Controller {
 		$this->load->view('auth/v_login');
 	}
 	
-	function aksi(){		
+	function do_login(){		
 
-		$Nama_User=$this->input->post('Nama_User');
-		$Password=$this->input->post('Password');
+		$Nama_User = $this->input->post('Nama_User');
+		$Password  = $this->input->post('Password');
 
 		
-		$cek=$this->m_login->m_aksi($where=" WHERE Nama_User ='$Nama_User' AND Password = '$Password'");
-		if($cek > 0){
-			$x=$this->session->set_userdata($data);			
-			redirect('login/sukses');
+		$cek=$this->m_login->cek_user($Nama_User, $Password);
+		if(count($cek) == 1){
+			foreach($cek as $cek) {
+				$Status = $cek['Status'];
+			}
+			$x=$this->session->set_userdata(array(
+				'isLogin'	=> TRUE,
+				'uname'		=> $Nama_User,
+				'Status'	=> $Status,
+			));	
+
+			redirect('dashboard', 'refresh');
 		}else{
-			echo "login gagal";
+			$this->load->view('auth/v_login');
 		}
 	}
 

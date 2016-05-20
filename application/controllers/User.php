@@ -21,7 +21,7 @@ class User extends CI_Controller {
 		$user = [
 			'ID_User'    => $this->input->post('ID_User'),
 			'Nama_User'  => $this->input->post('Nama_User'),
-			'Password'   => md5($this->input->post('Password')),
+			'Password'   => $this->input->post('Password'),
 			'Status'     => $this->input->post('Status'),
 		];
 		if ($this->User_model->insertUser($user)) {
