@@ -19,6 +19,8 @@
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <a href="<?php echo base_url(); ?>User/insertUser" class="btn btn-success btn-submit">Masukan User Baru </a>
+                  &nbsp;
+                  <a href="<?php echo base_url(); ?>User/resetAllPassword" class="btn btn-danger btn-submit">Reset Semua Password </a>
                   </br>
                   </br>
                   <table id="example1" class="table table-bordered table-striped">
