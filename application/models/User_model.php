@@ -9,6 +9,11 @@ class User_model extends CI_Model
         return $query->result();
     }
 
+    public function GetUser_byStatus($Status=''){
+        $query = "select * from user ".$Status;
+        return $this->db->query($query)->result();
+    }
+
     public function getUser_byid($id)
     {
         $this->db->where('ID_User', $id);

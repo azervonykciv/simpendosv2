@@ -3,6 +3,13 @@ class User extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+		/*$ambil_akun	= $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data = array(
+			'user' => $ambil_akun,
+		);
+		if($stat != "Super Admin"){
+			redirect('login');
+		}*/
     }
 	public function index()
 	{
@@ -122,6 +129,31 @@ class User extends CI_Controller {
 	}
 
 	public function do_resetAllPassword(){
-		
+		$Status = $this->input->post('Status');
+		$user   = $this->input->post('ID_User');
+		$ResetAll = "";
+		$reset = [
+			'Password' => "123456",
+		];
+		if($Status == "All"){
+			$akun = $this->User_model->GetUser_byStatus($ResetAll);
+			$Status = "";
+		}else{
+			$akun = $this->User_model->GetUser_byStatus("where Status='".$Status."'");
+		}
+		foreach ($akun as $a) {
+			$ID_User = $a->ID_User;
+			$this->User_model->updateUser($reset, $ID_User);
+		}
+		$Log = [
+			'ID_User'	=> $user,
+			'Tanggal'	=> date('Y-m-d H:i:s'),
+			'Aktifitas' => "Reset semua akun ".$Status,
+		];
+		if($this->Log_model->insertLog($Log)){
+			redirect('User');
+		}else{
+			echo "gagal insert data log";
+		}
 	}
 }
