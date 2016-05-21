@@ -26,6 +26,7 @@
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <form action="<?php echo base_url(); ?>admin/updatejadwal/<?php echo $jadwal[0]->ID_Jadwal.'/'. $jadwal[0]->id_jadwal_dosen .'/'. $jadwal[0]->id_jadwal_report ?>" method="POST">
+                        <input name="ID" value="<?php echo $user['ID_User']; ?>" type="hidden">
                         <div class="input-group">
                             <label>ID Jadwal</label>
                             <input name="ID_Jadwal" value="<?php echo $jadwal[0]->ID_Jadwal; ?>" type="text" class="form-control" readonly>

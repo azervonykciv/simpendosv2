@@ -38,6 +38,7 @@ class Admin extends CI_Controller{
 	}
 	public function updateJadwal($id, $id_jadwal_dosen, $id_report)
 	{
+		$ID = $this->input->post('ID');
 		$jadwal = [
 			'ID_Jadwal' => $this->input->post('ID_Jadwal'),
 			'ID_Mk' => $this->input->post('ID_Mk'),
@@ -51,18 +52,36 @@ class Admin extends CI_Controller{
 		$this->jrm->updateStatus($id_report, 1);
 		$result = $this->jdm->updateJadwal($id, $jadwal);
 		if ($result) {
-			redirect('admin/listreport');
+			$Log = [
+				'ID_User'	=> $ID,
+				'Tanggal'	=> date('Y-m-d H:i:s'),
+				'Aktifitas' => "Update Jadwal",
+			];
+			if($this->Log_model->insertLog($Log)){
+				redirect('admin/listreport');
+			}else{
+				echo "gagal insert data log";
+			}
 		} else {
 			echo "gagal update";
 		}
 	}
-	public function tolakReport($id_report, $id_jadwal_dosen)
+	public function tolakReport($id_report, $id_jadwal_dosen,$ID)
 	{
 		// 3 = Laporan di tolak
 		$this->jdm->updateStatus($id_jadwal_dosen, 3);
 		// 1 = Laporan sudah di proses
 		$this->jrm->updateStatus($id_report, 1);
-		redirect('admin/listreport');
+		$Log = [
+			'ID_User'	=> $ID,
+			'Tanggal'	=> date('Y-m-d H:i:s'),
+			'Aktifitas' => "Update Jadwal",
+		];
+		if($this->Log_model->insertLog($Log)){
+			redirect('admin/listreport');
+		}else{
+			echo "gagal insert data log";
+		}
 	}
 	public function detailreport($id)
 	{

@@ -39,7 +39,7 @@
                                     <td>
                                         <a href="<?php echo base_url(); ?>admin/editreport/<?php echo $key->id_jadwal_report?>" class="btn btn-success">Update</a>
                                         <a href="<?php echo base_url(); ?>admin/detailreport/<?php echo $key->id_jadwal_report?>" class="btn btn-warning">Detail</a>
-                                        <a href="<?php echo base_url(); ?>admin/tolakreport/<?php echo $key->id_jadwal_report.'/'.$key->id_jadwal_dosen?>" class="btn btn-danger">Tolak</a>
+                                        <a href="<?php echo base_url(); ?>admin/tolakreport/<?php echo $key->id_jadwal_report.'/'.$key->id_jadwal_dosen?>/<?php echo $user['ID_User']; ?>" class="btn btn-danger">Tolak</a>
                                     </td>
                                 </tr>
                             <?php $no++; ?>
