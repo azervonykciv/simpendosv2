@@ -13,17 +13,21 @@ class Jadwal extends CI_Controller{
     }
 
     public function index(){    
-       $data = $this->ModelJadwal->GetMatakuliah();
+        $data = $this->ModelJadwal->GetMatakuliah();
+        $user = $this->m_login->ambil_user($this->session->userdata('uname'));
         $matkul = [
             'data' => $data,
+            'user' => $user,
         ];
         $this->template->load('templateSuperAdmin','Matkul/halmatkul', $matkul);
     }
 
     public function viewmatkuladmin(){    
-       $data = $this->ModelJadwal->GetMatakuliah();
+        $data = $this->ModelJadwal->GetMatakuliah();
+        $user = $this->m_login->ambil_user($this->session->userdata('uname'));
         $matkul = [
             'data' => $data,
+            'user' => $user,
         ];
         $this->template->load('template','Matkul/viewmatkuladmin', $matkul);
     }
@@ -31,16 +35,22 @@ class Jadwal extends CI_Controller{
 
 
     public function insert(){
-        $this->template->load('templateSuperAdmin','Matkul/insertmatkul');
+        $user = $this->m_login->ambil_user($this->session->userdata('uname'));
+        $data = [
+            'user' => $user,
+        ];
+        $this->template->load('templateSuperAdmin','Matkul/insertmatkul',$data);
     }
 
 
     public function update($ID_Mk){
-        $res = $this->ModelJadwal->GetMatakuliah("where ID_Mk = '$ID_Mk'");
+        $res  = $this->ModelJadwal->GetMatakuliah("where ID_Mk = '$ID_Mk'");
+        $user = $this->m_login->ambil_user($this->session->userdata('uname'));
         $data = array(
-            "ID_Mk"=>$res[0]['ID_Mk'],
-            "Nama_mk"=>$res[0]['Nama_mk'],
-            "Jumlah_sks"=>$res[0]['Jumlah_sks']
+            "ID_Mk"     =>$res[0]['ID_Mk'],
+            "Nama_mk"   =>$res[0]['Nama_mk'],
+            "Jumlah_sks"=>$res[0]['Jumlah_sks'],
+            'user'      => $user,
         );
         $this->template->load('templateSuperAdmin','Matkul/UpdateMatkul',$data);
     }
@@ -132,10 +142,12 @@ public function penjadwalan(){
         $mk = $this->ModelJadwal->GetMatakuliah();
         $data = $this->ModelJadwal->GetJadwal();
         $dosen = $this->Dosen_model->GetDosen();
+        $user = $this->m_login->ambil_user($this->session->userdata('uname'));
         $jadwal = [
             'dosen' => $dosen,
-            'data' => $data,
-            'mk' => $mk,
+            'data'  => $data,
+            'mk'    => $mk,
+            'user'  => $user,
         ];
         $this->template->load('template','penjadwalan/tampilPenjadwalan', $jadwal);
     }

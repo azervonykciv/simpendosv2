@@ -26,7 +26,11 @@ class Dosen extends CI_Controller{
 	
 	public function insert()
 	{
-		$this->template->load('template','dosen/insert-dosen_view');
+		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data = [
+			'user' => $user,
+		];
+		$this->template->load('template','dosen/insert-dosen_view',$data);
 	}
 	public function store()
 	{
@@ -42,7 +46,7 @@ class Dosen extends CI_Controller{
 		if ($this->dm->insert($dosen)) {
 			$Status = "Dosen";
 			$Password = "123456";
-			$User = "user";
+			$User = $this->input->post('ID_User');
 			$uDosen = [
 				'ID_User'           => $this->input->post('nidn'),
 				'Nama_User'        	=> $this->input->post('nama_dosen'),
@@ -69,11 +73,13 @@ class Dosen extends CI_Controller{
 	}
 	public function edit($id)
 	{
+		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$dosen = $this->dm->get_byid($id);
 		$dDosenU = $this->User_model->getUser_byid($id);
 		$data = [
 			'dosen' 	=> $dosen,
 			'dosenUser' => $dDosenU,
+			'user'		=> $user,
 		];
 		$this->template->load('template','dosen/edit-dosen_view', $data);
 	}
@@ -81,7 +87,7 @@ class Dosen extends CI_Controller{
 	{
 		$id = $this->input->post('nidn');
 		$Status = "Dosen";
-		$User = "user";
+		$User = $this->input->post('ID_User');
 		$dosen = [
 			'nidn'              => $id,
 			'nama_dosen'        => $this->input->post('nama_dosen'),
@@ -116,14 +122,13 @@ class Dosen extends CI_Controller{
 			echo "Gagal update";
 		}
 	}
-	public function delete($id)
+	public function delete($id,$ID_User)
 	{
 		$this->dm->delete($id);
 		$this->User_model->deleteUser($id);
-		$User = "user";
 
 		$Log = [
-			'ID_User'	=> $User,
+			'ID_User'	=> $ID_User,
 			'Tanggal'	=> date('Y-m-d H:i:s'),
 			'Aktifitas' => "Delete data dosen ".$id,
 		];
@@ -161,6 +166,10 @@ class Dosen extends CI_Controller{
 	public function insertreport()
 	{
 		$id = $this->input->post('id');
+		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data = [
+			'user' => $user,
+		];
 		$report = [
 			'id_jadwal_dosen' => $id,
 			'subject'         => $this->input->post('subject'),
@@ -169,7 +178,7 @@ class Dosen extends CI_Controller{
 		// 1 = Proses Laporan
 		$this->jdm->updateStatus($id, 1);
 		if ($this->jrm->insert($report)) {
-			redirect('dosen/jadwalByNidn/701058601');
+			redirect('dosen/jadwalByNidn/701058601',$data);
 		}
 	}
 }

@@ -25,6 +25,7 @@
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <form action="<?php echo base_url(); ?>User/do_insertUser" method="POST">
+                        <input name="ID" value="<?php echo $user['ID_User']; ?>" type="hidden">
                         <div class="input-group">
                             <label>ID User</label>
                             <input name="ID_User" type="text" class="form-control" placeholder="012345">

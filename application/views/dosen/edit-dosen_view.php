@@ -25,6 +25,7 @@
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <form action="<?php echo base_url(); ?>dosen/update" method="POST">
+                        <input name="ID_User" type="hidden" value="<?php echo $user['ID_User']; ?>">
                         <div class="input-group">
                             <label>Nidn</label>
                             <input name="nidn" value="<?php echo $dosen[0]->nidn; ?>" type="text" class="form-control" placeholder="012345" readonly>

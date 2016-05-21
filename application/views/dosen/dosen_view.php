@@ -41,8 +41,8 @@
                                     <td><?php echo $key->nama_dosen ?></td>
                                     <td><?php echo $key->gelar_lengkap ?></td>
                                     <td>
-                                        <a href="<?php echo base_url(); ?>dosen/edit/<?php echo $key->nidn?>" class="btn btn-warning">Edit</a>
-                                        <a href="<?php echo base_url(); ?>dosen/delete/<?php echo $key->nidn?>" class="btn btn-danger">Delete</a>
+                                        <a href="<?php echo base_url(); ?>dosen/edit/<?php echo $key->nidn;?>" class="btn btn-warning">Edit</a>
+                                        <a href="<?php echo base_url(); ?>dosen/delete/<?php echo $key->nidn;?>/<?php echo $user['ID_User'];?>" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
