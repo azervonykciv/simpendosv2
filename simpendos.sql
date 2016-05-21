@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2016 at 01:51 PM
+-- Generation Time: May 22, 2016 at 01:19 AM
 -- Server version: 10.1.10-MariaDB-log
 -- PHP Version: 7.0.4
 
@@ -80,15 +80,6 @@ CREATE TABLE `jadwal` (
   `Jam_Kelas` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `jadwal`
---
-
-INSERT INTO `jadwal` (`ID_Jadwal`, `ID_Mk`, `ID_Dosen`, `Kelas_MK`, `Jam_Kelas`) VALUES
-(1, '0210371835', '0701058601', '5.05', '10.20'),
-(2, '0110370938', '701058601', '5.05', '07.00'),
-(3, '0210371835', '701058601', '5.05', '08.20');
-
 -- --------------------------------------------------------
 
 --
@@ -96,21 +87,11 @@ INSERT INTO `jadwal` (`ID_Jadwal`, `ID_Mk`, `ID_Dosen`, `Kelas_MK`, `Jam_Kelas`)
 --
 
 CREATE TABLE `jadwal_dosen` (
-  `id` int(11) NOT NULL,
+  `id_jadwal_dosen` int(11) NOT NULL,
   `id_dosen` int(11) NOT NULL,
   `id_jadwal` int(11) NOT NULL,
   `status_jadwal` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `jadwal_dosen`
---
-
-INSERT INTO `jadwal_dosen` (`id`, `id_dosen`, `id_jadwal`, `status_jadwal`) VALUES
-(1, 701058601, 1, 0),
-(2, 701058601, 2, 1),
-(3, 701058601, 3, 2),
-(4, 701058601, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -119,21 +100,12 @@ INSERT INTO `jadwal_dosen` (`id`, `id_dosen`, `id_jadwal`, `status_jadwal`) VALU
 --
 
 CREATE TABLE `jadwal_report` (
-  `id` int(11) NOT NULL,
+  `id_jadwal_report` int(11) NOT NULL,
   `id_jadwal_dosen` int(11) NOT NULL,
   `subject` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL,
   `status_report` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `jadwal_report`
---
-
-INSERT INTO `jadwal_report` (`id`, `id_jadwal_dosen`, `subject`, `deskripsi`, `status_report`) VALUES
-(1, 1, 'Sibuk', 'Pada hari selasa dan rabu saya tidak bisa berada di kampus', 1),
-(2, 1, 'Sibuk', 'Pada hari selasa dan rabu saya tidak bisa berada di kampus', 1),
-(3, 4, 'Sulit', 'SulitSulitSulitSulitSulit', 1);
 
 -- --------------------------------------------------------
 
@@ -281,9 +253,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID_User`, `Nama_User`, `Password`, `Status`) VALUES
+('123', 'Tama', '123', 'Admin'),
 ('12345', 'Sari Wahyunita', '827ccb0eea8a706c4c34', 'Admin'),
 ('12346', 'Adi Askadi', '202cb962ac59075b964b', 'Super Admin'),
-('701058601', 'Gusti Alfian', '137', 'Dosen');
+('701058601', 'Gusti Alfian', '123', 'Dosen');
 
 --
 -- Indexes for dumped tables
@@ -307,13 +280,16 @@ ALTER TABLE `jadwal`
 -- Indexes for table `jadwal_dosen`
 --
 ALTER TABLE `jadwal_dosen`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_jadwal_dosen`),
+  ADD KEY `id_dosen` (`id_dosen`),
+  ADD KEY `id_jadwal` (`id_jadwal`);
 
 --
 -- Indexes for table `jadwal_report`
 --
 ALTER TABLE `jadwal_report`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_jadwal_report`),
+  ADD KEY `id_jadwal_dosen` (`id_jadwal_dosen`);
 
 --
 -- Indexes for table `log`
@@ -348,17 +324,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `jadwal_dosen`
 --
 ALTER TABLE `jadwal_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_jadwal_dosen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `jadwal_report`
 --
 ALTER TABLE `jadwal_report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jadwal_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `log`
 --
