@@ -12,7 +12,7 @@
         <section class="content">
           <div class="row">
             <div class="col-md-12">
-              <a href="<?php echo base_url(); ?>admin/listreport" class="btn btn-primary">List Report</a>
+              <a href="<?php echo base_url(); ?>admin/listdosen" class="btn btn-primary">List Dosen</a>
             </div>
           </div><!-- /.row -->
         </section><!-- /.content -->
