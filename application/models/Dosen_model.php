@@ -27,7 +27,7 @@ class Dosen_model extends CI_Model
     }
     public function get_byid($id)
     {
-        $this->db->where('nidn', $id);
+        $this->db->where('ID_Dosen', $id);
         return $this->db->get($this->table)->result();
     }
     public function get_Limit($limit, $offset)
@@ -37,14 +37,14 @@ class Dosen_model extends CI_Model
     }
     public function update($data, $id)
     {
-        $this->db->where('nidn', $id);
+        $this->db->where('ID_Dosen', $id);
         $this->db->update($this->table, $data);
         $this->db->trans_complete();
         return $this->db->trans_status();
     }
     public function delete($id)
     {
-        $this->db->where('nidn', $id);
+        $this->db->where('ID_Dosen', $id);
         $this->db->delete($this->table);
     }
     public function count()

@@ -24,11 +24,11 @@
                     <h3 class="box-title">Masukan Dosen</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <form action="<?php echo base_url(); ?>dosen/update" method="POST">
+                    <form action="<?php echo base_url(); ?>admin/updatedosen" method="POST">
                         <input name="ID_User" type="hidden" value="<?php echo $user['ID_User']; ?>">
                         <div class="input-group">
-                            <label>Nidn</label>
-                            <input name="nidn" value="<?php echo $dosen[0]->nidn; ?>" type="text" class="form-control" placeholder="012345" readonly>
+                            <label>ID Dosen</label>
+                            <input name="ID_Dosen" value="<?php echo $dosen[0]->ID_Dosen; ?>" type="text" class="form-control" placeholder="012345" readonly>
                         </div>
                         <div class="input-group">
                             <label>Nama</label>

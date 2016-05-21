@@ -92,12 +92,12 @@ class Admin extends CI_Controller{
 		$data = [
 			'user' => $user,
 		];
-		$this->template->load('template','dosen/insert-dosen_view',$data);
+		$this->template->load('template','admin/insert-dosen_view',$data);
 	}
 	public function storeDosen()
 	{
 		$dosen = [
-			'nidn'              => $this->input->post('nidn'),
+			'id_dosen'          => $this->input->post('nidn'),
 			'nama_dosen'        => $this->input->post('nama_dosen'),
 			'tempat_lahir'      => $this->input->post('tempat_lahir'),
 			'tanggal_lahir'     => $this->input->post('tanggal_lahir'),
@@ -122,7 +122,7 @@ class Admin extends CI_Controller{
 					'Aktifitas' => "Insert data dosen ".$this->input->post('nidn'),
 				];
 				if($this->Log_model->insertLog($Log)){
-					redirect('dosen');
+					redirect('admin/listdosen');
 				}else{
 					echo "gagal insert data log";
 				}
@@ -136,22 +136,25 @@ class Admin extends CI_Controller{
 	public function editDosen($ID_Dosen)
 	{
 		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
-		$dosen = $this->dm->get_byid($id);
-		$dDosenU = $this->User_model->getUser_byid($id);
+		$dosen = $this->dm->get_byid($ID_Dosen);
+		$dDosenU = $this->User_model->getUser_byid($ID_Dosen);
 		$data = [
 			'dosen' 	=> $dosen,
 			'dosenUser' => $dDosenU,
 			'user'		=> $user,
 		];
-		$this->template->load('template','dosen/edit-dosen_view', $data);
+		// echo "<pre>";
+		// print_r($data);
+		// die();
+		$this->template->load('template','admin/edit-dosen_view', $data);
 	}
-	public function updateDosen($ID_Dosen)
+	public function updateDosen()
 	{
-		$id = $this->input->post('nidn');
+		$id = $this->input->post('ID_Dosen');
 		$Status = "Dosen";
 		$User = $this->input->post('ID_User');
 		$dosen = [
-			'nidn'              => $id,
+			'ID_Dosen'          => $id,
 			'nama_dosen'        => $this->input->post('nama_dosen'),
 			'tempat_lahir'      => $this->input->post('tempat_lahir'),
 			'tanggal_lahir'     => $this->input->post('tanggal_lahir'),
@@ -159,6 +162,9 @@ class Admin extends CI_Controller{
 			'alamat_malang'     => $this->input->post('alamat_malang'),
 			'ref_aktivasiDosen' => $this->input->post('ref_aktivasiDosen'),
 		];
+		// echo "<pre>";
+		// print_r($dosen);
+		// die();
 		
 		if ($this->dm->update($dosen, $id)) {
 			$dosenU = [
@@ -173,7 +179,7 @@ class Admin extends CI_Controller{
 					'Aktifitas' => "Update data dosen ".$id,
 				];
 				if($this->Log_model->insertLog($Log)){
-					redirect('dosen');
+					redirect('admin/listdosen');
 				}else{
 					echo "gagal insert data log";
 				}
@@ -184,18 +190,18 @@ class Admin extends CI_Controller{
 			echo "Gagal update";
 		}
 	}
-	public function delete($ID_Dosen)
+	public function deleteDosen($ID_Dosen, $ID_User)
 	{
-		$this->dm->delete($id);
-		$this->User_model->deleteUser($id);
+		$this->dm->delete($ID_Dosen);
+		$this->User_model->deleteUser($ID_Dosen);
 
 		$Log = [
 			'ID_User'	=> $ID_User,
 			'Tanggal'	=> date('Y-m-d H:i:s'),
-			'Aktifitas' => "Delete data dosen ".$id,
+			'Aktifitas' => "Delete data dosen ".$ID_User,
 		];
 		if($this->Log_model->insertLog($Log)){
-			redirect('dosen');
+			redirect('admin/listdosen');
 		}else{
 			echo "gagal insert data log";
 		}
