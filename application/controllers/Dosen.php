@@ -26,7 +26,7 @@ class Dosen extends CI_Controller{
 			'jadwal' => $jadwal,
 			'user' => $user,
 		];
-		$this->template->load('template','dosen/jadwal-dosen_view', $data);
+		$this->template->load('templateDosen','dosen/jadwal-dosen_view', $data);
 	}
 	public function konfirmasi($id)
 	{
