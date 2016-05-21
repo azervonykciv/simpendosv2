@@ -6,6 +6,7 @@ class User extends CI_Controller {
 		if (! ($this->session->has_userdata('Status')) ) {
 			redirect('login');
 		}
+        $this->load->model('Dosen_model', 'dm');
     }
 	public function index()
 	{
@@ -152,5 +153,24 @@ class User extends CI_Controller {
 		}else{
 			echo "gagal insert data log";
 		}
+	}
+
+	public function insertUserFromDosen(){
+		$dosen = $this->dm->get_all();
+		foreach ($dosen as $d) {
+			$ID_User 	= $d->ID_Dosen;
+			$Nama_User	= $d->nama_dosen;
+			$Password 	= "123456";
+			$Status 	= "Dosen";
+
+			$user = [
+				'ID_User'    => $ID_User,
+				'Nama_User'  => $Nama_User,
+				'Password'   => $Password,
+				'Status'     => $Status,
+			];
+			$this->User_model->insertUser($user);
+		}
+		redirect('User');
 	}
 }

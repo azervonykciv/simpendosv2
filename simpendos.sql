@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2016 at 01:19 AM
--- Server version: 10.1.10-MariaDB-log
--- PHP Version: 7.0.4
+-- Generation Time: May 21, 2016 at 10:17 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.5.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `simpendos`
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `dosen`
 --
 
-CREATE TABLE `dosen` (
+CREATE TABLE IF NOT EXISTS `dosen` (
   `ID_Dosen` varchar(12) NOT NULL,
   `nama_dosen` varchar(25) NOT NULL,
   `tempat_lahir` varchar(20) NOT NULL,
@@ -72,13 +72,13 @@ INSERT INTO `dosen` (`ID_Dosen`, `nama_dosen`, `tempat_lahir`, `tanggal_lahir`, 
 -- Table structure for table `jadwal`
 --
 
-CREATE TABLE `jadwal` (
-  `ID_Jadwal` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `jadwal` (
+`ID_Jadwal` int(11) NOT NULL,
   `ID_Mk` varchar(20) NOT NULL,
   `ID_Dosen` varchar(20) NOT NULL,
   `Kelas_MK` varchar(10) NOT NULL,
   `Jam_Kelas` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -86,12 +86,12 @@ CREATE TABLE `jadwal` (
 -- Table structure for table `jadwal_dosen`
 --
 
-CREATE TABLE `jadwal_dosen` (
-  `id_jadwal_dosen` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `jadwal_dosen` (
+`id_jadwal_dosen` int(11) NOT NULL,
   `id_dosen` int(11) NOT NULL,
   `id_jadwal` int(11) NOT NULL,
   `status_jadwal` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -99,13 +99,13 @@ CREATE TABLE `jadwal_dosen` (
 -- Table structure for table `jadwal_report`
 --
 
-CREATE TABLE `jadwal_report` (
-  `id_jadwal_report` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `jadwal_report` (
+`id_jadwal_report` int(11) NOT NULL,
   `id_jadwal_dosen` int(11) NOT NULL,
   `subject` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL,
   `status_report` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -113,8 +113,8 @@ CREATE TABLE `jadwal_report` (
 -- Table structure for table `log`
 --
 
-CREATE TABLE `log` (
-  `ID_Log` int(20) NOT NULL,
+CREATE TABLE IF NOT EXISTS `log` (
+`ID_Log` int(20) NOT NULL,
   `ID_User` varchar(20) NOT NULL,
   `Tanggal` datetime NOT NULL,
   `Aktifitas` varchar(100) NOT NULL
@@ -126,7 +126,7 @@ CREATE TABLE `log` (
 -- Table structure for table `matakuliah`
 --
 
-CREATE TABLE `matakuliah` (
+CREATE TABLE IF NOT EXISTS `matakuliah` (
   `ID_Mk` varchar(20) NOT NULL,
   `Nama_mk` varchar(50) NOT NULL,
   `Jumlah_sks` int(11) NOT NULL
@@ -228,7 +228,7 @@ INSERT INTO `matakuliah` (`ID_Mk`, `Nama_mk`, `Jumlah_sks`) VALUES
 -- Table structure for table `notifikasi`
 --
 
-CREATE TABLE `notifikasi` (
+CREATE TABLE IF NOT EXISTS `notifikasi` (
   `ID_Notif` int(11) NOT NULL,
   `ID_User` varchar(20) NOT NULL,
   `Nama_Notif` varchar(30) NOT NULL,
@@ -241,7 +241,7 @@ CREATE TABLE `notifikasi` (
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `ID_User` varchar(20) NOT NULL,
   `Nama_User` varchar(50) NOT NULL,
   `Password` varchar(20) NOT NULL,
@@ -253,9 +253,31 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID_User`, `Nama_User`, `Password`, `Status`) VALUES
+('0701058601', 'DENAR REGATA AKBI', '123456', 'Dosen'),
+('0701068603', 'AMINUDIN', '123456', 'Dosen'),
+('0701078202', 'ALI SOFYAN KHOLIMI', '123456', 'Dosen'),
+('0706077902', 'YUDA MUNARKO', '123456', 'Dosen'),
+('0711098402', 'MASKUR', '123456', 'Dosen'),
+('0714028403', 'SETIO BASUKI', '123456', 'Dosen'),
+('0716018202', 'DIAH RISQIWATI', '123456', 'Dosen'),
+('0716118701', 'SYAIFUDDIN', '123456', 'Dosen'),
+('0717027001', 'EKO BUDI CAHYONO', '123456', 'Dosen'),
+('0718108701', 'EVI DWI WAHYUNI', '123456', 'Dosen'),
+('0720038101', 'GITA INDAH MARTHASARI', '123456', 'Dosen'),
+('0720068701', 'WAHYU ANDHYKA KUSUMA', '123456', 'Dosen'),
+('0721038602', 'HARDIANTO WIBOWO', '123456', 'Dosen'),
+('0723028801', 'GALIH WASIS WICAKSONO', '123456', 'Dosen'),
+('0723118601', 'ILYAS NURYASIN', '123456', 'Dosen'),
+('0724028602', 'LUQMAN HAKIM', '123456', 'Dosen'),
+('0726038402', 'NUR HAYATIN ', '123456', 'Dosen'),
+('0728088701', 'YUFIZ AZHAR', '123456', 'Dosen'),
+('0729118203', 'AGUS EKO MINARNO', '123456', 'Dosen'),
+('0730038405', 'WILDAN SUHARSO', '123456', 'Dosen'),
+('0730108401', 'LAILATUL HUSNIAH', '123456', 'Dosen'),
 ('123', 'Tama', '123', 'Admin'),
-('12345', 'Sari Wahyunita', '827ccb0eea8a706c4c34', 'Admin'),
-('12346', 'Adi Askadi', '202cb962ac59075b964b', 'Super Admin'),
+('1770', 'SOFYAN ARIFIANTO', '123456', 'Dosen'),
+('1859', 'FERA PUTRI AYU LESTARI', '123456', 'Dosen'),
+('425', 'HARIYADY', '123456', 'Dosen'),
 ('701058601', 'Gusti Alfian', '123', 'Dosen');
 
 --
@@ -266,55 +288,49 @@ INSERT INTO `user` (`ID_User`, `Nama_User`, `Password`, `Status`) VALUES
 -- Indexes for table `dosen`
 --
 ALTER TABLE `dosen`
-  ADD PRIMARY KEY (`ID_Dosen`);
+ ADD PRIMARY KEY (`ID_Dosen`);
 
 --
 -- Indexes for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  ADD PRIMARY KEY (`ID_Jadwal`),
-  ADD KEY `ID_Dosen` (`ID_Dosen`),
-  ADD KEY `ID_MK` (`ID_Mk`);
+ ADD PRIMARY KEY (`ID_Jadwal`), ADD KEY `ID_Dosen` (`ID_Dosen`), ADD KEY `ID_MK` (`ID_Mk`);
 
 --
 -- Indexes for table `jadwal_dosen`
 --
 ALTER TABLE `jadwal_dosen`
-  ADD PRIMARY KEY (`id_jadwal_dosen`),
-  ADD KEY `id_dosen` (`id_dosen`),
-  ADD KEY `id_jadwal` (`id_jadwal`);
+ ADD PRIMARY KEY (`id_jadwal_dosen`), ADD KEY `id_dosen` (`id_dosen`), ADD KEY `id_jadwal` (`id_jadwal`);
 
 --
 -- Indexes for table `jadwal_report`
 --
 ALTER TABLE `jadwal_report`
-  ADD PRIMARY KEY (`id_jadwal_report`),
-  ADD KEY `id_jadwal_dosen` (`id_jadwal_dosen`);
+ ADD PRIMARY KEY (`id_jadwal_report`), ADD KEY `id_jadwal_dosen` (`id_jadwal_dosen`);
 
 --
 -- Indexes for table `log`
 --
 ALTER TABLE `log`
-  ADD PRIMARY KEY (`ID_Log`);
+ ADD PRIMARY KEY (`ID_Log`);
 
 --
 -- Indexes for table `matakuliah`
 --
 ALTER TABLE `matakuliah`
-  ADD PRIMARY KEY (`ID_Mk`);
+ ADD PRIMARY KEY (`ID_Mk`);
 
 --
 -- Indexes for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  ADD PRIMARY KEY (`ID_Notif`),
-  ADD KEY `ID_User` (`ID_User`);
+ ADD PRIMARY KEY (`ID_Notif`), ADD KEY `ID_User` (`ID_User`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID_User`);
+ ADD PRIMARY KEY (`ID_User`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -324,22 +340,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+MODIFY `ID_Jadwal` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `jadwal_dosen`
 --
 ALTER TABLE `jadwal_dosen`
-  MODIFY `id_jadwal_dosen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+MODIFY `id_jadwal_dosen` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `jadwal_report`
 --
 ALTER TABLE `jadwal_report`
-  MODIFY `id_jadwal_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+MODIFY `id_jadwal_report` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `ID_Log` int(20) NOT NULL AUTO_INCREMENT;
+MODIFY `ID_Log` int(20) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
