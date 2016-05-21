@@ -13,6 +13,13 @@ class Dosen_model extends CI_Model
     {
         return $this->db->insert($this->table, $data);
     }
+
+    /*==== Penjadwalan ====*/
+    public function GetDosen($where = ""){
+        $data = $this->db->query('select * from dosen '.$where);
+        return $data->result_array();
+    }
+
     public function get_all()
     {
         $query = $this->db->get($this->table);
