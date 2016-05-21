@@ -26,6 +26,7 @@
                 <div class="box-body">
                     <form action="<?php echo base_url(); ?>User/updateProfileAdmin" method="POST">
                         <input name="ID" value="<?php echo $user['ID_User']; ?>" type="hidden">
+                        <input name="Status" value="<?php echo $user['Status']; ?>" type="hidden">
                         <div class="input-group">
                             <label>ID User</label>
                             <input name="ID_User" value="<?php echo $user1[0]->ID_User; ?>" type="text" class="form-control"  readonly>
@@ -40,7 +41,7 @@
                         </div>                       
                         <div class="input-group">
                             <input class="btn btn-primary btn-submit" type="submit" value="Update"> &nbsp;
-                            <a href="<?php echo base_url(); ?>User/ubahPasswordAdmin/<?php echo $user['ID_User']; ?>" class="btn btn-danger btn-submit">Ubah Password </a>
+                            <a href="<?php echo base_url(); ?>User/ubahPasswordAdmin/<?php echo $user['ID_User']; ?>/<?php echo $user['Status']; ?>" class="btn btn-danger btn-submit">Ubah Password </a>
                         </div>
                     </form>
                 </div><!-- /.box-body -->

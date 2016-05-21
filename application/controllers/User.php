@@ -155,18 +155,23 @@ class User extends CI_Controller {
 		}
 	}
 
-	public function editProfileAdmin($id){
+	public function editProfileAdmin($id,$Status){
 		$user1 = $this->User_model->getUser_byid($id);
 		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$data = [
 			'user' 	=> $user,
 			'user1'	=> $user1,
 		];
-		$this->template->load('template','User/editProfileAdmin', $data);
+		if ($Status == "Admin") {
+			$this->template->load('template','User/editProfileAdmin', $data);
+		}else{
+			$this->template->load('templateSuperAdmin','User/editProfileAdmin', $data);
+		}
 	}
 
 	public function updateProfileAdmin(){
-		$id = $this->input->post('ID_User');
+		$id 	= $this->input->post('ID_User');
+		$Status = $this->input->post('Status');
 		$user = [
 			'Nama_User'  => $this->input->post('Nama_User'),
 		];
@@ -178,7 +183,7 @@ class User extends CI_Controller {
 				'Aktifitas' => "Edit Profile ",
 			];
 			if($this->Log_model->insertLog($Log)){
-				redirect('User/editProfileAdmin/'.$id);
+				redirect('User/editProfileAdmin/'.$id.'/'.$Status);
 			}else{
 				echo "gagal insert data log";
 			}
@@ -187,16 +192,22 @@ class User extends CI_Controller {
 		}
 	}
 
-	public function ubahPasswordAdmin($id){
+	public function ubahPasswordAdmin($id,$Status){
 		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$data = [
 			'user' 	=> $user,
 		];
-		$this->template->load('template','User/ubahPasswordAdmin', $data);
+		if ($Status == "Admin") {
+			$this->template->load('template','User/ubahPasswordAdmin', $data);
+		}else{
+			$this->template->load('templateSuperAdmin','User/ubahPasswordAdmin', $data);
+		}
+		
 	}
 
 	public function do_ubahPasswordAdmin(){
 		$ID_User = $this->input->post('ID');
+		$Status  = $this->input->post('Status');
 		$pLama 	 = $this->input->post('PasswordLama');
 		$pBaru   = $this->input->post('PasswordBaru');
 
@@ -213,7 +224,7 @@ class User extends CI_Controller {
 					'Aktifitas' => "Ubah Password",
 				];
 				if($this->Log_model->insertLog($Log)){
-					redirect('User/editProfileAdmin/'.$ID_User);
+					redirect('User/editProfileAdmin/'.$ID_User.'/'.$Status);
 				}else{
 					echo "gagal insert data log";
 				}

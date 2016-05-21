@@ -23,6 +23,7 @@
                 <div class="box-body">
                     <form action="<?php echo base_url(); ?>User/do_ubahPasswordAdmin" method="POST">
                         <input name="ID" value="<?php echo $user['ID_User']; ?>" type="hidden">
+                        <input name="Status" value="<?php echo $user['Status']; ?>" type="hidden">
                         <div class="input-group">
                             <label>Password Lama</label>
                             <input name="PasswordLama" type="password" class="form-control" >
