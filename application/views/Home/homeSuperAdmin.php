@@ -11,5 +11,8 @@
         <!-- Main content -->
         <section class="content">
           <div class="row">
+            <div class="col-md-12">
+              <a href="<?php echo base_url(); ?>admin/listreport" class="btn btn-primary">List Report</a>
+            </div>
           </div><!-- /.row -->
         </section><!-- /.content -->

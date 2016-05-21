@@ -23,9 +23,6 @@ class Admin extends CI_Controller{
 			'report' => $report,
 			'user' => $user,
 		];
-		// echo "<pre>";
-		// print_r($data);
-		// die();
 		$this->template->load('template','admin/list-dosen-report_view', $data);
 	}
 	public function editReport($id)
@@ -36,8 +33,6 @@ class Admin extends CI_Controller{
 			'jadwal' => $jadwal,
 			'user' => $user,
 		];
-		// echo "<pre>";
-		// print_r($data);
 		$this->template->load('template', 'admin/update-jadwal-report_view', $data);
 	}
 	public function updateJadwal($id, $id_jadwal_dosen, $id_report)
