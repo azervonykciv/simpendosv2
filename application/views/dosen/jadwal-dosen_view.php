@@ -51,11 +51,11 @@
                                     </td>
                                     <td>
                                         <?php if ($key->status_jadwal === '0' || $key->status_jadwal === '3'): ?>
-                                            <a href="<?php echo base_url(); ?>dosen/konfirmasi/<?php echo $key->id?>" class="btn btn-success">Konfirmasi</a>
-                                            <a href="<?php echo base_url(); ?>dosen/report/<?php echo $key->id?>" class="btn btn-warning">Report</a>
+                                            <a href="<?php echo base_url(); ?>dosen/konfirmasi/<?php echo $key->id_jadwal_dosen?>" class="btn btn-success">Konfirmasi</a>
+                                            <a href="<?php echo base_url(); ?>dosen/report/<?php echo $key->id_jadwal_dosen?>" class="btn btn-warning">Report</a>
                                         <?php else: ?>
-                                            <a href="<?php echo base_url(); ?>dosen/konfirmasi/<?php echo $key->id?>" class="btn btn-success" disabled>Konfirmasi</a>
-                                            <a href="<?php echo base_url(); ?>dosen/report/<?php echo $key->id?>" class="btn btn-warning" disabled>Report</a>
+                                            <a href="<?php echo base_url(); ?>dosen/konfirmasi/<?php echo $key->id_jadwal_dosen?>" class="btn btn-success" disabled>Konfirmasi</a>
+                                            <a href="<?php echo base_url(); ?>dosen/report/<?php echo $key->id_jadwal_dosen?>" class="btn btn-warning" disabled>Report</a>
                                         <?php endif ?>
                                         
                                     </td>

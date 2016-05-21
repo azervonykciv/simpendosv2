@@ -28,12 +28,18 @@ class Jadwal_report_model extends CI_Model {
 		$this->db->where($key, $value);
         return $this->db->get($this->table)->result();
 	}
-
 	public function updateStatus($id, $status)
 	{
 		$this->db->set('status_report', $status);
-		$this->db->where('id', $id);
+		$this->db->where('id_jadwal_report', $id);
 		return $this->db->update($this->table);
+	}
+	public function getReport()
+	{
+		$this->db->from($this->table);
+		$this->db->join('jadwal_dosen', 'jadwal_dosen.id_jadwal_dosen = jadwal_report.id_jadwal_dosen');
+		$this->db->where('status_report', 0);
+		return $this->db->get()->result();
 	}
 }
 

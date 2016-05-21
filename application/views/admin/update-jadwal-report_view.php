@@ -1,0 +1,76 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Data Tables
+        <small>advanced tables</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+    </ol>
+</section>
+<style type="text/css">
+    .input-group{
+        padding-bottom: 2em;
+    }
+</style>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Report</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <form action="<?php echo base_url(); ?>admin/updatejadwal/<?php echo $jadwal[0]->ID_Jadwal.'/'. $jadwal[0]->id_jadwal_dosen .'/'. $jadwal[0]->id_jadwal_report ?>" method="POST">
+                        <div class="input-group">
+                            <label>ID Jadwal</label>
+                            <input name="ID_Jadwal" value="<?php echo $jadwal[0]->ID_Jadwal; ?>" type="text" class="form-control" readonly>
+                        </div>
+                        <div class="input-group">
+                            <label>ID MK</label>
+                            <input name="ID_Mk" value="<?php echo $jadwal[0]->ID_Mk; ?>" type="text" class="form-control" readonly>
+                        </div>
+                        <div class="input-group">
+                            <label>ID Dosen</label>
+                            <input name="ID_Dosen" value="<?php echo $jadwal[0]->ID_Dosen; ?>" type="text" class="form-control" readonly>
+                        </div>
+                        <div class="input-group">
+                            <label>Kelas</label>
+                            <select name="Kelas_MK" class="form-control">
+                                <option value="a" <?php if($jadwal[0]->Kelas_MK === 'a'){echo "selected";} ?>>A</option>
+                                <option value="b" <?php if($jadwal[0]->Kelas_MK === 'b'){echo "selected";} ?>>B</option>
+                                <option value="c" <?php if($jadwal[0]->Kelas_MK === 'c'){echo "selected";} ?>>C</option>
+                                <option value="d" <?php if($jadwal[0]->Kelas_MK === 'd'){echo "selected";} ?>>D</option>
+                                <option value="e" <?php if($jadwal[0]->Kelas_MK === 'e'){echo "selected";} ?>>E</option>
+                                <option value="f" <?php if($jadwal[0]->Kelas_MK === 'f'){echo "selected";} ?>>F</option>
+                                <option value="g" <?php if($jadwal[0]->Kelas_MK === 'g'){echo "selected";} ?>>G</option>
+                                <option value="h" <?php if($jadwal[0]->Kelas_MK === 'h'){echo "selected";} ?>>H</option>
+                                <option value="i" <?php if($jadwal[0]->Kelas_MK === 'i'){echo "selected";} ?>>I</option>
+                                <option value="j" <?php if($jadwal[0]->Kelas_MK === 'j'){echo "selected";} ?>>J</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Jam</label>
+                            <select name="Jam_Kelas" class="form-control">
+                                <option value="1" <?php if($jadwal[0]->Jam_Kelas === '1'){echo "selected";} ?>>1</option>
+                                <option value="2" <?php if($jadwal[0]->Jam_Kelas === '2'){echo "selected";} ?>>2</option>
+                                <option value="3" <?php if($jadwal[0]->Jam_Kelas === '3'){echo "selected";} ?>>3</option>
+                                <option value="4" <?php if($jadwal[0]->Jam_Kelas === '4'){echo "selected";} ?>>4</option>
+                                <option value="5" <?php if($jadwal[0]->Jam_Kelas === '5'){echo "selected";} ?>>5</option>
+                                <option value="6" <?php if($jadwal[0]->Jam_Kelas === '6'){echo "selected";} ?>>6</option>
+                                <option value="7" <?php if($jadwal[0]->Jam_Kelas === '7'){echo "selected";} ?>>7</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <input type="submit" class="btn btn-primary" value="Ganti Jadwal">
+                        </div>
+                    </form>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section><!-- /.content -->

@@ -147,7 +147,7 @@ class Dosen extends CI_Controller{
 	{
 		// 2 = Sudah dikonfirmasi
 		$this->jdm->updateStatus($id, 2);
-		redirect('dosen/jadwalByNidn/701058601');
+		redirect('dosen/jadwalByNidn/'.$this->session->userdata('uname'));
 	}
 	public function report($id)
 	{
@@ -160,6 +160,7 @@ class Dosen extends CI_Controller{
 	}
 	public function insertreport()
 	{
+		$user = $this->session->userdata('uname');
 		$id = $this->input->post('id');
 		$report = [
 			'id_jadwal_dosen' => $id,
@@ -169,7 +170,7 @@ class Dosen extends CI_Controller{
 		// 1 = Proses Laporan
 		$this->jdm->updateStatus($id, 1);
 		if ($this->jrm->insert($report)) {
-			redirect('dosen/jadwalByNidn/701058601');
+			redirect('dosen/jadwalByNidn/'.$user);
 		}
 	}
 }

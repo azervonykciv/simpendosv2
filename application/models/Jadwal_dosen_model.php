@@ -23,14 +23,13 @@ class Jadwal_dosen_model extends CI_Model {
 	public function updateStatus($id, $status)
 	{
 		$this->db->set('status_jadwal', $status);
-		$this->db->where('id_jadwal', $id);
+		$this->db->where('id_jadwal_dosen', $id);
 		return $this->db->update($this->table);
 	}
-	public function updateStatusJadwal($id, $status)
+	public function updateJadwal($id, $data)
 	{
-		$this->db->set('status_jadwal', $status);
-		$this->db->where('id_jadwal', $id);
-		return $this->db->update($this->table);
+		$this->db->where('ID_Jadwal', $id);
+		return $this->db->update('jadwal', $data);
 	}
 	public function getJadwalDosen($id_jadwal)
 	{
@@ -38,6 +37,15 @@ class Jadwal_dosen_model extends CI_Model {
 		$this->db->from($this->table);
 		$this->db->join('jadwal', 'jadwal.ID_Jadwal = jadwal_dosen.id_jadwal');
 		$this->db->join('matakuliah', 'matakuliah.ID_Mk = jadwal.ID_Mk');
+		return $this->db->get()->result();
+	}
+	public function getReport($id)
+	{
+		$this->db->select('*');
+		$this->db->from($this->table);
+		$this->db->join('jadwal', 'jadwal.ID_Jadwal = jadwal_dosen.id_jadwal');
+		$this->db->join('jadwal_report', 'jadwal_report.id_jadwal_dosen = jadwal_dosen.id_jadwal_dosen');
+		$this->db->where('jadwal_report.id_jadwal_report', $id);
 		return $this->db->get()->result();
 	}
 }
