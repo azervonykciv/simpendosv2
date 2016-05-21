@@ -155,6 +155,78 @@ class User extends CI_Controller {
 		}
 	}
 
+	public function editProfileAdmin($id){
+		$user1 = $this->User_model->getUser_byid($id);
+		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data = [
+			'user' 	=> $user,
+			'user1'	=> $user1,
+		];
+		$this->template->load('template','User/editProfileAdmin', $data);
+	}
+
+	public function updateProfileAdmin(){
+		$id = $this->input->post('ID_User');
+		$user = [
+			'Nama_User'  => $this->input->post('Nama_User'),
+		];
+		
+		if ($this->User_model->updateUser($user, $id)) {
+			$Log = [
+				'ID_User'	=> $id,
+				'Tanggal'	=> date('Y-m-d H:i:s'),
+				'Aktifitas' => "Edit Profile ",
+			];
+			if($this->Log_model->insertLog($Log)){
+				redirect('User/editProfileAdmin/'.$id);
+			}else{
+				echo "gagal insert data log";
+			}
+		} else {
+			echo "Gagal Edit Profile";
+		}
+	}
+
+	public function ubahPasswordAdmin($id){
+		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data = [
+			'user' 	=> $user,
+		];
+		$this->template->load('template','User/ubahPasswordAdmin', $data);
+	}
+
+	public function do_ubahPasswordAdmin(){
+		$ID_User = $this->input->post('ID');
+		$pLama 	 = $this->input->post('PasswordLama');
+		$pBaru   = $this->input->post('PasswordBaru');
+
+		$user = $this->User_model->getUser_byid($ID_User);
+		if($pLama == $user[0]->Password){
+			$user = [
+				'Password'  => $pBaru,
+			];
+			
+			if ($this->User_model->updateUser($user, $ID_User)) {
+				$Log = [
+					'ID_User'	=> $ID_User,
+					'Tanggal'	=> date('Y-m-d H:i:s'),
+					'Aktifitas' => "Ubah Password",
+				];
+				if($this->Log_model->insertLog($Log)){
+					redirect('User/editProfileAdmin/'.$ID_User);
+				}else{
+					echo "gagal insert data log";
+				}
+			} else {
+				echo "Gagal Edit Profile";
+			}
+		}else{
+			echo "Password lama anda salah";
+		}
+
+	}
+
+	//code di bawah ini hanya untuk keperluan programmer 
 	public function insertUserFromDosen(){
 		$dosen = $this->dm->get_all();
 		foreach ($dosen as $d) {
