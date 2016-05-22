@@ -9,7 +9,10 @@ class Login extends CI_Controller {
 	}
  
 	function index(){
-		$this->load->view('auth/v_login');
+
+$this->load->library('recaptcha');
+                    $data['recaptcha_html'] = $this->recaptcha->recaptcha_get_html();
+		$this->load->view('auth/v_login',$data);
 	}
 	
 	function do_login(){		
