@@ -75,7 +75,7 @@ class Admin extends CI_Controller{
 		$Log = [
 			'ID_User'	=> $ID,
 			'Tanggal'	=> date('Y-m-d H:i:s'),
-			'Aktifitas' => "Update Jadwal",
+			'Aktifitas' => "Tolak Report",
 		];
 		if($this->Log_model->insertLog($Log)){
 			redirect('admin/listreport');

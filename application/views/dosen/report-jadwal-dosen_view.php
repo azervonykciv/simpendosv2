@@ -26,6 +26,7 @@
                 <div class="box-body">
                     <form action="<?php echo base_url(); ?>dosen/insertreport" method="POST">
                         <input name="id" type="text" value="<?php echo $id; ?>" hidden>
+                        <input name="ID_User" value="<?php echo $user['ID_User']; ?>" type="hidden">
                         <div class="input-group">
                             <label>Subject</label>
                             <input name="subject" type="text" class="form-control" placeholder="Subject">

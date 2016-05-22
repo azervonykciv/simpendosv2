@@ -39,7 +39,7 @@
               <td><?php echo $r['Kelas_MK'] ?></td>
               <td><?php echo $r['Jam_Kelas'] ?></td>
               <td align="center">
-                <a class="btn btn-danger" href="<?php echo base_url()."jadwal/deletepenjadwalan/".$r['ID_Jadwal']; ?>">Delete</a>
+                <a class="btn btn-danger" href="<?php echo base_url()."jadwal/deletepenjadwalan/".$r['ID_Jadwal']; ?>/<?php echo $user['ID_User']; ?>">Delete</a>
               </td>
             </tr> 
           
@@ -105,7 +105,7 @@
               </td>
 							<td align="center">
               <!--  <input type="submit" class="btn btn-primary" name="btnSubmit" value="Save" /> -->
-							  <a class="btn btn-primary" href="<?php echo base_url()."jadwal/pro_jadwal/".$r['ID_Mk']; ?>" type="submit">Pilih</a>
+							  <a class="btn btn-primary" href="<?php echo base_url()."jadwal/pro_jadwal/".$r['ID_Mk']; ?>/<?php echo $user['ID_User']; ?>" type="submit">Pilih</a>
               </td>
 						</tr> 
 					

@@ -60,6 +60,7 @@ class Jadwal extends CI_Controller{
         $ID_Mk = $_POST['ID_Mk'];
         $Nama_mk = $_POST['Nama_mk'];
         $Jumlah_sks = $_POST['Jumlah_sks'];
+        $ID_User = $this->input->post('ID_User');
         $data_insert = array(
             'ID_Mk' => $ID_Mk,
             'Nama_mk' => $Nama_mk,
@@ -68,7 +69,7 @@ class Jadwal extends CI_Controller{
         $res = $this->ModelJadwal->InsertData('matakuliah',$data_insert);
         if ($res>=1) {
             $Log = [
-                'ID_User'   => "User",
+                'ID_User'   => $ID_User,
                 'Tanggal'   => date('Y-m-d H:i:s'),
                 'Aktifitas' => "Insert data Mata Kuliah ".$ID_Mk,
             ];
@@ -89,6 +90,7 @@ class Jadwal extends CI_Controller{
         $ID_Mk = $_POST['ID_Mk'];
         $Nama_mk = $_POST['Nama_mk'];
         $Jumlah_sks = $_POST['Jumlah_sks'];
+        $ID_User = $this->input->post('ID_User');
         $data_update = array(
             'ID_Mk' => $ID_Mk,
             'Nama_mk' => $Nama_mk,
@@ -98,7 +100,7 @@ class Jadwal extends CI_Controller{
         $res = $this->ModelJadwal->UpdateData('matakuliah', $data_update,$where);
         if ($res>=1) {
             $Log = [
-                'ID_User'   => "User",
+                'ID_User'   => $ID_User,
                 'Tanggal'   => date('Y-m-d H:i:s'),
                 'Aktifitas' => "Edit data Mata Kuliah ".$ID_Mk,
             ];
@@ -115,12 +117,12 @@ class Jadwal extends CI_Controller{
     }
 
 
-    public function delete($ID_Mk){
+    public function delete($ID_Mk,$ID_User){
         $where = array('ID_Mk' => $ID_Mk);
         $res = $this->ModelJadwal->DeleteData('matakuliah',$where);
         if ($res>=1) {
             $Log = [
-                'ID_User'   => "User",
+                'ID_User'   => $ID_User,
                 'Tanggal'   => date('Y-m-d H:i:s'),
                 'Aktifitas' => "Hapus data Mata Kuliah ".$ID_Mk,
             ];
@@ -152,7 +154,7 @@ public function penjadwalan(){
         $this->template->load('template','penjadwalan/tampilPenjadwalan', $jadwal);
     }
 
-    public function pro_jadwal($ID_Mk){
+    public function pro_jadwal($ID_Mk,$ID_User){
         $where = array('ID_Mk' => $ID_Mk);
         //$ID_Mk = $_POST['ID_Mk'];
         //$ID_Dosen = $_POST['ID_Dosen'];
@@ -167,27 +169,38 @@ public function penjadwalan(){
         $res = $this->ModelJadwal->InsertData('jadwal',$data_insert);
         if ($res>=1) {
             $this->session->set_flashdata('pesan','Tambah Data Sukses');
-            redirect('jadwal/penjadwalan');
+            /*$Log = [
+                'ID_User'   => $ID_User,
+                'Tanggal'   => date('Y-m-d H:i:s'),
+                'Aktifitas' => "Program jadwal ".$ID_Mk,
+            ];
+            if($this->Log_model->insertLog($Log)){*/
+                $this->session->set_flashdata('pesan','Update Data Sukses');
+                redirect('jadwal/penjadwalan');
+            /*}else{
+                echo "gagal insert data log";
+            }*/
+            
         } else {
             echo "<h2>Insert Data Gagal</h2>";
         }
     }
 
-    public function deletepenjadwalan($ID_Jadwal){
+    public function deletepenjadwalan($ID_Jadwal,$ID_User){
         $where = array('ID_Jadwal' => $ID_Jadwal);
         $res = $this->ModelJadwal->DeleteData('jadwal',$where);
         if ($res>=1) {
-            $Log = [
-                'ID_User'   => "User",
+            /*$Log = [
+                'ID_User'   => $ID_User,
                 'Tanggal'   => date('Y-m-d H:i:s'),
                 'Aktifitas' => "Hapus data Penjadwalan ".$ID_Mk,
             ];
-            if($this->Log_model->insertLog($Log)){
+            if($this->Log_model->insertLog($Log)){*/
                 $this->session->set_flashdata('pesan','Delete Data Sukses');
                 redirect('jadwal/penjadwalan');
-            }else{
+            /*}else{
                 echo "gagal insert data log";
-            }
+            }*/
         } else {
             echo "<h2>Delete Data Gagal</h2>";
         }

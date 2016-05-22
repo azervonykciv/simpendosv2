@@ -47,6 +47,7 @@ class Dosen extends CI_Controller{
 	{
 		$user = $this->session->userdata('uname');
 		$id = $this->input->post('id');
+		$ID_User = $this->input->post('ID_User');
 		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$data = [
 			'user' => $user,
@@ -59,7 +60,16 @@ class Dosen extends CI_Controller{
 		// 1 = Proses Laporan
 		$this->jdm->updateStatus($id, 1);
 		if ($this->jrm->insert($report)) {
-			redirect('dosen/jadwalByNidn/'.$user);
+			$Log = [
+				'ID_User'	=> $ID_User,
+				'Tanggal'	=> date('Y-m-d H:i:s'),
+				'Aktifitas' => "Insert data dosen ".$this->input->post('nidn'),
+			];
+			if($this->Log_model->insertLog($Log)){
+				redirect('dosen/jadwalByNidn/'.$user);
+			}else{
+				echo "gagal insert data log";
+			}	
 		}
 	}
 }

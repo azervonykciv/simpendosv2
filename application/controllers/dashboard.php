@@ -5,14 +5,9 @@ class Dashboard extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Dosen_model', 'dm');
-
-		/*$ambil_akun	= $this->m_login->ambil_user($this->session->userdata('uname'));
-		$data = array(
-			'user' => $ambil_akun,
-		);
-		if($stat != "Dosen" || $stat || "Admin" && $stat || "Super Admin"){
+		if (! ($this->session->has_userdata('Status')) ) {
 			redirect('login');
-		}*/
+		}
 	}
 	public function index()
 	{
@@ -29,7 +24,7 @@ class Dashboard extends CI_Controller{
 		}elseif ($stat == "Super Admin") {
 			$this->homeSuperAdmin();
 		}else{
-			$this->login();
+			$this->logout();
 		}
 	}
 

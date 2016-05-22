@@ -43,7 +43,7 @@
               <td><?php echo $r['Jumlah_sks'] ?></td>
               <td align="center">
                 <a class="btn btn-warning" href="<?php echo base_url()."jadwal/update/".$r['ID_Mk']; ?>">Edit</a>
-                <a class="btn btn-danger" href="<?php echo base_url()."jadwal/delete/".$r['ID_Mk']; ?>">Delete</a>
+                <a class="btn btn-danger" href="<?php echo base_url()."jadwal/delete/".$r['ID_Mk']; ?>/<?php echo $user['ID_User']; ?>">Delete</a>
               </td>
             </tr> 
           
