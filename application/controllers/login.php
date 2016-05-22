@@ -12,17 +12,26 @@ class Login extends CI_Controller {
 
 $this->load->library('recaptcha');
                     $data['recaptcha_html'] = $this->recaptcha->recaptcha_get_html();
+
+
+					
+                    
 		$this->load->view('auth/v_login',$data);
 	}
 	
 	function do_login(){		
+
+			$this->load->library('recaptcha');
+
+			$this->recaptcha->recaptcha_check_answer();
+
 
 		$Nama_User = $this->input->post('Nama_User');
 		$Password  = $this->input->post('Password');
 
 		
 		$cek=$this->m_login->cek_user($Nama_User, $Password);
-		if(count($cek) == 1){
+		if(count($cek) == 1 && $this->recaptcha->getIsValid()){
 			foreach($cek as $cek) {
 				$Status = $cek['Status'];
 			}
@@ -32,9 +41,11 @@ $this->load->library('recaptcha');
 				'Status'	=> $Status,
 			));	
 
+
+
 			redirect('dashboard', 'refresh');
 		}else{
-			$this->load->view('auth/v_login');
+			redirect('login');
 		}
 	}
 
