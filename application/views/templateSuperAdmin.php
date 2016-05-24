@@ -104,7 +104,7 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?php echo base_url()."index.php/Dosen/insert";?>"><i class="fa fa-circle-o"></i>Data Dosen</a></li>
+                        <li><a href="<?php echo base_url()."index.php/admin/insertdosen";?>"><i class="fa fa-circle-o"></i>Data Dosen</a></li>
                         <li><a href="<?php echo base_url()."index.php/jadwal/insert";?>"><i class="fa fa-circle-o"></i>Data Matakuliah</a></li>
                         <li><a href="<?php echo base_url()."index.php/User/insertUser";?>"><i class="fa fa-circle-o"></i>Data User</a></li>
                     </ul>
@@ -115,7 +115,7 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?php echo base_url()."index.php/Dosen";?>"><i class="fa fa-circle-o"></i>Data Dosen</a></li>
+                        <li><a href="<?php echo base_url()."index.php/admin/listdosen";?>"><i class="fa fa-circle-o"></i>Data Dosen</a></li>
                         <li><a href="<?php echo base_url()."index.php/jadwal";?>"><i class="fa fa-circle-o"></i>Data Matakuliah</a></li>
                         <li><a href="<?php echo base_url()."index.php/User";?>"><i class="fa fa-circle-o"></i>Data User</a></li>
                         <li><a href="<?php echo base_url()."index.php/Log";?>"><i class="fa fa-circle-o"></i>Data Log</a></li>

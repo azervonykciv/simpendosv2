@@ -103,7 +103,8 @@ class Admin extends CI_Controller{
 		];
 		// echo "<pre>";
 		// print_r($data);
-		$this->template->load('template','admin/list_dosen', $data);
+		$data['user'] = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$this->template->load('templateSuperAdmin','admin/list_dosen', $data);
 	}
 	public function insertDosen()
 	{
@@ -111,7 +112,7 @@ class Admin extends CI_Controller{
 		$data = [
 			'user' => $user,
 		];
-		$this->template->load('template','admin/insert-dosen_view',$data);
+		$this->template->load('templateSuperAdmin','admin/insert-dosen_view',$data);
 	}
 	public function storeDosen()
 	{
@@ -165,7 +166,7 @@ class Admin extends CI_Controller{
 		// echo "<pre>";
 		// print_r($data);
 		// die();
-		$this->template->load('template','admin/edit-dosen_view', $data);
+		$this->template->load('templateSuperAdmin','admin/edit-dosen_view', $data);
 	}
 	public function updateDosen()
 	{
