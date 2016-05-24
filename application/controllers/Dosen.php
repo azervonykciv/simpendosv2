@@ -49,6 +49,7 @@ class Dosen extends CI_Controller{
 	public function insertNotif()
 	{
 		$jadwal = $this->jdm->get_all();
+
 	}
 	public function insertreport()
 	{
@@ -80,7 +81,6 @@ class Dosen extends CI_Controller{
 		}
 	}
 
-	//ini
 	public function program($ID_Dosen){
 		$mk = $this->ModelJadwal->GetMatakuliah();
         $data = $this->ModelJadwal->GetJadwal();

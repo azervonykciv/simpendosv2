@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a7ebea6-f5a0-463b-8fa0-5d74a8d6635a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/auth/v_sukses.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Dosen.php" afterPath="$PROJECT_DIR$/application/controllers/Dosen.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/jadwal.php" afterPath="$PROJECT_DIR$/application/controllers/jadwal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Dosen_model.php" afterPath="$PROJECT_DIR$/application/models/Dosen_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_login.php" afterPath="$PROJECT_DIR$/application/models/m_login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/Home/homeDosen.php" afterPath="$PROJECT_DIR$/application/views/Home/homeDosen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/auth/v_login.php" afterPath="$PROJECT_DIR$/application/views/auth/v_login.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php" afterPath="$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php" afterPath="$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/template.php" afterPath="$PROJECT_DIR$/application/views/template.php" />
@@ -42,18 +39,77 @@
       <file leaf-file-name="Dosen.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Dosen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.2941175">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state vertical-scroll-proportion="13.458333">
+              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jadwal.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/dashboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="3.125">
+              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/template.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-23.75">
+              <caret line="107" column="78" selection-start-line="107" selection-start-column="78" selection-end-line="107" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tampilPenjadwalan.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.56049824">
+              <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+              <folding>
+                <marker date="1464106567000" expanded="true" signature="2646:2679" placeholder="..." />
+                <marker date="1464106567000" expanded="true" signature="2724:2757" placeholder="..." />
+                <marker date="1464106567000" expanded="true" signature="2805:3412" placeholder="..." />
+                <marker date="1464106567000" expanded="true" signature="2859:3399" placeholder="..." />
+                <marker date="1464106567000" expanded="true" signature="3431:4947" placeholder="..." />
+                <marker date="1464106567000" expanded="true" signature="3498:4192" placeholder="..." />
+                <marker date="1464106567000" expanded="true" signature="4280:4927" placeholder="..." />
+                <marker date="1464106567000" expanded="true" signature="4974:5159" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homeAdmin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/Home/homeAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homeDosen.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/Home/homeDosen.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-37.5">
+              <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jadwal.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/jadwal.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.5373664">
-              <caret line="170" column="8" selection-start-line="170" selection-start-column="8" selection-end-line="170" selection-end-column="8" />
+            <state vertical-scroll-proportion="-12.5">
+              <caret line="156" column="30" selection-start-line="156" selection-start-column="30" selection-end-line="156" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -69,45 +125,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.25">
-              <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Dosen_model.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/Dosen_model.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.625">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+              <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
               <folding>
-                <marker date="1464080107000" expanded="true" signature="423:443" placeholder="select * fro... dosen" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jadwal-dosen_view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.541666">
-              <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
-              <folding>
-                <marker date="1464103468000" expanded="true" signature="1213:1358" placeholder="..." />
-                <marker date="1464103468000" expanded="true" signature="1357:1358" placeholder="..." />
-                <marker date="1464103468000" expanded="true" signature="1444:1469" placeholder="..." />
-                <marker date="1464103468000" expanded="true" signature="1444:1474" placeholder="..." />
-                <marker date="1464103468000" expanded="true" signature="1444:1506" placeholder="..." />
-                <marker date="1464103468000" expanded="true" signature="2027:2406" placeholder="..." />
-                <marker date="1464103468000" expanded="true" signature="2060:2373" placeholder="..." />
-                <marker date="1464103468000" expanded="true" signature="2438:3803" placeholder="..." />
-                <marker date="1464103468000" expanded="true" signature="2585:3803" placeholder="..." />
-                <marker date="1464103468000" expanded="true" signature="2911:3595" placeholder="..." />
-                <marker date="1464103468000" expanded="true" signature="3636:3803" placeholder="..." />
+                <marker date="1464104349000" expanded="true" signature="422:442" placeholder="select * fro... dosen" />
               </folding>
             </state>
           </provider>
@@ -163,8 +187,6 @@
         <option value="$PROJECT_DIR$/application/models/m_login.php" />
         <option value="$PROJECT_DIR$/application/views/auth/v_login.php" />
         <option value="$PROJECT_DIR$/application/views/Home/homeDosen.php" />
-        <option value="$PROJECT_DIR$/application/views/template.php" />
-        <option value="$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php" />
         <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
         <option value="$PROJECT_DIR$/application/models/Jadwal_report_model.php" />
         <option value="$PROJECT_DIR$/application/models/notif_model.php" />
@@ -176,6 +198,8 @@
         <option value="$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/Dosen.php" />
         <option value="$PROJECT_DIR$/application/controllers/jadwal.php" />
+        <option value="$PROJECT_DIR$/application/views/template.php" />
+        <option value="$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php" />
       </list>
     </option>
   </component>
@@ -308,7 +332,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dosen" />
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simpendosv2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simpendosv2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -482,32 +528,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/models/Dosen_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <marker date="1464080107000" expanded="true" signature="423:443" placeholder="select * fro... dosen" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="79" selection-start-line="39" selection-start-column="79" selection-end-line="39" selection-end-column="79" />
           <folding>
-            <marker date="1464103468000" expanded="true" signature="1213:1358" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="1357:1358" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="1444:1469" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="1444:1474" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="1444:1506" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="2027:2406" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="2060:2373" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="2438:3803" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="2585:3803" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="2911:3595" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="3636:3803" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1213:1358" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1357:1358" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1444:1469" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1444:1474" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1444:1506" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="2027:2406" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="2060:2373" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="2438:3803" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="2585:3803" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="2911:3595" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="3636:3803" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -689,31 +725,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/auth/v_sukses.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/User/dataUser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/auth/v_login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Home/homeDosen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4361702">
-          <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -752,31 +767,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="54" selection-start-line="72" selection-start-column="54" selection-end-line="72" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dosen/dosen_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="120" selection-start-line="8" selection-start-column="4" selection-end-line="11" selection-end-column="120" />
         </state>
       </provider>
     </entry>
@@ -810,41 +804,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.541666">
-          <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
-          <folding>
-            <marker date="1464103468000" expanded="true" signature="1213:1358" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="1357:1358" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="1444:1469" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="1444:1474" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="1444:1506" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="2027:2406" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="2060:2373" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="2438:3803" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="2585:3803" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="2911:3595" placeholder="..." />
-            <marker date="1464103468000" expanded="true" signature="3636:3803" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Dosen_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <marker date="1464080107000" expanded="true" signature="423:443" placeholder="select * fro... dosen" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.25">
           <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Log_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/auth/v_login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.094306">
+          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.75">
+          <caret line="38" column="76" selection-start-line="38" selection-start-column="71" selection-end-line="38" selection-end-column="76" />
+          <folding>
+            <marker date="1464104803000" expanded="true" signature="1213:1358" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1357:1358" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1444:1469" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1444:1474" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1444:1506" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="2027:2406" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="2060:2373" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="2438:3803" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="2585:3803" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="2911:3595" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="3636:3803" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -856,11 +856,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Dosen.php">
+    <entry file="file://$PROJECT_DIR$/application/models/Dosen_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.2941175">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+          <folding>
+            <marker date="1464104349000" expanded="true" signature="422:442" placeholder="select * fro... dosen" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -872,11 +874,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Dosen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="13.458333">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Home/homeAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.125">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Home/homeDosen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-37.5">
+          <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.75">
+          <caret line="107" column="78" selection-start-line="107" selection-start-column="78" selection-end-line="107" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/jadwal.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.5373664">
-          <caret line="170" column="8" selection-start-line="170" selection-start-column="8" selection-end-line="170" selection-end-column="8" />
+        <state vertical-scroll-proportion="-12.5">
+          <caret line="156" column="30" selection-start-line="156" selection-start-column="30" selection-end-line="156" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56049824">
+          <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+          <folding>
+            <marker date="1464106567000" expanded="true" signature="2646:2679" placeholder="..." />
+            <marker date="1464106567000" expanded="true" signature="2724:2757" placeholder="..." />
+            <marker date="1464106567000" expanded="true" signature="2805:3412" placeholder="..." />
+            <marker date="1464106567000" expanded="true" signature="2859:3399" placeholder="..." />
+            <marker date="1464106567000" expanded="true" signature="3431:4947" placeholder="..." />
+            <marker date="1464106567000" expanded="true" signature="3498:4192" placeholder="..." />
+            <marker date="1464106567000" expanded="true" signature="4280:4927" placeholder="..." />
+            <marker date="1464106567000" expanded="true" signature="4974:5159" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

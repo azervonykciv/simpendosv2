@@ -36,7 +36,7 @@
                         <tr>
                             <td>$r->Nama_Notif</td>
                             <td>$r->Detail_Notifikasi</td>
-                            <td>".anchor('Dosen/delete/'.$r->ID_Notif,'Edit',array('class'=>'btn btn-warning'))."</td>
+                            <td>".anchor('Dosen/delete/'.$r->ID_Notif,'Tutup',array('class'=>'btn btn-danger'))."</td>
                          "; } ?>
                         </tr>
                         </tbody>

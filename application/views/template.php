@@ -105,7 +105,7 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?php echo base_url()."index.php/admin/listdosen";?>"><i class="fa fa-circle-o"></i>Program Jadwal</a></li>
+                        <li><a href="<?php echo base_url()."Jadwal/penjadwalan";?>"><i class="fa fa-circle-o"></i>Program Jadwal</a></li>
                     </ul>
                 </li>
             </ul>

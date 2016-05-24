@@ -9,6 +9,7 @@ class Jadwal extends CI_Controller{
         }
         $this->load->model('ModelJadwal');
         $this->load->model('Dosen_model');
+        $this->load->model('notif_model','nm');
        
     }
 
@@ -73,6 +74,8 @@ class Jadwal extends CI_Controller{
                 'Tanggal'   => date('Y-m-d H:i:s'),
                 'Aktifitas' => "Insert data Mata Kuliah ".$ID_Mk,
             ];
+
+
             if($this->Log_model->insertLog($Log)){
                 $this->session->set_flashdata('pesan','Tambah Data Sukses');
                 redirect('jadwal');
@@ -169,6 +172,18 @@ public function penjadwalan(){
         $res = $this->ModelJadwal->InsertData('jadwal',$data_insert);
         if ($res>=1) {
             $this->session->set_flashdata('pesan','Tambah Data Sukses');
+
+            $dos = $this->Dosen_model->get_all();
+
+            foreach ($dos as $d) {
+                $notif = [
+                    'ID_User' => $d->ID_Dosen,
+                    'Nama_Notif' => "Jadwal Kuliah",
+                    'Detail_Notifikasi' => "Kelas" . $Kelas_MK . "Pada Jam Kelas" . $Jam_Kelas . "Telah diambil",
+                ];
+                $this->nm->post_notif($notif);
+            };
+
             /*$Log = [
                 'ID_User'   => $ID_User,
                 'Tanggal'   => date('Y-m-d H:i:s'),
