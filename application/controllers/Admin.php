@@ -114,6 +114,7 @@ class Admin extends CI_Controller{
 		];
 		$this->template->load('templateSuperAdmin','admin/insert-dosen_view',$data);
 	}
+
 	public function storeDosen()
 	{
 		$dosen = [

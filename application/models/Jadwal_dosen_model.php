@@ -20,6 +20,8 @@ class Jadwal_dosen_model extends CI_Model {
 			return FALSE;
 		}
 	}
+
+
 	public function updateStatus($id, $status)
 	{
 		$this->db->set('status_jadwal', $status);

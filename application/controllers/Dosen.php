@@ -12,23 +12,23 @@ class Dosen extends CI_Controller{
         $this->load->model('Dosen_model', 'dm');
         $this->load->model('Jadwal_dosen_model', 'jdm');
         $this->load->model('Jadwal_report_model', 'jrm');
+		$this->load->model('notif_model','nm');
 	}
 
-	public function index()
-	{
-		
-	}
-	
 	public function jadwalByNidn($nidn)
 	{
+		
+		$notifikasi = $this->nm->get_byid($this->session->userdata('uname'));
 		$jadwal = $this->jdm->getJadwalDosen($nidn);
 		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$data = [
 			'jadwal' => $jadwal,
 			'user' => $user,
+			'notif' => $notifikasi
 		];
 		$this->template->load('templateDosen','dosen/jadwal-dosen_view', $data);
 	}
+	
 	public function konfirmasi($id)
 	{
 		// 2 = Sudah dikonfirmasi
@@ -43,6 +43,12 @@ class Dosen extends CI_Controller{
 			'user' => $user,
 		];
 		$this->template->load('templateDosen','dosen/report-jadwal-dosen_view', $data);
+	}
+
+
+	public function insertNotif()
+	{
+		$jadwal = $this->jdm->get_all();
 	}
 	public function insertreport()
 	{

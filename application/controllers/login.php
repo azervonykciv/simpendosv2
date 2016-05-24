@@ -5,9 +5,8 @@ class Login extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('form','url'));
 		$this->load->model('m_login');
-		$this->load->library('session');
 	}
- 
+
 	function index(){
 
 $this->load->library('recaptcha');
@@ -18,8 +17,9 @@ $this->load->library('recaptcha');
                     
 		$this->load->view('auth/v_login',$data);
 	}
-	
-	function do_login(){		
+
+
+	function do_login(){
 
 			$this->load->library('recaptcha');
 
@@ -29,7 +29,6 @@ $this->load->library('recaptcha');
 		$Nama_User = $this->input->post('Nama_User');
 		$Password  = $this->input->post('Password');
 
-		
 		$cek=$this->m_login->cek_user($Nama_User, $Password);
 		if(count($cek) == 1 && $this->recaptcha->getIsValid()){
 			foreach($cek as $cek) {
@@ -39,7 +38,7 @@ $this->load->library('recaptcha');
 				'isLogin'	=> TRUE,
 				'uname'		=> $Nama_User,
 				'Status'	=> $Status,
-			));	
+			));
 
 
 
@@ -49,12 +48,7 @@ $this->load->library('recaptcha');
 		}
 	}
 
-	function sukses(){
-		$data = array(
-			$Nama_User => $this->session->userdata('Nama_User')
-		);
-		$this->load->view('v_sukses', $data);	
-	}
+
 	function logout(){
 		$this->session->sess_destroy();
 		redirect('login/');
