@@ -39,7 +39,7 @@
               <td><?php echo $r['Kelas_MK'] ?></td>
               <td><?php echo $r['Jam_Kelas'] ?></td>
               <td align="center">
-                <a class="btn btn-danger" href="<?php echo base_url()."jadwal/deletepenjadwalan/".$r['ID_Jadwal']; ?>/<?php echo $user['ID_User']; ?>">Delete</a>
+                <a class="btn btn-danger" href="<?php echo base_url()."jadwal/deletepenjadwalan/".$r['ID_Jadwal']; ?>/<?php echo $user['ID_User']; ?>/<?php echo $ID?>">Delete</a>
               </td>
             </tr> 
           
@@ -61,11 +61,11 @@
 						</tr>
 						</thead>
 						<?php foreach ($mk as $r){ ?>
-            <form method="POST" action="<?php echo base_url()."Dosen/pro_jadwal/"; ?>">
-						<tr>
+            <tr>
+            <form method="POST" action='<?php echo base_url()."Dosen/pro_jadwal/";?>'>
 							<td>
                   <input class="form-control" type="text" name="ID_Mk" value="<?php echo $r['ID_Mk']?>"  required autofocus readonly>
-                  <input class="form-control" type="hidden" name="ID_Dosen" value="<?php echo $ID?>"  required autofocus readonly>
+                  <input class="form-control" type="hidden" name="ID_Dosen" value="<?php echo $ID?>">
               </td>
 							<td>
                   <?php echo $r['Nama_mk'] ?>
@@ -102,6 +102,7 @@
                 <input type="submit" class="btn btn-primary" name="upload" value="Pilih" />
 							  <!--<a class="btn btn-primary" href="<?php echo base_url()."jadwal/pro_jadwal/".$r['ID_Mk']; ?>/<?php echo $user['ID_User']; ?>" type="submit">Pilih</a>-->
               </td>
+              </form>
 						</tr> 
 					
 						<?php } ?>

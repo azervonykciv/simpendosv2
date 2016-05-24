@@ -186,7 +186,7 @@ public function penjadwalan(){
         }
     }
 
-    public function deletepenjadwalan($ID_Jadwal,$ID_User){
+    public function deletepenjadwalan($ID_Jadwal,$ID_User,$ID_Dosen){
         $where = array('ID_Jadwal' => $ID_Jadwal);
         $res = $this->ModelJadwal->DeleteData('jadwal',$where);
         if ($res>=1) {
@@ -197,7 +197,7 @@ public function penjadwalan(){
             ];
             if($this->Log_model->insertLog($Log)){*/
                 $this->session->set_flashdata('pesan','Delete Data Sukses');
-                redirect('jadwal/penjadwalan');
+                redirect('dosen/program/'.$ID_Dosen);
             /*}else{
                 echo "gagal insert data log";
             }*/
