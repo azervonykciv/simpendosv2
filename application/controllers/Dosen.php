@@ -17,7 +17,7 @@ class Dosen extends CI_Controller{
 
 	public function jadwalByNidn($nidn)
 	{
-		
+
 		$notifikasi = $this->nm->get_byid($this->session->userdata('uname'));
 		$jadwal = $this->jdm->getJadwalDosen($nidn);
 		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
