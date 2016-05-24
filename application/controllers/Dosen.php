@@ -5,7 +5,7 @@ class Dosen extends CI_Controller{
 
 	function __construct(){
 		parent::__construct();
-		if (! ($this->session->has_userdata('Status')) ) {
+		if ( !($this->session->userdata('Status') === 'Dosen') ) {
 			redirect('login');
 		}
 		$this->load->model('ModelJadwal');
@@ -42,7 +42,7 @@ class Dosen extends CI_Controller{
 			'id' => $id,
 			'user' => $user,
 		];
-		$this->template->load('template','dosen/report-jadwal-dosen_view', $data);
+		$this->template->load('templateDosen','dosen/report-jadwal-dosen_view', $data);
 	}
 	public function insertreport()
 	{
