@@ -39,7 +39,7 @@
               <td><?php echo $r['Kelas_MK'] ?></td>
               <td><?php echo $r['Jam_Kelas'] ?></td>
               <td align="center">
-                <a class="btn btn-danger" href="<?php echo base_url()."jadwal/deletepenjadwalan/".$r['ID_Jadwal']; ?>/<?php echo $user['ID_User']; ?>/<?php echo $ID?>">Delete</a>
+                <a class="btn btn-danger" href="<?php echo base_url()."jadwal/deletepenjadwalan/".$r['ID_Jadwal']; ?>/<?php echo $user['ID_User']; ?>/<?php echo $ID?>/<?php echo $r['ID_Mk']; ?>">Delete</a>
               </td>
             </tr> 
           
@@ -66,6 +66,7 @@
 							<td>
                   <input class="form-control" type="text" name="ID_Mk" value="<?php echo $r['ID_Mk']?>"  required autofocus readonly>
                   <input class="form-control" type="hidden" name="ID_Dosen" value="<?php echo $ID?>">
+                  <input name="ID_User" type="hidden" value="<?php echo $user['ID_User']; ?>">
               </td>
 							<td>
                   <?php echo $r['Nama_mk'] ?>
@@ -88,15 +89,38 @@
 				                </select>
 							</td>
               <td>
-                <select name="Jam_Kelas" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                        </select>
+                <select name="Jam_KelasAwal" class="form-control">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                </select>
+                S/D
+                <select name="Jam_KelasAkhir" class="form-control">
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                </select>
               </td>
 							<td align="center">
                 <input type="submit" class="btn btn-primary" name="upload" value="Pilih" />

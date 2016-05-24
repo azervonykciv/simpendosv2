@@ -186,21 +186,21 @@ public function penjadwalan(){
         }
     }
 
-    public function deletepenjadwalan($ID_Jadwal,$ID_User,$ID_Dosen){
+    public function deletepenjadwalan($ID_Jadwal,$ID_User,$ID_Dosen,$ID_Mk){
         $where = array('ID_Jadwal' => $ID_Jadwal);
         $res = $this->ModelJadwal->DeleteData('jadwal',$where);
         if ($res>=1) {
-            /*$Log = [
+            $Log = [
                 'ID_User'   => $ID_User,
                 'Tanggal'   => date('Y-m-d H:i:s'),
-                'Aktifitas' => "Hapus data Penjadwalan ".$ID_Mk,
+                'Aktifitas' => "Hapus data Penjadwalan Dosen ".$ID_Dosen." mata kuliah ".$ID_Mk,
             ];
-            if($this->Log_model->insertLog($Log)){*/
+            if($this->Log_model->insertLog($Log)){
                 $this->session->set_flashdata('pesan','Delete Data Sukses');
                 redirect('dosen/program/'.$ID_Dosen);
-            /*}else{
+            }else{
                 echo "gagal insert data log";
-            }*/
+            }
         } else {
             echo "<h2>Delete Data Gagal</h2>";
         }
