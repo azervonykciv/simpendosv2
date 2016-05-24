@@ -8,6 +8,7 @@ class Dosen extends CI_Controller{
 		if (! ($this->session->has_userdata('Status')) ) {
 			redirect('login');
 		}
+		$this->load->model('ModelJadwal');
         $this->load->model('Dosen_model', 'dm');
         $this->load->model('Jadwal_dosen_model', 'jdm');
         $this->load->model('Jadwal_report_model', 'jrm');
@@ -72,4 +73,46 @@ class Dosen extends CI_Controller{
 			}	
 		}
 	}
+
+	//ini
+	public function program($ID_Dosen){
+		$mk = $this->ModelJadwal->GetMatakuliah();
+        $data = $this->ModelJadwal->GetJadwal();
+        $user = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$dosen  = $this->dm->GetDosen("where ID_Dosen = '$ID_Dosen'");
+		$jadwal = [
+			'dosen' => $dosen,
+			'data' => $data,
+            'mk' => $mk,
+            'user' => $user,
+            'ID' => $ID_Dosen,
+		];
+		$this->template->load('template','penjadwalan/tampilPenjadwalan', $jadwal);
+	}	
+
+	//ini
+	public function pro_jadwal(){
+        $ID_Dosen 	= $_POST['ID_Dosen'];
+        $ID_Mk		= $_POST['ID_Mk'];
+        $Kelas_MK 	= $_POST['Kelas_MK'];
+        $Jam_Kelas 	= $_POST['Jam_Kelas'];
+		
+		/*$where = array( 'ID_Mk' => $ID_Mk, 
+						'ID_Dosen' => $ID_Dosen,
+		);*/
+        
+        $data_insert = array(
+            'ID_Mk' => $ID_Mk,
+            'ID_Dosen' => $ID_Dosen,
+            'Kelas_MK' => $Kelas_MK,
+            'Jam_Kelas' => $Jam_Kelas
+        );
+        $res = $this->ModelJadwal->InsertData('jadwal',$data_insert);
+        if ($res>=1) {
+            $this->session->set_flashdata('pesan','Tambah Data Sukses');
+            $this->program($ID_Dosen);
+        } else {
+            echo "<h2>Insert Data Gagal</h2>";
+        }
+    }
 }

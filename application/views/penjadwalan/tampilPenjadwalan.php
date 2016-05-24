@@ -55,29 +55,24 @@
 							<th>ID</th>
 							<th>NAMA MATAKULIAH</th>
 							<th>JUMLAH SKS</th>
-							<th>Dosen</th>
 							<th>Kelas</th>
               <th>Jam</th>
 							<th>ACTION</th>
 						</tr>
 						</thead>
 						<?php foreach ($mk as $r){ ?>
-            <form method="POST" action="<?php echo base_url()."jadwal/pro_jadwal/".$r['ID_Mk']; ?>">
+            <form method="POST" action="<?php echo base_url()."Dosen/pro_jadwal/"; ?>">
 						<tr>
 							<td>
                   <input class="form-control" type="text" name="ID_Mk" value="<?php echo $r['ID_Mk']?>"  required autofocus readonly>
+                  <input class="form-control" type="hidden" name="ID_Dosen" value="<?php echo $ID?>"  required autofocus readonly>
               </td>
-							<td><?php echo $r['Nama_mk'] ?></td>
-							<td><?php echo $r['Jumlah_sks'] ?></td>
 							<td>
-								<select name="ID_Dosen" class="form-control" >
-                  <option value="" />
-                    <?php 
-                      foreach ($dosen as $row) {?>                       
-                      <option  value="<?php echo $row['ID_Dosen'];?>"><?php echo $row['nama_dosen'];?></option>  
-                    <?php } ?>
-                </select>
-							</td>
+                  <?php echo $r['Nama_mk'] ?>
+              </td>
+							<td>
+                  <?php echo $r['Jumlah_sks'] ?>
+              </td>
 							<td>
 								<select name="Kelas_MK" class="form-control">
 				                  <option value="a">A</option>
@@ -104,8 +99,8 @@
                         </select>
               </td>
 							<td align="center">
-              <!--  <input type="submit" class="btn btn-primary" name="btnSubmit" value="Save" /> -->
-							  <a class="btn btn-primary" href="<?php echo base_url()."jadwal/pro_jadwal/".$r['ID_Mk']; ?>/<?php echo $user['ID_User']; ?>" type="submit">Pilih</a>
+                <input type="submit" class="btn btn-primary" name="upload" value="Pilih" />
+							  <!--<a class="btn btn-primary" href="<?php echo base_url()."jadwal/pro_jadwal/".$r['ID_Mk']; ?>/<?php echo $user['ID_User']; ?>" type="submit">Pilih</a>-->
               </td>
 						</tr> 
 					

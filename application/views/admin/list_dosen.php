@@ -43,6 +43,7 @@
                                     <td>
                                         <a href="<?php echo base_url(); ?>admin/editdosen/<?php echo $key->ID_Dosen;?>" class="btn btn-warning">Edit</a>
                                         <a href="<?php echo base_url(); ?>admin/deletedosen/<?php echo $key->ID_Dosen;?>/<?php echo $user['ID_User'];?>" class="btn btn-danger">Delete</a>
+                                        <a href="<?php echo base_url(); ?>dosen/program/<?php echo $key->ID_Dosen;?>" class="btn btn-danger">Program</a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
