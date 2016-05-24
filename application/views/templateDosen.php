@@ -168,6 +168,20 @@
     });
 </script>
 
+<script>
+    $(function () {
+        $("#example2").DataTable();
+        $('#example3').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+</script>
+
 
 </body>
 </html>

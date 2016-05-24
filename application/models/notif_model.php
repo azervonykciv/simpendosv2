@@ -9,10 +9,16 @@ class notif_model extends CI_Model
         return $query->result();
     }
 
-    public function get_byid($id)
+    public function post_notif($data)
     {
-        $this->db->where('')
+        $this->db->insert('notifikasi',$data);
     }
 
-    public function
+    public function get_byid($id)
+    {
+
+        $param = array('ID_User'=>$id);
+        $query = $this->db->get_where('notifikasi',$param);
+        return $query;
+    }
 }

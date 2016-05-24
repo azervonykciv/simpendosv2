@@ -9,6 +9,7 @@ class Jadwal_report_model extends CI_Model {
 		parent::__construct();
 		
 	}
+
 	public function insert($report)
 	{
 		$query = $this->db->insert($this->table, $report);
@@ -18,6 +19,7 @@ class Jadwal_report_model extends CI_Model {
 			return FALSE;
 		}
 	}
+
 	public function get_all()
 	{
 	    $query = $this->db->get($this->table);
@@ -28,12 +30,14 @@ class Jadwal_report_model extends CI_Model {
 		$this->db->where($key, $value);
         return $this->db->get($this->table)->result();
 	}
+
 	public function updateStatus($id, $status)
 	{
 		$this->db->set('status_report', $status);
 		$this->db->where('id_jadwal_report', $id);
 		return $this->db->update($this->table);
 	}
+
 	public function getReport()
 	{
 		$this->db->from($this->table);
