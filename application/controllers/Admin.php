@@ -246,7 +246,7 @@ class Admin extends CI_Controller{
 
 	public function program($ID_Dosen){
 		$mk = $this->ModelJadwal->GetMatakuliah();
-        $data = $this->ModelJadwal->GetJadwal();
+        $data = $this->ModelJadwal->GetJadwal("where ID_Dosen='".$ID_Dosen."'");
         $user = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$dosen  = $this->dm->GetDosen("where ID_Dosen = '$ID_Dosen'");
 		$jadwal = [
