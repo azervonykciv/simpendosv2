@@ -289,7 +289,7 @@ class Admin extends CI_Controller{
 				'Nama_Notif' => "Jadwal Kuliah",
 				'Detail_Notifikasi' => "Kelas " . $Kelas_MK . " Pada Jam Kelas " . $Jam_Kelas . " Telah diambil",
 			];
-			// $this->nm->post_notif($notif);
+			$this->nm->post_notif($notif);
 		};
         $res = $this->ModelJadwal->InsertData('jadwal',$data_insert);
 
