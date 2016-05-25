@@ -55,6 +55,3 @@ class Jadwal_dosen_model extends CI_Model {
 		return $this->db->get()->result();
 	}
 }
-
-/* End of file jadwal_dosen_model.php */
-/* Location: ./application/models/jadwal_dosen_model.php */

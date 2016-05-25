@@ -28,6 +28,15 @@ class ModelJadwal extends CI_Model{
 		return $this->db->get('');
 	}
 
+	public function checkData($data,$table,$column)
+	{
+		$this->db->from($table);
+		$this->db->where($column,$data);
+		$res = $this->db->get()->num_rows();
+		return $res;
+	}
+
+
 	public function InsertData($tabelName,$data){ 
 		$res = $this->db->insert($tabelName,$data);
 		return $res;

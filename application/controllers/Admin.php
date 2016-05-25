@@ -269,11 +269,8 @@ class Admin extends CI_Controller{
         $Jam_KelasAkhir	= $_POST['Jam_KelasAkhir'];
         $Jam_Kelas 		= $Jam_KelasAwal." - ".$Jam_KelasAkhir;
         $ID_User 		=  $_POST['ID_User'];
-		
-		/*$where = array( 'ID_Mk' => $ID_Mk, 
-						'ID_Dosen' => $ID_Dosen,
-		);*/
-        
+
+
         $data_insert = array(
             'ID_Mk' => $ID_Mk,
             'ID_Dosen' => $ID_Dosen,
@@ -281,46 +278,66 @@ class Admin extends CI_Controller{
             'Jam_Kelas' => $Jam_Kelas
         );
 
-        // Insert Notification
-		$dos = $this->dm->get_all();
 
-		foreach ($dos as $d) {
-			$notif = [
-				'ID_User' => $d->ID_Dosen,
-				'Nama_Notif' => "Jadwal Kuliah",
-				'Detail_Notifikasi' => "Kelas " . $Kelas_MK . " Pada Jam Kelas " . $Jam_Kelas . " Telah diambil",
+
+		$cek = $this->ModelJadwal->checkData($Kelas_MK,'jadwal','Kelas_MK');
+		$cek1 = $this->ModelJadwal->checkData($Jam_Kelas,'jadwal','Jam_Kelas');
+
+		if($cek>0 && $cek1>0)
+		{
+			$this->session->set_flashdata('pesan','Data Jadwal Sudah ada');
+			redirect('Admin/program/'.$ID_Dosen);
+
+		}else
+		{
+
+			// Insert Notification
+			$dos = $this->dm->get_all();
+
+			foreach ($dos as $d) {
+				$notif = [
+					'ID_User' => $d->ID_Dosen,
+					'Nama_Notif' => "Jadwal Kuliah",
+					'Detail_Notifikasi' => "Kelas " . $Kelas_MK . " Pada Jam Kelas " . $Jam_Kelas . " Telah diambil",
+				];
+				$this->nm->post_notif($notif);
+			};
+
+			$res = $this->ModelJadwal->InsertData('jadwal',$data_insert);
+
+			// End Insert JDM
+
+			// insert jdm
+			$data_jdm = [
+				'id_dosen' => $ID_Dosen,
+				'id_jadwal' => $this->ModelJadwal->getJadwalWhere($data_insert)[0]->ID_Jadwal,
+				'status_jadwal' => '0'
 			];
-			$this->nm->post_notif($notif);
-		};
-        $res = $this->ModelJadwal->InsertData('jadwal',$data_insert);
+			$res1 = $this->jdm->insert($data_jdm);
+			// end insert jdm
 
-        // End Insert JDM
+			$this->session->set_flashdata('sukses','Tambah Data Sukses');
 
-        // insert jdm
-        $data_jdm = [
-            'id_dosen' => $ID_Dosen,
-            'id_jadwal' => $this->ModelJadwal->getJadwalWhere($data_insert)[0]->ID_Jadwal,
-            'status_jadwal' => '0'
-        ];
-        $res1 = $this->jdm->insert($data_jdm);
-        // end insert jdm
+			if ($res>=1 && $res1>=1) {
+				$Log = [
+					'ID_User'	=> $ID_User,
+					'Tanggal'	=> date('Y-m-d H:i:s'),
+					'Aktifitas' => "Program Jadwal Dosen ".$ID_Dosen." Mata Kuliah ".$ID_Mk,
+				];
 
-        if ($res>=1 && $res1>=1) {
-        	$Log = [
-				'ID_User'	=> $ID_User,
-				'Tanggal'	=> date('Y-m-d H:i:s'),
-				'Aktifitas' => "Program Jadwal Dosen ".$ID_Dosen." Mata Kuliah ".$ID_Mk,
-			];
+				if($this->Log_model->insertLog($Log)){
 
-			if($this->Log_model->insertLog($Log)){
-	            $this->session->set_flashdata('pesan','Tambah Data Sukses');
-	            $this->program($ID_Dosen);
-			}else{
-				echo "gagal insert data log";
+					$this->program($ID_Dosen);
+				}else{
+					echo "gagal insert data log";
+				}
+
+			} else {
+				$this->session->set_flashdata('pesan','Insert Data Gagal');
+				redirect('Admin/program/'.$ID_Dosen);
 			}
-        } else {
-            echo "<h2>Insert Data Gagal</h2>";
-        }
+		}
+
 
 
     }

@@ -14,6 +14,17 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
+                <?php
+                    if($this->session->flashdata('pesan'))
+                    {
+                        echo '<div class="alert alert-danger">'
+                               .$this->session->flashdata('pesan').'</div>';
+                    }elseif($this->session->flashdata('sukses'))
+                    {
+                        echo '<div class="alert alert-success">'
+                            .$this->session->flashdata('sukses').'</div>';
+                    }
+                ?>
                 <div class="box-header">
                     <h3 class="box-title">Penjadwalan</h3>
                 </div><!-- /.box-header -->
