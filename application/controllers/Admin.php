@@ -289,10 +289,20 @@ class Admin extends CI_Controller{
 				'Nama_Notif' => "Jadwal Kuliah",
 				'Detail_Notifikasi' => "Kelas " . $Kelas_MK . " Pada Jam Kelas " . $Jam_Kelas . " Telah diambil",
 			];
-			$this->nm->post_notif($notif);
+			// $this->nm->post_notif($notif);
 		};
         $res = $this->ModelJadwal->InsertData('jadwal',$data_insert);
-        if ($res>=1) {
+
+        // insert jdm
+        $data_jdm = [
+            'id_dosen' => $ID_Dosen,
+            'id_jadwal' => $this->ModelJadwal->getJadwalWhere($data_insert)[0]->ID_Jadwal,
+            'status_jadwal' => '0'
+        ];
+        $res1 = $this->jdm->insert($data_jdm);
+        // end insert jdm
+
+        if ($res>=1 && $res1>=1) {
         	$Log = [
 				'ID_User'	=> $ID_User,
 				'Tanggal'	=> date('Y-m-d H:i:s'),
