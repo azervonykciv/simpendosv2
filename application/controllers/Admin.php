@@ -287,7 +287,7 @@ class Admin extends CI_Controller{
 			$notif = [
 				'ID_User' => $d->ID_Dosen,
 				'Nama_Notif' => "Jadwal Kuliah",
-				'Detail_Notifikasi' => "Kelas" . $Kelas_MK . "Pada Jam Kelas" . $Jam_Kelas . "Telah diambil",
+				'Detail_Notifikasi' => "Kelas " . $Kelas_MK . " Pada Jam Kelas " . $Jam_Kelas . " Telah diambil",
 			];
 			$this->nm->post_notif($notif);
 		};
@@ -298,6 +298,7 @@ class Admin extends CI_Controller{
 				'Tanggal'	=> date('Y-m-d H:i:s'),
 				'Aktifitas' => "Program Jadwal Dosen ".$ID_Dosen." Mata Kuliah ".$ID_Mk,
 			];
+
 			if($this->Log_model->insertLog($Log)){
 	            $this->session->set_flashdata('pesan','Tambah Data Sukses');
 	            $this->program($ID_Dosen);
@@ -307,5 +308,7 @@ class Admin extends CI_Controller{
         } else {
             echo "<h2>Insert Data Gagal</h2>";
         }
+
+
     }
 }

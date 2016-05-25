@@ -157,50 +157,6 @@ public function penjadwalan(){
         $this->template->load('template','penjadwalan/tampilPenjadwalan', $jadwal);
     }
 
-    public function pro_jadwal($ID_Mk,$ID_User){
-        $where = array('ID_Mk' => $ID_Mk);
-        //$ID_Mk = $_POST['ID_Mk'];
-        //$ID_Dosen = $_POST['ID_Dosen'];
-        //$Kelas_MK = $_POST['Kelas_MK'];
-        //$Jam_Kelas = $_POST['Jam_Kelas'];
-        $data_insert = array(
-            'ID_Mk' => $ID_Mk,
-            //'ID_Dosen' => $ID_Dosen,
-            //'Kelas_MK' => $Kelas_MK,
-            //'Jam_Kelas' => $Jam_Kelas
-        );
-        $res = $this->ModelJadwal->InsertData('jadwal',$data_insert);
-        if ($res>=1) {
-            $this->session->set_flashdata('pesan','Tambah Data Sukses');
-
-            $dos = $this->Dosen_model->get_all();
-
-            foreach ($dos as $d) {
-                $notif = [
-                    'ID_User' => $d->ID_Dosen,
-                    'Nama_Notif' => "Jadwal Kuliah",
-                    'Detail_Notifikasi' => "Kelas" . $Kelas_MK . "Pada Jam Kelas" . $Jam_Kelas . "Telah diambil",
-                ];
-                $this->nm->post_notif($notif);
-            };
-
-            /*$Log = [
-                'ID_User'   => $ID_User,
-                'Tanggal'   => date('Y-m-d H:i:s'),
-                'Aktifitas' => "Program jadwal ".$ID_Mk,
-            ];
-            if($this->Log_model->insertLog($Log)){*/
-                $this->session->set_flashdata('pesan','Update Data Sukses');
-                redirect('jadwal/penjadwalan');
-            /*}else{
-                echo "gagal insert data log";
-            }*/
-            
-        } else {
-            echo "<h2>Insert Data Gagal</h2>";
-        }
-    }
-
     public function deletepenjadwalan($ID_Jadwal,$ID_User,$ID_Dosen,$ID_Mk){
         $where = array('ID_Jadwal' => $ID_Jadwal);
         $res = $this->ModelJadwal->DeleteData('jadwal',$where);
