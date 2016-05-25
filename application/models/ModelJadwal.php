@@ -10,6 +10,18 @@ class ModelJadwal extends CI_Model{
 		$data = $this->db->query('select * from jadwal '.$where);
 		return $data->result_array();
 	}
+
+	public function getJadwalWhere($where)
+	{
+		$this->db->where($where);
+		$this->db->from('jadwal');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return FALSE;
+		}
+	}
 	
 	function get_all(){
 
