@@ -94,14 +94,6 @@
                             <?php $no++; ?>
                             <?php endforeach ?>
                         </tbody>
-                        <tfoot>
-                        <tr>
-                            <th>#</th>
-                            <th>id_jadwal</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                        </tfoot>
                     </table>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->

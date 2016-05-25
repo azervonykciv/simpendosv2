@@ -45,12 +45,6 @@ class Dosen extends CI_Controller{
 		$this->template->load('templateDosen','dosen/report-jadwal-dosen_view', $data);
 	}
 
-
-	public function insertNotif()
-	{
-		$jadwal = $this->jdm->get_all();
-
-	}
 	public function insertreport()
 	{
 		$user = $this->session->userdata('uname');

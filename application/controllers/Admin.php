@@ -281,6 +281,7 @@ class Admin extends CI_Controller{
             'Jam_Kelas' => $Jam_Kelas
         );
 
+        // Insert Notification
 		$dos = $this->dm->get_all();
 
 		foreach ($dos as $d) {
@@ -292,6 +293,8 @@ class Admin extends CI_Controller{
 			$this->nm->post_notif($notif);
 		};
         $res = $this->ModelJadwal->InsertData('jadwal',$data_insert);
+
+        // End Insert JDM
 
         // insert jdm
         $data_jdm = [

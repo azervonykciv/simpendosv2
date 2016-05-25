@@ -245,7 +245,7 @@ class User extends CI_Controller {
 			'user1'	=> $user1,
 			'dosen' => $dosen,
 		];
-		$this->template->load('template','User/editProfileDosen', $data);
+		$this->template->load('templateDosen','User/editProfileDosen', $data);
 	}
 
 	public function updateProfileDosen(){

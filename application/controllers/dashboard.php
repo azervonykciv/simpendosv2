@@ -8,6 +8,8 @@ class Dashboard extends CI_Controller{
 		if (! ($this->session->has_userdata('Status')) ) {
 			redirect('login');
 		}
+
+		$this->load->model('Jadwal_report_model','jrm');
 	}
 	public function index()
 	{
@@ -51,6 +53,7 @@ class Dashboard extends CI_Controller{
 	}
 
 	public function homeAdmin(){
+		$data['report'] = $this->jrm->getReport();
 		$data['user'] = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$this->template->load('template', 'Home/homeAdmin', $data);
 	}

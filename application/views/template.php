@@ -92,12 +92,9 @@
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="<?php echo base_url()."Dashboard/homeAdmin";?>">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
-                    <ul class="treeview-menu">
-                        <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                    </ul>
                 </li>
                 <li class="treeview">
                     <a href="<?php echo base_url()."Admin/listDosenAdmin";?>">
@@ -116,7 +113,7 @@
     </div><!-- /.content-wrapper -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0
+            <b>Version</b> 1.1
         </div>
         <strong>Copyright &copy; 2016 <a href="http://almsaeedstudio.com">SIMPENDOS (Sistem Penjadwalan Dosen)</a>.</strong> All rights reserved.
     </footer>

@@ -37,12 +37,12 @@ class Jadwal_dosen_model extends CI_Model {
 		$this->db->where('ID_Jadwal', $id);
 		return $this->db->update('jadwal', $data);
 	}
-	public function getJadwalDosen($id_jadwal)
+	public function getJadwalDosen($id_dosen)
 	{
-		$this->db->select('*');
 		$this->db->from($this->table);
 		$this->db->join('jadwal', 'jadwal.ID_Jadwal = jadwal_dosen.id_jadwal');
 		$this->db->join('matakuliah', 'matakuliah.ID_Mk = jadwal.ID_Mk');
+		$this->db->where('jadwal_dosen.id_dosen', $id_dosen);
 		return $this->db->get()->result();
 	}
 	public function getReport($id)
