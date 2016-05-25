@@ -12,6 +12,7 @@ class Admin extends CI_Controller{
         $this->load->model('Dosen_model', 'dm');
         $this->load->model('Jadwal_dosen_model', 'jdm');
         $this->load->model('Jadwal_report_model', 'jrm');
+		$this->load->model('notif_model','nm');
 	}
 	public function index()
 	{
@@ -279,6 +280,17 @@ class Admin extends CI_Controller{
             'Kelas_MK' => $Kelas_MK,
             'Jam_Kelas' => $Jam_Kelas
         );
+
+		$dos = $this->dm->get_all();
+
+		foreach ($dos as $d) {
+			$notif = [
+				'ID_User' => $d->ID_Dosen,
+				'Nama_Notif' => "Jadwal Kuliah",
+				'Detail_Notifikasi' => "Kelas" . $Kelas_MK . "Pada Jam Kelas" . $Jam_Kelas . "Telah diambil",
+			];
+			$this->nm->post_notif($notif);
+		};
         $res = $this->ModelJadwal->InsertData('jadwal',$data_insert);
         if ($res>=1) {
         	$Log = [

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a7ebea6-f5a0-463b-8fa0-5d74a8d6635a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/auth/v_sukses.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Dosen.php" afterPath="$PROJECT_DIR$/application/controllers/Dosen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/jadwal.php" afterPath="$PROJECT_DIR$/application/controllers/jadwal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php" afterPath="$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php" afterPath="$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/template.php" afterPath="$PROJECT_DIR$/application/views/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Admin.php" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" />
     </list>
     <ignored path="simpendosv2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,7 +35,7 @@
       <file leaf-file-name="Dosen.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Dosen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="13.458333">
+            <state vertical-scroll-proportion="-18.5">
               <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding />
             </state>
@@ -49,7 +45,7 @@
       <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.125">
+            <state vertical-scroll-proportion="0.0">
               <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
               <folding />
             </state>
@@ -59,38 +55,34 @@
       <file leaf-file-name="template.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.75">
-              <caret line="107" column="78" selection-start-line="107" selection-start-column="78" selection-end-line="107" selection-end-column="78" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tampilPenjadwalan.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tampilPenjadwalan.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56049824">
-              <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
-              <folding>
-                <marker date="1464106567000" expanded="true" signature="2646:2679" placeholder="..." />
-                <marker date="1464106567000" expanded="true" signature="2724:2757" placeholder="..." />
-                <marker date="1464106567000" expanded="true" signature="2805:3412" placeholder="..." />
-                <marker date="1464106567000" expanded="true" signature="2859:3399" placeholder="..." />
-                <marker date="1464106567000" expanded="true" signature="3431:4947" placeholder="..." />
-                <marker date="1464106567000" expanded="true" signature="3498:4192" placeholder="..." />
-                <marker date="1464106567000" expanded="true" signature="4280:4927" placeholder="..." />
-                <marker date="1464106567000" expanded="true" signature="4974:5159" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="60.0">
+              <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homeAdmin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/Home/homeAdmin.php">
+      <file leaf-file-name="jadwal-dosen_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="8.375">
+              <caret line="38" column="76" selection-start-line="38" selection-start-column="71" selection-end-line="38" selection-end-column="76" />
+              <folding>
+                <marker date="1464104803000" expanded="true" signature="1213:1358" placeholder="..." />
+                <marker date="1464104803000" expanded="true" signature="1357:1358" placeholder="..." />
+                <marker date="1464104803000" expanded="true" signature="1444:1469" placeholder="..." />
+                <marker date="1464104803000" expanded="true" signature="1444:1474" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,7 +90,7 @@
       <file leaf-file-name="homeDosen.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/Home/homeDosen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-37.5">
+            <state vertical-scroll-proportion="0.0">
               <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
               <folding />
             </state>
@@ -108,8 +100,18 @@
       <file leaf-file-name="jadwal.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/jadwal.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5">
-              <caret line="156" column="30" selection-start-line="156" selection-start-column="30" selection-end-line="156" selection-end-column="30" />
+            <state vertical-scroll-proportion="-115.0">
+              <caret line="184" column="14" selection-start-line="175" selection-start-column="13" selection-end-line="184" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.1861702">
+              <caret line="279" column="33" selection-start-line="279" selection-start-column="33" selection-end-line="279" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -118,7 +120,7 @@
       <file leaf-file-name="Jadwal_dosen_model.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/Jadwal_dosen_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625">
+            <state vertical-scroll-proportion="0.0">
               <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
@@ -128,21 +130,11 @@
       <file leaf-file-name="Dosen_model.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/Dosen_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625">
+            <state vertical-scroll-proportion="0.0">
               <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
               <folding>
                 <marker date="1464104349000" expanded="true" signature="422:442" placeholder="select * fro... dosen" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notif_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/notif_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.875">
-              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="31" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -187,7 +179,6 @@
         <option value="$PROJECT_DIR$/application/models/m_login.php" />
         <option value="$PROJECT_DIR$/application/views/auth/v_login.php" />
         <option value="$PROJECT_DIR$/application/views/Home/homeDosen.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
         <option value="$PROJECT_DIR$/application/models/Jadwal_report_model.php" />
         <option value="$PROJECT_DIR$/application/models/notif_model.php" />
         <option value="$PROJECT_DIR$/application/views/templateDosen.php" />
@@ -200,6 +191,7 @@
         <option value="$PROJECT_DIR$/application/controllers/jadwal.php" />
         <option value="$PROJECT_DIR$/application/views/template.php" />
         <option value="$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
       </list>
     </option>
   </component>
@@ -242,6 +234,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -354,6 +348,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="dosen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simpendosv2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simpendosv2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="auth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -396,8 +412,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -474,7 +488,7 @@
     <frame x="0" y="23" width="1280" height="706" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24717286" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21890146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -537,13 +551,6 @@
             <marker date="1464104803000" expanded="true" signature="1357:1358" placeholder="..." />
             <marker date="1464104803000" expanded="true" signature="1444:1469" placeholder="..." />
             <marker date="1464104803000" expanded="true" signature="1444:1474" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="1444:1506" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="2027:2406" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="2060:2373" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="2438:3803" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="2585:3803" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="2911:3595" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="3636:3803" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -552,7 +559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -781,18 +787,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Jadwal_report_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -800,7 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="173" column="20" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -808,7 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.25">
           <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -816,7 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -824,33 +819,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.094306">
           <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.75">
-          <caret line="38" column="76" selection-start-line="38" selection-start-column="71" selection-end-line="38" selection-end-column="76" />
-          <folding>
-            <marker date="1464104803000" expanded="true" signature="1213:1358" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="1357:1358" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="1444:1469" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="1444:1474" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="1444:1506" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="2027:2406" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="2060:2373" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="2438:3803" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="2585:3803" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="2911:3595" placeholder="..." />
-            <marker date="1464104803000" expanded="true" signature="3636:3803" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/notif_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.875">
+        <state vertical-scroll-proportion="0.0">
           <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="31" />
           <folding />
         </state>
@@ -858,7 +832,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Dosen_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
+        <state vertical-scroll-proportion="0.0">
           <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
           <folding>
             <marker date="1464104349000" expanded="true" signature="422:442" placeholder="select * fro... dosen" />
@@ -868,16 +842,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Jadwal_dosen_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
+        <state vertical-scroll-proportion="0.0">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Dosen.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.458333">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Home/homeDosen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -890,52 +880,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/dashboard.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Dosen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.125">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Home/homeDosen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-37.5">
-          <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.75">
-          <caret line="107" column="78" selection-start-line="107" selection-start-column="78" selection-end-line="107" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/jadwal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5">
-          <caret line="156" column="30" selection-start-line="156" selection-start-column="30" selection-end-line="156" selection-end-column="30" />
+        <state vertical-scroll-proportion="-18.5">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/penjadwalan/tampilPenjadwalan.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56049824">
-          <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+        <state vertical-scroll-proportion="60.0">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/jadwal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-115.0">
+          <caret line="184" column="14" selection-start-line="175" selection-start-column="13" selection-end-line="184" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dosen/jadwal-dosen_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="8.375">
+          <caret line="38" column="76" selection-start-line="38" selection-start-column="71" selection-end-line="38" selection-end-column="76" />
           <folding>
-            <marker date="1464106567000" expanded="true" signature="2646:2679" placeholder="..." />
-            <marker date="1464106567000" expanded="true" signature="2724:2757" placeholder="..." />
-            <marker date="1464106567000" expanded="true" signature="2805:3412" placeholder="..." />
-            <marker date="1464106567000" expanded="true" signature="2859:3399" placeholder="..." />
-            <marker date="1464106567000" expanded="true" signature="3431:4947" placeholder="..." />
-            <marker date="1464106567000" expanded="true" signature="3498:4192" placeholder="..." />
-            <marker date="1464106567000" expanded="true" signature="4280:4927" placeholder="..." />
-            <marker date="1464106567000" expanded="true" signature="4974:5159" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1213:1358" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1357:1358" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1444:1469" placeholder="..." />
+            <marker date="1464104803000" expanded="true" signature="1444:1474" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1861702">
+          <caret line="279" column="33" selection-start-line="279" selection-start-column="33" selection-end-line="279" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
