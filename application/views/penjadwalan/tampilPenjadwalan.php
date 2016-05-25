@@ -62,7 +62,7 @@
 						</thead>
 						<?php foreach ($mk as $r){ ?>
             <tr>
-            <form method="POST" action='<?php echo base_url()."Dosen/pro_jadwal/";?>'>
+            <form method="POST" action='<?php echo base_url()."Admin/pro_jadwal/";?>'>
 							<td>
                   <input class="form-control" type="text" name="ID_Mk" value="<?php echo $r['ID_Mk']?>"  required autofocus readonly>
                   <input class="form-control" type="hidden" name="ID_Dosen" value="<?php echo $ID?>">

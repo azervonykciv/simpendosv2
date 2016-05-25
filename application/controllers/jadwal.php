@@ -212,7 +212,7 @@ public function penjadwalan(){
             ];
             if($this->Log_model->insertLog($Log)){
                 $this->session->set_flashdata('pesan','Delete Data Sukses');
-                redirect('dosen/program/'.$ID_Dosen);
+                redirect('Admin/program/'.$ID_Dosen);
             }else{
                 echo "gagal insert data log";
             }
