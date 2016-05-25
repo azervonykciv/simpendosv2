@@ -21,6 +21,10 @@ class Jadwal_dosen_model extends CI_Model {
 		}
 	}
 
+	public function insert($data)
+	{
+		return $this->db->insert($this->table, $data);
+	}
 
 	public function updateStatus($id, $status)
 	{
