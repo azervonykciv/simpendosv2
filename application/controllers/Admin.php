@@ -41,12 +41,14 @@ class Admin extends CI_Controller{
 	public function updateJadwal($id, $id_jadwal_dosen, $id_report)
 	{
 		$ID = $this->input->post('ID');
+		$Jam_KelasAwal  = $this->input->post('Jam_KelasAwal');
+		$Jam_KelasAkhir = $this->input->post('Jam_KelasAkhir');
 		$jadwal = [
 			'ID_Jadwal' => $this->input->post('ID_Jadwal'),
-			'ID_Mk' => $this->input->post('ID_Mk'),
-			'ID_Dosen' => $this->input->post('ID_Dosen'),
-			'Kelas_MK' => $this->input->post('Kelas_MK'),
-			'Jam_Kelas' => $this->input->post('Jam_Kelas'),
+			'ID_Mk'     => $this->input->post('ID_Mk'),
+			'ID_Dosen'  => $this->input->post('ID_Dosen'),
+			'Kelas_MK'  => $this->input->post('Kelas_MK'),
+			'Jam_Kelas' => $Jam_KelasAwal." - ".$Jam_KelasAkhir,
 		];
 		// 3 = Laporan belum dikonfirmasi
 		$this->jdm->updateStatus($id_jadwal_dosen, 0);
@@ -60,7 +62,7 @@ class Admin extends CI_Controller{
 				'Aktifitas' => "Update Jadwal",
 			];
 			if($this->Log_model->insertLog($Log)){
-				redirect('admin/listreport');
+				redirect('dashboard/homeadmin');
 			}else{
 				echo "gagal insert data log";
 			}
@@ -300,7 +302,7 @@ class Admin extends CI_Controller{
 					'Nama_Notif' => "Jadwal Kuliah",
 					'Detail_Notifikasi' => "Kelas " . $Kelas_MK . " Pada Jam Kelas " . $Jam_Kelas . " Telah diambil",
 				];
-				$this->nm->post_notif($notif);
+				// $this->nm->post_notif($notif);
 			};
 
 			$res = $this->ModelJadwal->InsertData('jadwal',$data_insert);
