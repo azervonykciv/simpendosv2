@@ -56,14 +56,37 @@
                         </div>
                         <div class="input-group">
                             <label>Jam</label>
-                            <select name="Jam_Kelas" class="form-control">
-                                <option value="1" <?php if($jadwal[0]->Jam_Kelas === '1'){echo "selected";} ?>>1</option>
-                                <option value="2" <?php if($jadwal[0]->Jam_Kelas === '2'){echo "selected";} ?>>2</option>
-                                <option value="3" <?php if($jadwal[0]->Jam_Kelas === '3'){echo "selected";} ?>>3</option>
-                                <option value="4" <?php if($jadwal[0]->Jam_Kelas === '4'){echo "selected";} ?>>4</option>
-                                <option value="5" <?php if($jadwal[0]->Jam_Kelas === '5'){echo "selected";} ?>>5</option>
-                                <option value="6" <?php if($jadwal[0]->Jam_Kelas === '6'){echo "selected";} ?>>6</option>
-                                <option value="7" <?php if($jadwal[0]->Jam_Kelas === '7'){echo "selected";} ?>>7</option>
+                            <select name="Jam_KelasAwal" class="form-control">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                            </select>
+                            S/D
+                            <select name="Jam_KelasAkhir" class="form-control">
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
                             </select>
                         </div>
                         <div class="input-group">
