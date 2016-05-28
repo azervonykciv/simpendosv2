@@ -47,10 +47,10 @@ class Dosen extends CI_Controller{
 
 	public function insertreport()
 	{
-		$user = $this->session->userdata('uname');
-		$id = $this->input->post('id');
-		$ID_User = $this->input->post('ID_User');
-		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$user 		= $this->session->userdata('uname');
+		$id 		= $this->input->post('id');
+		$ID_User 	= $this->input->post('ID_User');
+		$user 		= $this->m_login->ambil_user($this->session->userdata('uname'));
 		$data = [
 			'user' => $user,
 		];

@@ -248,16 +248,16 @@ class Admin extends CI_Controller{
 	}
 
 	public function program($ID_Dosen){
-		$mk = $this->ModelJadwal->GetMatakuliah();
-        $data = $this->ModelJadwal->GetJadwal("where ID_Dosen='".$ID_Dosen."'");
-        $user = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$mk 	= $this->ModelJadwal->GetMatakuliah();
+        $data 	= $this->ModelJadwal->GetJadwal("where ID_Dosen='".$ID_Dosen."'");
+        $user 	= $this->m_login->ambil_user($this->session->userdata('uname'));
 		$dosen  = $this->dm->GetDosen("where ID_Dosen = '$ID_Dosen'");
 		$jadwal = [
 			'dosen' => $dosen,
-			'data' => $data,
-            'mk' => $mk,
-            'user' => $user,
-            'ID' => $ID_Dosen,
+			'data' 	=> $data,
+            'mk' 	=> $mk,
+            'user' 	=> $user,
+            'ID' 	=> $ID_Dosen,
 		];
 		$this->template->load('template','penjadwalan/tampilPenjadwalan', $jadwal);
 	}
@@ -298,8 +298,8 @@ class Admin extends CI_Controller{
 
 			foreach ($dos as $d) {
 				$notif = [
-					'ID_User' => $d->ID_Dosen,
-					'Nama_Notif' => "Jadwal Kuliah",
+					'ID_User' 			=> $d->ID_Dosen,
+					'Nama_Notif' 		=> "Jadwal Kuliah",
 					'Detail_Notifikasi' => "Kelas " . $Kelas_MK . " Pada Jam Kelas " . $Jam_Kelas . " Telah diambil",
 				];
 				// $this->nm->post_notif($notif);
@@ -311,8 +311,8 @@ class Admin extends CI_Controller{
 
 			// insert jdm
 			$data_jdm = [
-				'id_dosen' => $ID_Dosen,
-				'id_jadwal' => $this->ModelJadwal->getJadwalWhere($data_insert)[0]->ID_Jadwal,
+				'id_dosen' 		=> $ID_Dosen,
+				'id_jadwal' 	=> $this->ModelJadwal->getJadwalWhere($data_insert)[0]->ID_Jadwal,
 				'status_jadwal' => '0'
 			];
 			$res1 = $this->jdm->insert($data_jdm);
@@ -339,8 +339,5 @@ class Admin extends CI_Controller{
 				redirect('Admin/program/'.$ID_Dosen);
 			}
 		}
-
-
-
     }
 }

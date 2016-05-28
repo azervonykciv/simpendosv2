@@ -9,9 +9,9 @@ class Log extends CI_Controller {
     }
 	public function index()
 	{
-		$log = $this->Log_model->GetLog();
-		$user  = $this->m_login->ambil_user($this->session->userdata('uname'));
-		$data = array(
+		$log 	= $this->Log_model->GetLog();
+		$user  	= $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data 	= array(
 			'log' => $log,
 			'user'=> $user,
 		);

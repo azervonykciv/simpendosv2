@@ -58,14 +58,14 @@ class Jadwal extends CI_Controller{
 
 
     public function do_insert(){
-        $ID_Mk = $_POST['ID_Mk'];
-        $Nama_mk = $_POST['Nama_mk'];
+        $ID_Mk      = $_POST['ID_Mk'];
+        $Nama_mk    = $_POST['Nama_mk'];
         $Jumlah_sks = $_POST['Jumlah_sks'];
-        $ID_User = $this->input->post('ID_User');
+        $ID_User    = $this->input->post('ID_User');
         $data_insert = array(
-            'ID_Mk' => $ID_Mk,
-            'Nama_mk' => $Nama_mk,
-            'Jumlah_sks' => $Jumlah_sks
+            'ID_Mk'         => $ID_Mk,
+            'Nama_mk'       => $Nama_mk,
+            'Jumlah_sks'    => $Jumlah_sks
         );
         $res = $this->ModelJadwal->InsertData('matakuliah',$data_insert);
         if ($res>=1) {
@@ -74,7 +74,6 @@ class Jadwal extends CI_Controller{
                 'Tanggal'   => date('Y-m-d H:i:s'),
                 'Aktifitas' => "Insert data Mata Kuliah ".$ID_Mk,
             ];
-
 
             if($this->Log_model->insertLog($Log)){
                 $this->session->set_flashdata('pesan','Tambah Data Sukses');
@@ -90,14 +89,14 @@ class Jadwal extends CI_Controller{
 
 
     public function do_update(){
-        $ID_Mk = $_POST['ID_Mk'];
-        $Nama_mk = $_POST['Nama_mk'];
+        $ID_Mk      = $_POST['ID_Mk'];
+        $Nama_mk    = $_POST['Nama_mk'];
         $Jumlah_sks = $_POST['Jumlah_sks'];
-        $ID_User = $this->input->post('ID_User');
+        $ID_User    = $this->input->post('ID_User');
         $data_update = array(
-            'ID_Mk' => $ID_Mk,
-            'Nama_mk' => $Nama_mk,
-            'Jumlah_sks' => $Jumlah_sks
+            'ID_Mk'         => $ID_Mk,
+            'Nama_mk'       => $Nama_mk,
+            'Jumlah_sks'    => $Jumlah_sks
         );
         $where = array('ID_Mk'=>$ID_Mk);
         $res = $this->ModelJadwal->UpdateData('matakuliah', $data_update,$where);
@@ -144,10 +143,10 @@ class Jadwal extends CI_Controller{
     /*====PENJADWALAN======*/
 
 public function penjadwalan(){
-        $mk = $this->ModelJadwal->GetMatakuliah();
-        $data = $this->ModelJadwal->GetJadwal();
-        $dosen = $this->Dosen_model->GetDosen();
-        $user = $this->m_login->ambil_user($this->session->userdata('uname'));
+        $mk     = $this->ModelJadwal->GetMatakuliah();
+        $data   = $this->ModelJadwal->GetJadwal();
+        $dosen  = $this->Dosen_model->GetDosen();
+        $user   = $this->m_login->ambil_user($this->session->userdata('uname'));
         $jadwal = [
             'dosen' => $dosen,
             'data'  => $data,
@@ -158,8 +157,8 @@ public function penjadwalan(){
     }
 
     public function deletepenjadwalan($ID_Jadwal,$ID_User,$ID_Dosen,$ID_Mk){
-        $where = array('ID_Jadwal' => $ID_Jadwal);
-        $res = $this->ModelJadwal->DeleteData('jadwal',$where);
+        $where  = array('ID_Jadwal' => $ID_Jadwal);
+        $res    = $this->ModelJadwal->DeleteData('jadwal',$where);
         if ($res>=1) {
             $Log = [
                 'ID_User'   => $ID_User,
