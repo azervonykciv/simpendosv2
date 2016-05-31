@@ -13,6 +13,7 @@ class Admin extends CI_Controller{
         $this->load->model('Jadwal_report_model', 'jrm');
 		$this->load->model('notif_model','nm');
 	}
+
 	public function index()
 	{
 		
@@ -126,8 +127,7 @@ class Admin extends CI_Controller{
 			'dosen' => $dosen,
 			'user' => $user,
 		];
-		// echo "<pre>";
-		// print_r($data);
+
 		$data['user'] = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$this->template->load('templateSuperAdmin','admin/list_dosen', $data);
 	}
@@ -140,8 +140,7 @@ class Admin extends CI_Controller{
 			'dosen' => $dosen,
 			'user' => $user,
 		];
-		// echo "<pre>";
-		// print_r($data);
+
 		$data['user'] = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$this->template->load('template','Dosen/list_dosen', $data);
 	}
@@ -194,6 +193,7 @@ class Admin extends CI_Controller{
 			echo "Gagal insert";
 		}
 	}
+
 	public function editDosen($ID_Dosen)
 	{
 		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
@@ -204,11 +204,9 @@ class Admin extends CI_Controller{
 			'dosenUser' => $dDosenU,
 			'user'		=> $user,
 		];
-		// echo "<pre>";
-		// print_r($data);
-		// die();
 		$this->template->load('templateSuperAdmin','admin/edit-dosen_view', $data);
 	}
+
 	public function updateDosen()
 	{
 		$id = $this->input->post('ID_Dosen');
@@ -223,9 +221,6 @@ class Admin extends CI_Controller{
 			'alamat_malang'     => $this->input->post('alamat_malang'),
 			'ref_aktivasiDosen' => $this->input->post('ref_aktivasiDosen'),
 		];
-		// echo "<pre>";
-		// print_r($dosen);
-		// die();
 		
 		if ($this->dm->update($dosen, $id)) {
 			$dosenU = [
@@ -251,6 +246,7 @@ class Admin extends CI_Controller{
 			echo "Gagal update";
 		}
 	}
+
 	public function deleteDosen($ID_Dosen, $ID_User)
 	{
 		$this->dm->delete($ID_Dosen);
@@ -284,7 +280,6 @@ class Admin extends CI_Controller{
 		$this->template->load('template','penjadwalan/tampilPenjadwalan', $jadwal);
 	}
 
-	//ini
 	public function pro_jadwal(){
         $ID_Dosen 		= $_POST['ID_Dosen'];
         $ID_Mk			= $_POST['ID_Mk'];
@@ -294,15 +289,12 @@ class Admin extends CI_Controller{
         $Jam_Kelas 		= $Jam_KelasAwal." - ".$Jam_KelasAkhir;
         $ID_User 		=  $_POST['ID_User'];
 
-
         $data_insert = array(
             'ID_Mk' => $ID_Mk,
             'ID_Dosen' => $ID_Dosen,
             'Kelas_MK' => $Kelas_MK,
             'Jam_Kelas' => $Jam_Kelas
         );
-
-
 
 		$cek = $this->ModelJadwal->checkData($Kelas_MK,'jadwal','Kelas_MK');
 		$cek1 = $this->ModelJadwal->checkData($Jam_Kelas,'jadwal','Jam_Kelas');
@@ -315,8 +307,6 @@ class Admin extends CI_Controller{
 
 		}else
 		{
-
-			// Insert Notification
 			$dos = $this->dm->get_all();
 
 			foreach ($dos as $d) {
@@ -325,7 +315,7 @@ class Admin extends CI_Controller{
 					'Nama_Notif' 		=> "Jadwal Kuliah",
 					'Detail_Notifikasi' => "Kelas " . $Kelas_MK . " Pada Jam Kelas " . $Jam_Kelas . " Telah diambil",
 				];
-				// $this->nm->post_notif($notif);
+				$this->nm->post_notif($notif);
 			};
 
 			$res = $this->ModelJadwal->InsertData('jadwal',$data_insert);

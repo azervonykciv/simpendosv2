@@ -97,14 +97,23 @@ class Dosen extends CI_Controller{
 			$us = $this->um->getuser_bystatus("Admin");
 
 
-			foreach($us as $u)
-			{
+			foreach($us as $u) {
 				$notif_ad = [
 					'ID_User' => $u->Status,
 					'Nama_Notif' => "Jadwal Dosen",
-					'Detail_Notifikasi' => "Dosen ".$ur->Nama_User." Melakukan pemrograman mata kuliah",
+					'Detail_Notifikasi' => "Dosen " . $ur->Nama_User . " Melakukan pemrograman mata kuliah",
 					'ID_Dosen' => $ID_Dosen,
 				];
+
+				$ckn1 = $this->nm->checkData($notif_ad['ID_User'], 'notifikasi', 'ID_User');
+				$ckn2 = $this->nm->checkData($notif_ad['Detail_Notifikasi'], 'notifikasi', 'Detail_Notifikasi');
+
+				if ($ckn1 > 0) {
+					if($ckn2 == 0) {
+						$this->nm->post_notif($notif_ad);
+					}
+					break;
+				}
 				$this->nm->post_notif($notif_ad);
 			}
 
@@ -115,6 +124,15 @@ class Dosen extends CI_Controller{
 					'Detail_Notifikasi' => "Kelas " . $Kelas_MK . " Pada Jam Kelas " . $Jam_Kelas . " Telah diambil",
                     'ID_Dosen' => $ID_Dosen,
 				];
+
+				$ckd1 = $this->nm->checkData($notif['ID_User'], 'notifikasi', 'ID_User');
+				$ckd2= $this->nm->checkData($notif['Detail_Notifikasi'], 'notifikasi', 'Detail_Notifikasi');
+				if ($ckd1 > 0) {
+					if($ckd2 == 0) {
+						$this->nm->post_notif($notif);
+					}
+					break;
+				}
 				$this->nm->post_notif($notif);
 			};
 

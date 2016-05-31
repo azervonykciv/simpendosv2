@@ -21,6 +21,14 @@ class notif_model extends CI_Model
         return $query->row();
     }
 
+    public function checkData($data,$table,$column)
+    {
+        $this->db->from($table);
+        $this->db->where($column,$data);
+        $res = $this->db->get()->num_rows();
+        return $res;
+    }
+
     public function get_byid($id)
     {
 
