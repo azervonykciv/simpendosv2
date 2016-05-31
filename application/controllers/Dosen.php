@@ -14,6 +14,7 @@ class Dosen extends CI_Controller{
         $this->load->model('Jadwal_report_model', 'jrm');
 		$this->load->model('notif_model','nm');
 		$this->load->model('User_model','um');
+
 	}
 
 	public function jadwalByNidn($nidn)
@@ -72,6 +73,8 @@ class Dosen extends CI_Controller{
 		$Jam_KelasAkhir = $_POST['Jam_KelasAkhir'];
 		$Jam_Kelas = $Jam_KelasAwal . " - " . $Jam_KelasAkhir;
 		$ID_User = $_POST['ID_User'];
+		$ur = $this->nm->get_namebyid($this->session->userdata('uname'));
+
 
 
 		$data_insert = array(
@@ -92,7 +95,7 @@ class Dosen extends CI_Controller{
 			// Insert Notification
 			$dos = $this->dm->get_all();
 			$us = $this->um->getuser_bystatus("Admin");
-			$ur = $this->nm->get_namebyid($this->session->userdata('uname'));
+
 
 			foreach($us as $u)
 			{
@@ -134,7 +137,7 @@ class Dosen extends CI_Controller{
 				$Log = [
 					'ID_User' => $ID_User,
 					'Tanggal' => date('Y-m-d H:i:s'),
-					'Aktifitas' => "Program Jadwal Dosen " . $ID_Dosen . " Mata Kuliah " . $ID_Mk,
+					'Aktifitas' => "Program Jadwal Dosen " . $ur->Nama_User . " Mata Kuliah " . $ID_Mk,
 				];
 
 				if ($this->Log_model->insertLog($Log)) {
@@ -154,11 +157,12 @@ class Dosen extends CI_Controller{
 	public function deletepenjadwalan($ID_Jadwal,$ID_Dosen,$ID_User,$ID_Mk){
 		$where  = array('ID_Jadwal' => $ID_Jadwal);
 		$res    = $this->ModelJadwal->DeleteData('jadwal',$where);
+		$ur = $this->nm->get_namebyid($this->session->userdata('uname'));
 		if ($res>=1) {
 			$Log = [
 				'ID_User'   => $ID_User,
 				'Tanggal'   => date('Y-m-d H:i:s'),
-				'Aktifitas' => "Hapus data Penjadwalan Dosen ".$ID_User." mata kuliah ".$ID_Mk,
+				'Aktifitas' => "Hapus data Penjadwalan Dosen ".$ur->Nama_User." mata kuliah ".$ID_Mk,
 			];
 			if($this->Log_model->insertLog($Log)){
 				$this->session->set_flashdata('pesan','Delete Data Sukses');

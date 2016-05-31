@@ -34,4 +34,11 @@ class User_model extends CI_Model
         $this->db->where('ID_User', $id);
         $this->db->delete($this->table);
     }
+
+    public function get_spec($id)
+    {
+        $param = array('ID_User' => $id);
+        $query = $this->db->get_where('user',$param);
+        return $query->row();
+    }
 }

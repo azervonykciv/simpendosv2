@@ -93,8 +93,6 @@ class Admin extends CI_Controller{
 
 	public function get_scheduleOnNotif($id_notif,$id)
 	{
-
-
 		$mk 	= $this->ModelJadwal->GetMatakuliah();
 		$this->nm->delete($id_notif);
 		$data 	= $this->ModelJadwal->getJadwalByDosen($id);
@@ -182,7 +180,7 @@ class Admin extends CI_Controller{
 				$Log = [
 					'ID_User'	=> $User,
 					'Tanggal'	=> date('Y-m-d H:i:s'),
-					'Aktifitas' => "Insert data dosen ".$this->input->post('nidn'),
+					'Aktifitas' => "Insert data dosen ".$this->input->post('nama_dosen'),
 				];
 				if($this->Log_model->insertLog($Log)){
 					redirect('admin/listdosen');
@@ -239,7 +237,7 @@ class Admin extends CI_Controller{
 				$Log = [
 					'ID_User'	=> $User,
 					'Tanggal'	=> date('Y-m-d H:i:s'),
-					'Aktifitas' => "Update data dosen ".$id,
+					'Aktifitas' => "Update data dosen ".$this->input->post('nama_dosen'),
 				];
 				if($this->Log_model->insertLog($Log)){
 					redirect('admin/listdosen');
@@ -257,11 +255,12 @@ class Admin extends CI_Controller{
 	{
 		$this->dm->delete($ID_Dosen);
 		$this->User_model->deleteUser($ID_Dosen);
+		$ur = $this->nm->get_namebyid($ID_Dosen);
 
 		$Log = [
 			'ID_User'	=> $ID_User,
 			'Tanggal'	=> date('Y-m-d H:i:s'),
-			'Aktifitas' => "Delete data dosen ".$ID_User,
+			'Aktifitas' => "Delete data dosen ".$ur->Nama_User,
 		];
 		if($this->Log_model->insertLog($Log)){
 			redirect('admin/listdosen');
@@ -307,6 +306,7 @@ class Admin extends CI_Controller{
 
 		$cek = $this->ModelJadwal->checkData($Kelas_MK,'jadwal','Kelas_MK');
 		$cek1 = $this->ModelJadwal->checkData($Jam_Kelas,'jadwal','Jam_Kelas');
+		$ur = $this->nm->get_namebyid($ID_Dosen);
 
 		if($cek>0 && $cek1>0)
 		{
@@ -347,7 +347,7 @@ class Admin extends CI_Controller{
 				$Log = [
 					'ID_User'	=> $ID_User,
 					'Tanggal'	=> date('Y-m-d H:i:s'),
-					'Aktifitas' => "Program Jadwal Dosen ".$ID_Dosen." Mata Kuliah ".$ID_Mk,
+					'Aktifitas' => "Program Jadwal Dosen ".$ur->Nama_User." Mata Kuliah ".$ID_Mk,
 				];
 
 				if($this->Log_model->insertLog($Log)){
