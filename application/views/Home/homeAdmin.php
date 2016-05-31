@@ -16,6 +16,37 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
+                    <h3 class="box-title">Notifikasi</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Notif</th>
+                            <th>Detail Notif</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $no =1;
+                        foreach ($notif->result() as $r)
+                        {
+                            echo "
+                        <tr>
+                            <td>$r->Nama_Notif</td>
+                            <td>$r->Detail_Notifikasi</td>
+                            <td>".anchor('Admin/get_scheduleOnNotif/'.$r->ID_Notif.'/'.$r->ID_Dosen,'Tampilkan',array('class'=>'btn btn-success'))."</td>
+                         "; } ?>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
                     <h3 class="box-title">Report</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">

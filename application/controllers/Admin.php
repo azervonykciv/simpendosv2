@@ -8,7 +8,6 @@ class Admin extends CI_Controller{
 			redirect('login');
 		}
 		$this->load->model('ModelJadwal');
-        $this->load->model('ModelJadwal', 'jm');
         $this->load->model('Dosen_model', 'dm');
         $this->load->model('Jadwal_dosen_model', 'jdm');
         $this->load->model('Jadwal_report_model', 'jrm');
@@ -18,6 +17,7 @@ class Admin extends CI_Controller{
 	{
 		
 	}
+
 	public function listReport()
 	{
 		$report = $this->jrm->getReport();
@@ -28,6 +28,7 @@ class Admin extends CI_Controller{
 		];
 		$this->template->load('template','admin/list-dosen-report_view', $data);
 	}
+
 	public function editReport($id)
 	{
 		$jadwal = $this->jdm->getReport($id);
@@ -38,6 +39,7 @@ class Admin extends CI_Controller{
 		];
 		$this->template->load('template', 'admin/update-jadwal-report_view', $data);
 	}
+
 	public function updateJadwal($id, $id_jadwal_dosen, $id_report)
 	{
 		$ID = $this->input->post('ID');
@@ -70,6 +72,7 @@ class Admin extends CI_Controller{
 			echo "gagal update";
 		}
 	}
+
 	public function tolakReport($id_report, $id_jadwal_dosen,$ID)
 	{
 		// 3 = Laporan di tolak
@@ -87,6 +90,26 @@ class Admin extends CI_Controller{
 			echo "gagal insert data log";
 		}
 	}
+
+	public function get_scheduleOnNotif($id_notif,$id)
+	{
+
+
+		$mk 	= $this->ModelJadwal->GetMatakuliah();
+		$this->nm->delete($id_notif);
+		$data 	= $this->ModelJadwal->getJadwalByDosen($id);
+		$user 	= $this->m_login->ambil_user($this->session->userdata('uname'));
+		$dosen  = $this->dm->GetDosen("where ID_Dosen = '$id'");
+		$jadwal = [
+			'dosen' => $dosen,
+			'data' 	=> $data,
+			'mk' 	=> $mk,
+			'user' 	=> $user,
+			'ID' 	=> $id,
+		];
+		$this->template->load('template','penjadwalan/tampilPenjadwalan', $jadwal);
+	}
+
 	public function detailreport($id)
 	{
 		$jadwal = $this->jrm->getWhere('id_jadwal_report', $id);

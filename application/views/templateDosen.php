@@ -100,6 +100,12 @@
                         <li><a href="<?php echo base_url(); ?>dosen/jadwalbynidn/<?php echo $user['ID_User'] ?>"><i class="fa fa-circle-o"></i> Home </a></li>
                     </ul>
                 </li>
+                <li class="treeview">
+                    <a href="<?php echo base_url();?>Dosen/p_dosen/<?php echo $user['ID_User'] ?>">
+                        <i class="fa fa-edit"></i> <span>Penjadwalan</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->

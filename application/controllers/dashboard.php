@@ -5,6 +5,7 @@ class Dashboard extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Dosen_model', 'dm');
+		$this->load->model('notif_model','nm');
 		if (! ($this->session->has_userdata('Status')) ) {
 			redirect('login');
 		}
@@ -39,6 +40,8 @@ class Dashboard extends CI_Controller{
 		}
 	}
 
+
+
 	public function logout(){
 		$this->session->sess_destroy();
 		$this->session->unset_userdata(array());
@@ -54,6 +57,7 @@ class Dashboard extends CI_Controller{
 
 	public function homeAdmin(){
 		$data['report'] = $this->jrm->getReport();
+		$data['notif'] = $this->nm->get_byid("Admin");
 		$data['user'] = $this->m_login->ambil_user($this->session->userdata('uname'));
 		$this->template->load('template', 'Home/homeAdmin', $data);
 	}

@@ -58,7 +58,7 @@ class ModelJadwal extends CI_Model{
 		$this->db->where('ID_Dosen', $nidn);
 		$result = $this->db->get('jadwal');
 		if ($result) {
-			return $result->result();
+			return $result->result_array();
 		} else {
 			return FALSE;
 		}

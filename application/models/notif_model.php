@@ -14,6 +14,13 @@ class notif_model extends CI_Model
         $this->db->insert('notifikasi',$data);
     }
 
+    public function get_namebyid($id)
+    {
+        $param = array('ID_User' => $id);
+        $query = $this->db->get_where('user',$param);
+        return $query->row();
+    }
+
     public function get_byid($id)
     {
 
@@ -21,4 +28,12 @@ class notif_model extends CI_Model
         $query = $this->db->get_where('notifikasi',$param);
         return $query;
     }
+
+    public function delete($id_notif)
+    {
+            $this->db->where('id_Notif',$id_notif);
+            $this->db->delete('notifikasi');
+    }
+
+
 }
