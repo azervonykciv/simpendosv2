@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller{
 
 		$this->load->model('Jadwal_report_model','jrm');
 	}
+
 	public function index()
 	{
 		$ambil_akun	= $this->m_login->ambil_user($this->session->userdata('uname'));
@@ -31,6 +32,7 @@ class Dashboard extends CI_Controller{
 		}
 	}
 
+
 	public function login(){
 		$session = $this->session->userdata('isLogin');
 		if($session == FALSE){
@@ -39,7 +41,6 @@ class Dashboard extends CI_Controller{
 			redirect('dashboard');
 		}
 	}
-
 
 
 	public function logout(){

@@ -224,5 +224,9 @@ class Dosen extends CI_Controller{
 		}
 	}
 
-	
+	public function delete_notif($id)
+	{
+		$this->nm->delete($id);
+		redirect('Dosen/jadwalByNidn/'.$this->session->userdata('uname'));
+	}
 }

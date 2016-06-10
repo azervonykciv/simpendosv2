@@ -23,9 +23,10 @@ class ModelJadwal extends CI_Model{
 		}
 	}
 	
-	function get_all(){
+	function get_matkul(){
 
-		return $this->db->get('');
+		$query = $this->db->get('matakuliah');
+		return $query->result();
 	}
 
 	public function checkData($data,$table,$column)

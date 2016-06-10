@@ -353,4 +353,23 @@ class Admin extends CI_Controller{
 			}
 		}
     }
+
+	public function laporanExcel2()
+	{
+		header("Content-type=application/vnd.ms-excel");
+		header("content-disposition:attachment;filename=Datamatkul.xls");
+		$data['matkul'] = $this->ModelJadwal->get_matkul();
+		$this->load->view('admin/matkul_excel',$data);
+
+	}
+
+	public function laporanExcel()
+	{
+		header("Content-type=application/vnd.ms-excel");
+		header("content-disposition:attachment;filename=DataDosen.xls");
+		$data['dosen'] = $this->dm->get_all();
+		$this->load->view('admin/laporan_excel',$data);
+
+	}
+
 }

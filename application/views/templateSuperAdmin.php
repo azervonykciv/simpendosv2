@@ -121,6 +121,16 @@
                         <li><a href="<?php echo base_url()."index.php/Log";?>"><i class="fa fa-circle-o"></i>Data Log</a></li>
                     </ul>
                 </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-table"></i> <span>Cetak Data</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="<?php echo base_url()."index.php/Admin/laporanExcel";?>"><i class="fa fa-circle-o"></i>Data Dosen</a></li>
+                        <li><a href="<?php echo base_url()."index.php/Admin/laporanExcel2";?>"><i class="fa fa-circle-o"></i>Data Matakuliah</a></li>
+                    </ul>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->
