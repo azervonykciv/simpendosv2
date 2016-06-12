@@ -8,15 +8,15 @@ class Admin extends CI_Controller{
 			redirect('login');
 		}
 		$this->load->model('ModelJadwal');
-        $this->load->model('Dosen_model', 'dm');
-        $this->load->model('Jadwal_dosen_model', 'jdm');
-        $this->load->model('Jadwal_report_model', 'jrm');
+		$this->load->model('Dosen_model', 'dm');
+		$this->load->model('Jadwal_dosen_model', 'jdm');
+		$this->load->model('Jadwal_report_model', 'jrm');
 		$this->load->model('notif_model','nm');
 	}
 
 	public function index()
 	{
-		
+
 	}
 
 	public function listReport()
@@ -51,7 +51,9 @@ class Admin extends CI_Controller{
 			'ID_Mk'     => $this->input->post('ID_Mk'),
 			'ID_Dosen'  => $this->input->post('ID_Dosen'),
 			'Kelas_MK'  => $this->input->post('Kelas_MK'),
+			'hari'		=> $this->input->post('hari'),
 			'Jam_Kelas' => $Jam_KelasAwal." - ".$Jam_KelasAkhir,
+			'ruang'		=> $this->input->post('ruagn'),
 		];
 		// 3 = Laporan belum dikonfirmasi
 		$this->jdm->updateStatus($id_jadwal_dosen, 0);
@@ -221,7 +223,7 @@ class Admin extends CI_Controller{
 			'alamat_malang'     => $this->input->post('alamat_malang'),
 			'ref_aktivasiDosen' => $this->input->post('ref_aktivasiDosen'),
 		];
-		
+
 		if ($this->dm->update($dosen, $id)) {
 			$dosenU = [
 				'ID_User'          => $id,
@@ -267,42 +269,48 @@ class Admin extends CI_Controller{
 
 	public function program($ID_Dosen){
 		$mk 	= $this->ModelJadwal->GetMatakuliah();
-        $data 	= $this->ModelJadwal->GetJadwal("where ID_Dosen='".$ID_Dosen."'");
-        $user 	= $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data 	= $this->ModelJadwal->GetJadwal("where ID_Dosen='".$ID_Dosen."'");
+		$user 	= $this->m_login->ambil_user($this->session->userdata('uname'));
 		$dosen  = $this->dm->GetDosen("where ID_Dosen = '$ID_Dosen'");
 		$jadwal = [
 			'dosen' => $dosen,
 			'data' 	=> $data,
-            'mk' 	=> $mk,
-            'user' 	=> $user,
-            'ID' 	=> $ID_Dosen,
+			'mk' 	=> $mk,
+			'user' 	=> $user,
+			'ID' 	=> $ID_Dosen,
 		];
 		$this->template->load('template','penjadwalan/tampilPenjadwalan', $jadwal);
 	}
 
 	public function pro_jadwal(){
-        $ID_Dosen 		= $_POST['ID_Dosen'];
-        $ID_Mk			= $_POST['ID_Mk'];
-        $Kelas_MK 		= $_POST['Kelas_MK'];
-        $Jam_KelasAwal 	= $_POST['Jam_KelasAwal'];
-        $Jam_KelasAkhir	= $_POST['Jam_KelasAkhir'];
-        $Jam_Kelas 		= $Jam_KelasAwal." - ".$Jam_KelasAkhir;
-        $ID_User 		=  $_POST['ID_User'];
+		$ID_Dosen 		= $_POST['ID_Dosen'];
+		$ID_Mk			= $_POST['ID_Mk'];
+		$Kelas_MK 		= $_POST['Kelas_MK'];
+		$hari			= $_POST['hari'];
+		$Jam_KelasAwal 	= $_POST['Jam_KelasAwal'];
+		$Jam_KelasAkhir	= $_POST['Jam_KelasAkhir'];
+		$Jam_Kelas 		= $Jam_KelasAwal." - ".$Jam_KelasAkhir;
+		$ruang 			=  $_POST['ruang'];
+		$ID_User 		=  $_POST['ID_User'];
 
-        $data_insert = array(
-            'ID_Mk' => $ID_Mk,
-            'ID_Dosen' => $ID_Dosen,
-            'Kelas_MK' => $Kelas_MK,
-            'Jam_Kelas' => $Jam_Kelas
-        );
+		$data_insert = array(
+			'ID_Mk' => $ID_Mk,
+			'ID_Dosen' => $ID_Dosen,
+			'Kelas_MK' => $Kelas_MK,
+			'hari'	=>	$hari,
+			'Jam_Kelas' => $Jam_Kelas,
+			'ruang' => $ruang
+		);
 
 		$cek = $this->ModelJadwal->checkData($Kelas_MK,'jadwal','Kelas_MK');
 		$cek1 = $this->ModelJadwal->checkData($Jam_Kelas,'jadwal','Jam_Kelas');
+		$cek2 = $this->ModelJadwal->checkData($hari,'jadwal','hari');
 		$ur = $this->nm->get_namebyid($ID_Dosen);
+		$show = $this->ModelJadwal->chck4param($Kelas_MK,$hari,$Jam_Kelas,$ruang);
 
-		if($cek>0 && $cek1>0)
+		if($cek>0 && $cek1>0 && $cek2>0)
 		{
-			$this->session->set_flashdata('pesan','Data Jadwal Sudah ada');
+			$this->session->set_flashdata('pesan','Jadwal telah diambil oleh'.$show[0]->ID_Dosen);
 			redirect('Admin/program/'.$ID_Dosen);
 
 		}else
@@ -352,7 +360,7 @@ class Admin extends CI_Controller{
 				redirect('Admin/program/'.$ID_Dosen);
 			}
 		}
-    }
+	}
 
 	public function laporanExcel2()
 	{

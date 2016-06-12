@@ -35,7 +35,9 @@
                             <th>ID</th>
                             <th>ID MK</th>
                             <th>Kelas MK</th>
+                            <th>Hari</th>
                             <th>Jam Kelas</th>
+                            <th>Ruang</th>
                             <th>ACTION</th>
                         </tr>
                         </thead>
@@ -44,7 +46,9 @@
                                 <td><?php echo $r['ID_Jadwal'] ?></td>
                                 <td><?php echo $r['ID_Mk'] ?></td>
                                 <td><?php echo $r['Kelas_MK'] ?></td>
+                                <td><?php echo $r['hari'] ?></td>
                                 <td><?php echo $r['Jam_Kelas'] ?></td>
+                                <td><?php echo $r['ruang'] ?></td>
                                 <td align="center">
                                     <a class="btn btn-danger" href="<?php echo base_url()."Dosen/deletepenjadwalan/".$r['ID_Jadwal']; ?>/<?php echo $user['ID_User']; ?>/<?php echo $r['ID_Mk']; ?>">Delete</a>
                                 </td>
@@ -63,7 +67,9 @@
                             <th>NAMA MATAKULIAH</th>
                             <th>JUMLAH SKS</th>
                             <th>Kelas</th>
+                            <th>Hari</th>
                             <th>Jam</th>
+                            <th>Ruang</th>
                             <th>ACTION</th>
                         </tr>
                         </thead>
@@ -93,6 +99,17 @@
                                             <option value="h">H</option>
                                             <option value="i">I</option>
                                             <option value="j">J</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="hari" class="form-control">
+                                            <option value="Senin">Senin</option>
+                                            <option value="Selasa">Selasa</option>
+                                            <option value="Rabu">Rabu</option>
+                                            <option value="Kamis">Kamis</option>
+                                            <option value="Jumat">Jumat</option>
+                                            <option value="Sabtu">Sabtu</option>
+                                            <option value="Minggu">Minggu</option>
                                         </select>
                                     </td>
                                     <td>
@@ -127,6 +144,22 @@
                                             <option value="12">12</option>
                                             <option value="13">13</option>
                                             <option value="14">14</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="ruang" class="form-control">
+                                            <option value="3.16">3.16</option>
+                                            <option value="4.01">4.01</option>
+                                            <option value="4.02">4.02</option>
+                                            <option value="4.03">4.03</option>
+                                            <option value="4.04">4.04</option>
+                                            <option value="4.23">4.23</option>
+                                            <option value="5.05">5.05</option>
+                                            <option value="5.26 A">5.26 A</option>
+                                            <option value="5.26 B">5.26 B</option>
+                                            <option value="6.10">6.10</option>
+                                            <option value="6.11">6.11</option>
+                                            <option value="6.12">6.12</option>
                                         </select>
                                     </td>
                                     <td align="center">

@@ -37,6 +37,20 @@ class ModelJadwal extends CI_Model{
 		return $res;
 	}
 
+	public function chck4param($data1,$data2,$data3,$data4)
+	{
+		$this->db->from('jadwal');
+		$this->db->join('jadwal', 'jadwal.ID_Jadwal = jadwal_dosen.id_jadwal');
+		$this->db->join('matakuliah', 'matakuliah.ID_Mk = jadwal.ID_Mk');
+		$this->db->where('jadwal_dosen.id_dosen', $id_dosen);
+		$this->db->where('Kelas_MK',$data1);
+		$this->db->where('hari',$data2);
+		$this->db->where('Jam_Kelas',$data3);
+		$this->db->where('ruang',$data4);
+		$res = $this->db->get()->result();
+		return $res;
+	}
+
 
 	public function InsertData($tabelName,$data){ 
 		$res = $this->db->insert($tabelName,$data);

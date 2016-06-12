@@ -50,8 +50,6 @@ class Dosen extends CI_Controller{
 
 	public function p_dosen($nidn)
 	{
-
-
 		$mk     = $this->ModelJadwal->GetMatakuliah();
 		$data = $this->ModelJadwal->GetJadwal("where ID_Dosen='".$nidn."'");
 		$user = $this->m_login->ambil_user($this->session->userdata('uname'));
@@ -69,9 +67,11 @@ class Dosen extends CI_Controller{
 		$ID_Dosen = $_POST['ID_Dosen'];
 		$ID_Mk = $_POST['ID_Mk'];
 		$Kelas_MK = $_POST['Kelas_MK'];
+		$hari = $_POST['hari'];
 		$Jam_KelasAwal = $_POST['Jam_KelasAwal'];
 		$Jam_KelasAkhir = $_POST['Jam_KelasAkhir'];
 		$Jam_Kelas = $Jam_KelasAwal . " - " . $Jam_KelasAkhir;
+		$ruang = $_POST['ruang'];
 		$ID_User = $_POST['ID_User'];
 		$ur = $this->nm->get_namebyid($this->session->userdata('uname'));
 
@@ -81,13 +81,19 @@ class Dosen extends CI_Controller{
 			'ID_Mk' => $ID_Mk,
 			'ID_Dosen' => $ID_Dosen,
 			'Kelas_MK' => $Kelas_MK,
-			'Jam_Kelas' => $Jam_Kelas
+			'hari' => $hari,
+			'Jam_Kelas' => $Jam_Kelas,
+			'ruang' => $ruang
 		);
 
-		$cek = $this->ModelJadwal->checkData($Kelas_MK, 'jadwal', 'Kelas_MK');
-		$cek1 = $this->ModelJadwal->checkData($Jam_Kelas, 'jadwal', 'Jam_Kelas');
-		if ($cek > 0 && $cek1 > 0) {
-			$this->session->set_flashdata('pesan', 'Data Jadwal Sudah ada');
+		$cek = $this->ModelJadwal->checkData($Kelas_MK,'jadwal','Kelas_MK');
+		$cek1 = $this->ModelJadwal->checkData($Jam_Kelas,'jadwal','Jam_Kelas');
+		$cek2 = $this->ModelJadwal->checkData($hari,'jadwal','hari');
+		$uri = $this->nm->get_namebyid($ID_Dosen);
+
+
+		if($cek>0 && $cek1>0 && $cek2>0){
+			$this->session->set_flashdata('pesan', 'Jadwal Sudah di ambil');
 			redirect('Dosen/p_dosen/' . $ID_Dosen);
 
 		} else {
@@ -101,7 +107,7 @@ class Dosen extends CI_Controller{
 				$notif_ad = [
 					'ID_User' => $u->Status,
 					'Nama_Notif' => "Jadwal Dosen",
-					'Detail_Notifikasi' => "Dosen " . $ur->Nama_User . " Melakukan pemrograman mata kuliah",
+					'Detail_Notifikasi' => "Dosen " . $uri->Nama_User . " Melakukan pemrograman mata kuliah",
 					'ID_Dosen' => $ID_Dosen,
 				];
 
