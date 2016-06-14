@@ -75,8 +75,6 @@ class Dosen extends CI_Controller{
 		$ID_User = $_POST['ID_User'];
 		$ur = $this->nm->get_namebyid($this->session->userdata('uname'));
 
-
-
 		$data_insert = array(
 			'ID_Mk' => $ID_Mk,
 			'ID_Dosen' => $ID_Dosen,
@@ -101,7 +99,6 @@ class Dosen extends CI_Controller{
 			// Insert Notification
 			$dos = $this->dm->get_all();
 			$us = $this->um->getuser_bystatus("Admin");
-
 
 			foreach($us as $u) {
 				$notif_ad = [
@@ -235,4 +232,64 @@ class Dosen extends CI_Controller{
 		$this->nm->delete($id);
 		redirect('Dosen/jadwalByNidn/'.$this->session->userdata('uname'));
 	}
+
+	public function editpenjadwalan($id_jadwal, $id_user, $id_mk)
+	{
+		$user   = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$jadwal = $this->ModelJadwal->getJadwalById($id_jadwal);
+		$mk     = $this->ModelJadwal->getMatkulById($id_mk);
+
+        $jadwal[0]['Jam_KelasAwal']  = substr($jadwal[0]['Jam_Kelas'], 0, 2);
+        $jadwal[0]['Jam_KelasAkhir'] = substr($jadwal[0]['Jam_Kelas'], strlen($jadwal[0]['Jam_Kelas'])-2, strlen($jadwal[0]['Jam_Kelas']));
+        $data_view = [
+            'user'  => $user,
+            'jadwal' =>$jadwal,
+            'mk' => $mk,
+        ];
+        // echo "<pre>";
+        // print_r($data_view);
+        // echo "</pre>";
+        // die();
+        $this->template->load('template','dosen/edit_penjadwalan_dosen', $data_view);
+	}
+
+	public function updatepenjadwalan($ID_Jadwal,$ID_User,$ID_Dosen,$ID_Mk)
+    {
+        $where  = array('ID_Jadwal' => $ID_Jadwal);
+        $Jam_KelasAwal  = $this->input->post('Jam_KelasAwal');
+        $Jam_KelasAkhir = $this->input->post('Jam_KelasAkhir');
+
+        $jadwal_updated = [
+            'ID_Jadwal' => $ID_Jadwal,
+            'ID_Mk'     => $this->input->post('ID_Mk'),
+            'ID_Dosen'  => $this->input->post('ID_Dosen'),
+            'Kelas_MK'  => $this->input->post('Kelas_MK'),
+            'hari'      => $this->input->post('hari'),
+            'Jam_Kelas' => $Jam_KelasAwal." - ".$Jam_KelasAkhir,
+            'ruang'     => $this->input->post('ruang')
+        ];
+
+        // echo "<pre>";
+        // print_r($jadwal_updated);
+        // echo "</pre>";
+        // die();
+
+        $res = $this->jdm->updateJadwal($ID_Jadwal, $jadwal_updated);
+
+        if ($res>=1) {
+            $Log = [
+                'ID_User'   => $ID_User,
+                'Tanggal'   => date('Y-m-d H:i:s'),
+                'Aktifitas' => "Update data Penjadwalan Dosen ".$ID_Dosen." mata kuliah ".$ID_Mk,
+            ];
+            if($this->Log_model->insertLog($Log)){
+                $this->session->set_flashdata('sukses','Update Data Sukses');
+                redirect('dosen/p_dosen/'.$ID_Dosen);
+            }else{
+                echo "gagal insert data log";
+            }
+        } else {
+            echo "<h2>Delete Data Gagal</h2>";
+        }
+    }
 }
