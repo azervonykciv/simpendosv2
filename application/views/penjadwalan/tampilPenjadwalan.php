@@ -52,6 +52,7 @@
                                 <td><?php echo $r['Jam_Kelas'] ?></td>
                                 <td><?php echo $r['ruang'] ?></td>
                                 <td align="center">
+                                    <a class="btn btn-warning" href="<?php echo base_url()."jadwal/editpenjadwalan/".$r['ID_Jadwal']; ?>/<?php echo $user['ID_User']; ?>/<?php echo $ID?>/<?php echo $r['ID_Mk']; ?>">Edit</a>
                                     <a class="btn btn-danger" href="<?php echo base_url()."jadwal/deletepenjadwalan/".$r['ID_Jadwal']; ?>/<?php echo $user['ID_User']; ?>/<?php echo $ID?>/<?php echo $r['ID_Mk']; ?>">Delete</a>
                                 </td>
                             </tr>
