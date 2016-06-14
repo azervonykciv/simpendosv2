@@ -290,8 +290,8 @@ class Admin extends CI_Controller{
 		$Jam_KelasAwal 	= $_POST['Jam_KelasAwal'];
 		$Jam_KelasAkhir	= $_POST['Jam_KelasAkhir'];
 		$Jam_Kelas 		= $Jam_KelasAwal." - ".$Jam_KelasAkhir;
-		$ruang 			=  $_POST['ruang'];
-		$ID_User 		=  $_POST['ID_User'];
+		$ruang 			= $_POST['ruang'];
+		$ID_User 		= $_POST['ID_User'];
 
 		$data_insert = array(
 			'ID_Mk' => $ID_Mk,
@@ -310,7 +310,7 @@ class Admin extends CI_Controller{
 
 		if($cek>0 && $cek1>0 && $cek2>0)
 		{
-			$this->session->set_flashdata('pesan','Jadwal telah diambil oleh'.$show[0]->ID_Dosen);
+			$this->session->set_flashdata('pesan','Jadwal telah diambil oleh '.$show[0]->ID_Dosen);
 			redirect('Admin/program/'.$ID_Dosen);
 
 		}else
