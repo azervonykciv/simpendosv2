@@ -65,6 +65,17 @@ class ModelJadwal extends CI_Model{
 		return $res;
 	}
 
+	public function getJadwalById($id)
+	{
+		$this->db->where('ID_Jadwal', $id);
+		$result = $this->db->get('jadwal');
+		if ($result) {
+			return $result->result_array();
+		} else {
+			return FALSE;
+		}
+	}
+
 	public function getJadwalByDosen($nidn)
 	{
 		$this->db->where('ID_Dosen', $nidn);
@@ -74,6 +85,20 @@ class ModelJadwal extends CI_Model{
 		} else {
 			return FALSE;
 		}
-		
+	}
+	public function getMatkulById($id_mk)
+	{
+		$this->db->where('ID_Mk', $id_mk);
+		$result = $this->db->get('matakuliah');
+		if ($result) {
+			return $result->result_array();
+		} else {
+			return FALSE;
+		}
+	}
+	public function updateJadwal($data, $id)
+	{
+		$this->db->where('ID_Jadwal', $id);
+        return $this->db->update('jadwal', $data);
 	}
 }
