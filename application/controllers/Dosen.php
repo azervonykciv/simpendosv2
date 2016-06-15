@@ -91,7 +91,7 @@ class Dosen extends CI_Controller{
 
 
 		if($cek>0 && $cek1>0 && $cek2>0){
-			$this->session->set_flashdata('pesan', 'Jadwal Sudah di ambil');
+			$this->session->set_flashdata('pesan', 'Jadwal Bentrok');
 			redirect('Dosen/p_dosen/' . $ID_Dosen);
 
 		} else {

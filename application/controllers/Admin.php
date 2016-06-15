@@ -18,7 +18,7 @@ class Admin extends CI_Controller{
 	{
 
 	}
-
+	
 	public function listReport()
 	{
 		$report = $this->jrm->getReport();
@@ -310,7 +310,7 @@ class Admin extends CI_Controller{
 
 		if($cek>0 && $cek1>0 && $cek2>0)
 		{
-			$this->session->set_flashdata('pesan','Jadwal telah diambil oleh '.$show[0]->ID_Dosen);
+			$this->session->set_flashdata('pesan','Jadwal Bentrok');
 			redirect('Admin/program/'.$ID_Dosen);
 
 		}else
